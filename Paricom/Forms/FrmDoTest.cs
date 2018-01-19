@@ -10,8 +10,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DataLibrary;
 using System.Diagnostics;
+using System.Configuration;
 
 namespace Paricom
 {
@@ -27,9 +27,10 @@ namespace Paricom
 
         private void DeleteSource()
         {
-            if (File.Exists(SysVar.TestFile))
+            string testFile = ConfigurationManager.AppSettings["sourceAddress"];
+            if (File.Exists(testFile))
             {
-                File.Delete(SysVar.TestFile);
+                File.Delete(testFile);
             }
         }
 
@@ -42,6 +43,7 @@ namespace Paricom
             Task.Factory.StartNew(() =>
             {
                 StartTool();
+                GetReport();
 
             }).ContinueWith(x =>
             {
@@ -68,7 +70,7 @@ namespace Paricom
             try
             {
                 th.TestStart();
-                //GetReport();
+                
             }
             catch (Exception ex)
             {
@@ -77,43 +79,28 @@ namespace Paricom
             }
         }
 
-        private bool GetReport()
+        private void GetReport()
         {
             string reportFile = System.Windows.Forms.Application.StartupPath + "/report.xlsm";
-            string tempFile = System.Windows.Forms.Application.StartupPath + "/temp/report.xlsm";
             string sourceFile = System.Windows.Forms.Application.StartupPath + "/clarity.xls";
-            FileInfo fileInfo = new FileInfo(SysVar.TestFile);
+            string dataFile = System.Windows.Forms.Application.StartupPath + "/data.xml";
+            string testFile = ConfigurationManager.AppSettings["sourceAddress"];
+            FileInfo fileInfo = new FileInfo(testFile);
             SysVar.dtNow = DateTime.Parse(fileInfo.LastWriteTime.ToString("yyyy-MM-dd HH:mm:ss"));
-            runBat();
             //有最新文件，开始上传数据
             if (DateTime.Compare(SysVar.dtNow, SysVar.dtOld) > 0)
             {
                 SysVar.dtOld = SysVar.dtNow;
-                DataProcess dp = new DataProcess(reportFile, sourceFile, SysVar.TestFile, tempFile);
-                return dp.CreateReport();
+                DataProcess dp = new DataProcess(reportFile, sourceFile, testFile, dataFile);
+                dp.uploadInfo();
             }
-            return false;
+            else
+            {
+                XtraMessageBox.Show("测试数据没有生成，请重新测试，如果还是不成功请联系管理员！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
-        private void runBat()
-        {
-            Process proc = null;
-            try
-            {
-                string targetDir = Application.StartupPath;
-                proc = new Process();
-                proc.StartInfo.WorkingDirectory = targetDir;
-                proc.StartInfo.FileName = "run.bat";
-                proc.StartInfo.UseShellExecute = false;
-                proc.StartInfo.CreateNoWindow = true;
-                proc.Start();
-                proc.WaitForExit();
-            }
-            catch (Exception ex)
-            {
-                string error = ex.ToString();
-            }
-        }
+        
 
 
 

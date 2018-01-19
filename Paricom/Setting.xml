@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<Vstar>
+  <Setting>
+    <key>AppUpdateURL</key>
+    <value>http://192.168.3.54:802/Version/VersionIn.html</value>
+    <Comment>程序升级地址</Comment>
+  </Setting>
+  <Setting>
+    <key>ClientName</key>
+    <value>Paricom.exe</value>
+    <Comment>客户端程序名称</Comment>
+  </Setting>
+  <Setting>
+    <key>ClientTitle</key>
+    <value>大健康服务系统</value>
+    <Comment>客户端系统标题</Comment>
+  </Setting>
+  <Setting>
+    <key>LastTime</key>
+    <value>1900-1-1 00:00:00</value>
+    <Comment>最后同步基础数据时间</Comment>
+  </Setting>
+  <Setting>
+    <key>SqlVersion</key>
+    <value>1</value>
+    <Comment>本地数据库更新的脚本版本号</Comment>
+  </Setting>
+  <Setting>
+    <key>VersionError</key>
+    <value>1</value>
+    <Comment>0 更新失败 1更新成功</Comment>
+  </Setting>
+  <Setting>
+    <key>StartUp</key>
+    <value>10</value>
+    <Comment>启动等待</Comment>
+  </Setting>
+  <Setting>
+    <key>BandTime</key>
+    <value>6</value>
+    <Comment>绑带测试等待</Comment>
+  </Setting>
+  <Setting>
+    <key>PatientTime</key>
+    <value>3</value>
+    <Comment>加载病人等待</Comment>
+  </Setting>
+  <Setting>
+    <key>CommonTime</key>
+    <value>2</value>
+    <Comment>常规等待</Comment>
+  </Setting>
+  <Setting>
+    <key>PrepareTime</key>
+    <value>15</value>
+    <Comment>常规等待</Comment>
+  </Setting>
+</Vstar>

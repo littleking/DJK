@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://webService.jeesite.thinkgem.com/" name="GmWebServlet" targetNamespace="http://webService.jeesite.thinkgem.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="http://webService.jeesite.thinkgem.com/" xmlns:ns1="http://impl.webService.jeesite.thinkgem.com/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://webService.jeesite.thinkgem.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://impl.webService.jeesite.thinkgem.com/" />
+      <xs:element name="getCardNoByOrder" type="tns:getCardNoByOrder" />
+      <xs:element name="getCardNoByOrderResponse" type="tns:getCardNoByOrderResponse" />
+      <xs:element name="getVerifyCodeByContactsName" type="tns:getVerifyCodeByContactsName" />
+      <xs:element name="getVerifyCodeByContactsNameResponse" type="tns:getVerifyCodeByContactsNameResponse" />
+      <xs:element name="isExistOrder" type="tns:isExistOrder" />
+      <xs:element name="isExistOrderResponse" type="tns:isExistOrderResponse" />
+      <xs:element name="login" type="tns:login" />
+      <xs:element name="loginResponse" type="tns:loginResponse" />
+      <xs:element name="saveCardNo" type="tns:saveCardNo" />
+      <xs:element name="saveCardNoResponse" type="tns:saveCardNoResponse" />
+      <xs:element name="saveScheduling" type="tns:saveScheduling" />
+      <xs:element name="saveSchedulingResponse" type="tns:saveSchedulingResponse" />
+      <xs:complexType name="saveScheduling">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:jsonVlue" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="saveSchedulingResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="login">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:name" />
+          <xs:element minOccurs="0" ref="ns1:password" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="loginResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getVerifyCodeByContactsName">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:verifyCode" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getVerifyCodeByContactsNameResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="saveCardNo">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:verifyCode" />
+          <xs:element minOccurs="0" ref="ns1:cardNo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="saveCardNoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="isExistOrder">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:verifyCode" />
+          <xs:element minOccurs="0" ref="ns1:loginName" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="isExistOrderResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getCardNoByOrder">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:loginName" />
+          <xs:element minOccurs="0" ref="ns1:cardNo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getCardNoByOrderResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://impl.webService.jeesite.thinkgem.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="cardNo" type="xs:string" />
+      <xs:element name="jsonVlue" type="xs:string" />
+      <xs:element name="loginName" type="xs:string" />
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="password" type="xs:string" />
+      <xs:element name="verifyCode" type="xs:string" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="loginResponse">
+    <wsdl:part name="parameters" element="ns1:loginResponse" />
+  </wsdl:message>
+  <wsdl:message name="saveSchedulingResponse">
+    <wsdl:part name="parameters" element="ns1:saveSchedulingResponse" />
+  </wsdl:message>
+  <wsdl:message name="saveCardNoResponse">
+    <wsdl:part name="parameters" element="ns1:saveCardNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="saveCardNo">
+    <wsdl:part name="parameters" element="ns1:saveCardNo" />
+  </wsdl:message>
+  <wsdl:message name="saveScheduling">
+    <wsdl:part name="parameters" element="ns1:saveScheduling" />
+  </wsdl:message>
+  <wsdl:message name="isExistOrderResponse">
+    <wsdl:part name="parameters" element="ns1:isExistOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCardNoByOrderResponse">
+    <wsdl:part name="parameters" element="ns1:getCardNoByOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCardNoByOrder">
+    <wsdl:part name="parameters" element="ns1:getCardNoByOrder" />
+  </wsdl:message>
+  <wsdl:message name="getVerifyCodeByContactsName">
+    <wsdl:part name="parameters" element="ns1:getVerifyCodeByContactsName" />
+  </wsdl:message>
+  <wsdl:message name="isExistOrder">
+    <wsdl:part name="parameters" element="ns1:isExistOrder" />
+  </wsdl:message>
+  <wsdl:message name="getVerifyCodeByContactsNameResponse">
+    <wsdl:part name="parameters" element="ns1:getVerifyCodeByContactsNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="login">
+    <wsdl:part name="parameters" element="ns1:login" />
+  </wsdl:message>
+  <wsdl:portType name="GmWebServlet">
+    <wsdl:operation name="saveScheduling">
+      <wsdl:input name="saveScheduling" message="ns1:saveScheduling" />
+      <wsdl:output name="saveSchedulingResponse" message="ns1:saveSchedulingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <wsdl:input name="login" message="ns1:login" />
+      <wsdl:output name="loginResponse" message="ns1:loginResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getVerifyCodeByContactsName">
+      <wsdl:input name="getVerifyCodeByContactsName" message="ns1:getVerifyCodeByContactsName" />
+      <wsdl:output name="getVerifyCodeByContactsNameResponse" message="ns1:getVerifyCodeByContactsNameResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="saveCardNo">
+      <wsdl:input name="saveCardNo" message="ns1:saveCardNo" />
+      <wsdl:output name="saveCardNoResponse" message="ns1:saveCardNoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="isExistOrder">
+      <wsdl:input name="isExistOrder" message="ns1:isExistOrder" />
+      <wsdl:output name="isExistOrderResponse" message="ns1:isExistOrderResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCardNoByOrder">
+      <wsdl:input name="getCardNoByOrder" message="ns1:getCardNoByOrder" />
+      <wsdl:output name="getCardNoByOrderResponse" message="ns1:getCardNoByOrderResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

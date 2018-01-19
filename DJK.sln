@@ -19,8 +19,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DJKUI", "DJKDemo\DJKUI.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paricom", "Paricom\Paricom.csproj", "{39043528-6D22-494B-AE8F-383D31B9CC0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLibrary", "DataLibrary\DataLibrary.csproj", "{1910940D-FCEC-4DA4-9255-5DDC3B449492}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,10 +57,6 @@ Global
 		{39043528-6D22-494B-AE8F-383D31B9CC0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39043528-6D22-494B-AE8F-383D31B9CC0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39043528-6D22-494B-AE8F-383D31B9CC0D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1910940D-FCEC-4DA4-9255-5DDC3B449492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1910940D-FCEC-4DA4-9255-5DDC3B449492}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1910940D-FCEC-4DA4-9255-5DDC3B449492}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1910940D-FCEC-4DA4-9255-5DDC3B449492}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

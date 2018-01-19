@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://impl.webService.jeesite.thinkgem.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://webService.jeesite.thinkgem.com/" name="gmWebServlet" targetNamespace="http://impl.webService.jeesite.thinkgem.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://webService.jeesite.thinkgem.com/" location="http://www.lchh.com/GM/ws/GmWebServlet?wsdl=GmWebServlet.wsdl" />
+  <wsdl:types />
+  <wsdl:binding name="gmWebServletSoapBinding" type="ns1:GmWebServlet">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="login">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="login">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="loginResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveScheduling">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="saveScheduling">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="saveSchedulingResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVerifyCodeByContactsName">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getVerifyCodeByContactsName">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getVerifyCodeByContactsNameResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveCardNo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="saveCardNo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="saveCardNoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isExistOrder">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="isExistOrder">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="isExistOrderResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCardNoByOrder">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getCardNoByOrder">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getCardNoByOrderResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="gmWebServlet">
+    <wsdl:port name="GmWebServletImplPort" binding="tns:gmWebServletSoapBinding">
+      <soap:address location="http://www.lchh.com/GM/ws/GmWebServlet" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,8 +1,8 @@
-﻿using DataLibrary;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -51,9 +51,9 @@ namespace Paricom
                     Thread.Sleep(100);
                     th.ExecSql(dbpath, sql);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    XtraMessageBox.Show("数据保存失败，请联系管理员!"+ex.ToString(), "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show("数据保存失败，请联系管理员!" + ex.ToString(), "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 pictureBox1.Enabled = false;
@@ -62,30 +62,33 @@ namespace Paricom
                 splashScreenManager2.SetWaitFormDescription(" 请等待。。。");
                 Task.Factory.StartNew(() =>
                 {
-
                     StartTool();
 
                 }).ContinueWith(x =>
                 {
                     splashScreenManager2.CloseWaitForm();
-                    this.txtSex.SelectedIndex = -1;
-                    this.txtName.Text = "";
-                    this.txtBirthDay.Text = "";
-                    this.txtBirthPlace.Text = "";
-                    this.pictureBox1.Enabled = true;
                     this.Invoke((MethodInvoker)(() => {
-                        FrmMain.Instance.XtraTabOpen("FrmCheck", "信息");
+                        this.txtSex.SelectedIndex = -1;
+                        this.txtName.Text = "";
+                        this.txtBirthDay.Text = "";
+                        this.txtBirthPlace.Text = "";
+                        this.pictureBox1.Enabled = true;
+                        //FrmMain.Instance.XtraTabOpen("FrmCheck", "信息");
+                        FrmMain.Instance.XtraTabOpen("FrmSelect", "信息");
                     }));
                 });
 
             }
         }
 
+
         private void StartTool()
         {
             try
             {
                 th.TestLaunch(this.checkEdit1.Checked);
+                th.CloseBandTest();
+                Thread.Sleep(2000);
             }
             catch (Exception ex)
             {
@@ -122,5 +125,9 @@ namespace Paricom
             return rtn;
         }
 
+        private void pbClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

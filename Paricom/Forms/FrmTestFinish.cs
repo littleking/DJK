@@ -22,7 +22,21 @@ namespace Paricom
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
+            killP();
+            FrmMain.Instance.XtraTabOpen("FrmInfo", "信息");
+        }
+        private void killP()
+        {
+            System.Diagnostics.Process[] processList = System.Diagnostics.Process.GetProcesses();
+            foreach (System.Diagnostics.Process process in processList)
+            {
+                if (process.ProcessName.ToUpper() == "CONMAIN")
+                {
+                    process.Kill(); //结束进程
+
+                }
+            }
         }
     }
 }

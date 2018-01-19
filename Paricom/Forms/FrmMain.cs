@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace Paricom
         public FrmMain()
         {
             InitializeComponent();
+            runBat();
             XtraTabOpen("FrmInfo", "信息");
         }
         private void killP()
@@ -98,6 +100,25 @@ namespace Paricom
             }
         }
 
+        private void runBat()
+        {
+            Process proc = null;
+            try
+            {
+                string targetDir = Application.StartupPath;
+                proc = new Process();
+                proc.StartInfo.WorkingDirectory = targetDir;
+                proc.StartInfo.FileName = "run.bat";
+                proc.StartInfo.UseShellExecute = false;
+                proc.StartInfo.CreateNoWindow = true;
+                proc.Start();
+                proc.WaitForExit();
+            }
+            catch (Exception ex)
+            {
+                string error = ex.ToString();
+            }
+        }
 
         #region 判断Tab窗口是否允许打开
         /// <summary>
@@ -145,7 +166,7 @@ namespace Paricom
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            SplashScreenManager.CloseForm(true);
+            //SplashScreenManager.CloseForm(true);
 
         }
 

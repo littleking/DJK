@@ -60,7 +60,6 @@ namespace Paricom
 
         public static DateTime dtOld;
 
-        public static string TestFile = "C:/Clasp32/clarity.xls";
 
 
     }

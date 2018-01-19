@@ -92,23 +92,28 @@ namespace Paricom
                 SysVar.IsChangeUser = true;
                 SysVar.dtNow = DateTime.Now;
                 SysVar.dtOld = DateTime.Now;
-                FrmMain frmMain = new FrmMain();
-                FrmMain.Instance = frmMain;
-                //AgentDll.launchEx(true);
-                SplashScreenManager.ShowForm(typeof(SplashStart));
-                Thread.Sleep(5000);
-                Application.Run(frmMain);
 
-                //Starter starter = new Starter();
-                //if (starter.ShowDialog() == DialogResult.OK)
-                //{
-                //    //FrmInfo frmInfo = new FrmInfo();
-                //    //FrmInfo.Instance = frmInfo;
-                //    //Application.Run(frmInfo);
-                //    FrmMain frmMain = new FrmMain();
-                //    FrmMain.Instance = frmMain;
-                //    Application.Run(frmMain);
-                //}
+                FrmMain frmM = new FrmMain();
+                FrmMain.Instance = frmM;
+                FrmLogin myLogin = new FrmLogin();
+                if (myLogin.ShowDialog() != DialogResult.OK)
+                {
+                    myLogin.Dispose();
+                    Application.Exit();
+                    return;
+                }
+                //FrmMain frmM = new FrmMain();
+                //FrmMain.Instance = frmM;
+                Application.Run(frmM);
+
+
+                //FrmMain frmMain = new FrmMain();
+                //FrmMain.Instance = frmMain;
+                ////AgentDll.launchEx(true);
+                //SplashScreenManager.ShowForm(typeof(SplashStart));
+                //Thread.Sleep(5000);
+                //Application.Run(frmMain);
+
 
 
                 #endregion
