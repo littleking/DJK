@@ -41,8 +41,9 @@
             // 
             // tab_con
             // 
-            this.tab_con.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tab_con.Location = new System.Drawing.Point(0, 0);
+            this.tab_con.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tab_con.Location = new System.Drawing.Point(-4, -4);
+            this.tab_con.Margin = new System.Windows.Forms.Padding(0);
             this.tab_con.Name = "tab_con";
             this.tab_con.SelectedTabPage = this.xtraTabPage1;
             this.tab_con.ShowTabHeader = DevExpress.Utils.DefaultBoolean.False;
@@ -54,6 +55,7 @@
             // 
             // xtraTabPage1
             // 
+            this.xtraTabPage1.Margin = new System.Windows.Forms.Padding(0);
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Size = new System.Drawing.Size(1274, 714);
             this.xtraTabPage1.Text = "xtraTabPage1";
@@ -68,19 +70,24 @@
             // 
             this.panelControl1.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl1.Appearance.Options.UseBackColor = true;
+            this.panelControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Controls.Add(this.tab_con);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1280, 720);
+            this.panelControl1.Size = new System.Drawing.Size(1272, 712);
             this.panelControl1.TabIndex = 1;
+            this.panelControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             // 
             // FrmMain
             // 
+            this.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.ClientSize = new System.Drawing.Size(1272, 712);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -88,7 +95,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "检测仪";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
-            this.Load += new System.EventHandler(this.FrmMain_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.tab_con)).EndInit();
             this.tab_con.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

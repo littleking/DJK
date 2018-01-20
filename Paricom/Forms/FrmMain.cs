@@ -8,12 +8,13 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
 namespace Paricom
 {
-    public partial class FrmMain : FrmBase
+    public partial class FrmMain : XtraForm
     {
 
         public string key = string.Empty;
@@ -27,6 +28,7 @@ namespace Paricom
             InitializeComponent();
             runBat();
             XtraTabOpen("FrmInfo", "信息");
+            //XtraTabOpen("Form1", "信息");
         }
         private void killP()
         {
@@ -169,6 +171,24 @@ namespace Paricom
             //SplashScreenManager.CloseForm(true);
 
         }
+
+
+        [DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+        [DllImport("user32.dll")]
+        public static extern bool SendMessage(IntPtr hwnd, int wMsg, int wParam, int lParam);
+        public const int WM_SYSCOMMAND = 0x0112;
+        public const int SC_MOVE = 0xF010;
+        public const int HTCAPTION = 0x0002;
+
+        private void Form1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0);
+        }
+
+
+
 
     }
 

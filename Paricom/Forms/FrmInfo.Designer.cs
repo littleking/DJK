@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInfo));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.pbClose = new System.Windows.Forms.PictureBox();
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtBirthPlace = new DevExpress.XtraEditors.TextEdit();
@@ -37,9 +38,9 @@
             this.txtBirthDay = new DevExpress.XtraEditors.DateEdit();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.splashScreenManager2 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::Paricom.Forms.WaitForm1), false, false);
-            this.pbClose = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBirthPlace.Properties)).BeginInit();
@@ -47,12 +48,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBirthDay.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBirthDay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbClose)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
-            this.panelControl1.Appearance.BackColor = System.Drawing.Color.White;
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.DarkRed;
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.ContentImage = global::Paricom.Properties.Resources.Paricom_11;
@@ -68,6 +68,17 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1280, 720);
             this.panelControl1.TabIndex = 0;
+            // 
+            // pbClose
+            // 
+            this.pbClose.BackgroundImage = global::Paricom.Properties.Resources.close_btn_over;
+            this.pbClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbClose.Location = new System.Drawing.Point(1243, 5);
+            this.pbClose.Name = "pbClose";
+            this.pbClose.Size = new System.Drawing.Size(27, 22);
+            this.pbClose.TabIndex = 28;
+            this.pbClose.TabStop = false;
+            this.pbClose.Click += new System.EventHandler(this.pbClose_Click);
             // 
             // checkEdit1
             // 
@@ -144,28 +155,17 @@
             // 
             this.splashScreenManager2.ClosingDelay = 500;
             // 
-            // pbClose
-            // 
-            this.pbClose.BackgroundImage = global::Paricom.Properties.Resources.close_btn_over;
-            this.pbClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbClose.Location = new System.Drawing.Point(1248, 3);
-            this.pbClose.Name = "pbClose";
-            this.pbClose.Size = new System.Drawing.Size(27, 22);
-            this.pbClose.TabIndex = 28;
-            this.pbClose.TabStop = false;
-            this.pbClose.Click += new System.EventHandler(this.pbClose_Click);
-            // 
             // FrmInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.panelControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmInfo";
             this.Text = "FrmInfo";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBirthPlace.Properties)).EndInit();
@@ -173,7 +173,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBirthDay.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBirthDay.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbClose)).EndInit();
             this.ResumeLayout(false);
 
         }

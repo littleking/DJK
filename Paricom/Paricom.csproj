@@ -200,6 +200,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmBase.resx">
+      <DependentUpon>FrmBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmDoTherapy.resx">
       <DependentUpon>FrmDoTherapy.cs</DependentUpon>
     </EmbeddedResource>
@@ -253,7 +256,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\KGMWebService\gmWebServlet.wsdl" />
     <None Include="Connected Services\KGMWebService\GmWebServlet1.wsdl" />
     <None Include="Properties\Settings.settings">
