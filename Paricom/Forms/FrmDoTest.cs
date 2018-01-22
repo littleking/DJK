@@ -22,7 +22,9 @@ namespace Paricom
         {
             InitializeComponent();
             th = new TestHelper();
-            
+            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Interval = 5 * 60 * 1000 / 100;
+
         }
 
         private void DeleteSource()
@@ -40,20 +42,52 @@ namespace Paricom
             this.pictureBox1.Enabled = false;
             PlayVideo();
             DeleteSource();
+            StartProgress();
             Task.Factory.StartNew(() =>
             {
                 StartTool();
                 GetReport();
+                this.progressBarTest.Position = 100;
+                this.progressBarTest.PerformStep();
 
             }).ContinueWith(x =>
             {
                 this.pictureBox1.Enabled = true;
                 this.Invoke((MethodInvoker)(() =>
                 {
+                    this.progressBarTest.Visible = false;
+                    this.progressBarTest.Position = 0;
+                    timer1.Stop();
                     FrmMain.Instance.XtraTabOpen("FrmTestFinish", "信息");
                 }));
             });
         }
+
+        private void StartProgress()
+        {
+            this.progressBarTest.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.progressBarTest.Position = 0;
+            this.progressBarTest.Properties.Minimum = 0;
+            this.progressBarTest.Properties.Maximum = 100;
+            this.progressBarTest.Properties.Step = 1;
+            this.progressBarTest.Visible = true;
+            timer1.Enabled = true;
+            timer1.Start();
+            
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (progressBarTest.Position!=100)
+            {
+                progressBarTest.PerformStep();
+            }
+            else
+            {
+                timer1.Stop();
+            }
+        }
+
 
         private void PlayVideo()
         {

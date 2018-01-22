@@ -68,7 +68,8 @@ namespace Paricom
                 }).ContinueWith(x =>
                 {
                     splashScreenManager2.CloseWaitForm();
-                    this.Invoke((MethodInvoker)(() => {
+                    this.Invoke((MethodInvoker)(() =>
+                    {
                         this.txtSex.SelectedIndex = -1;
                         this.txtName.Text = "";
                         this.txtBirthDay.Text = "";
@@ -81,7 +82,6 @@ namespace Paricom
 
             }
         }
-
 
         private void StartTool()
         {
