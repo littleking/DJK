@@ -23,7 +23,7 @@ namespace Paricom
             InitializeComponent();
             th = new TestHelper();
             timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 5 * 60 * 1000 / 100;
+            timer1.Interval = 6 * 60 * 1000 / 100;
 
         }
 
@@ -46,9 +46,21 @@ namespace Paricom
             Task.Factory.StartNew(() =>
             {
                 StartTool();
-                GetReport();
-                this.progressBarTest.Position = 100;
-                this.progressBarTest.PerformStep();
+                bool su = GetReport();
+                this.Invoke((MethodInvoker)(() =>
+                {
+                    this.progressBarTest.Position = 100;
+                    this.progressBarTest.PerformStep();
+                    if (su)
+                    {
+                        XtraMessageBox.Show("云端数据处理成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("云端数据处理失败，请重试!如果仍不成功，请联系管理员！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }));
+                
 
             }).ContinueWith(x =>
             {
@@ -113,8 +125,9 @@ namespace Paricom
             }
         }
 
-        private void GetReport()
+        private bool GetReport()
         {
+            bool rtn = false;
             string reportFile = System.Windows.Forms.Application.StartupPath + "/report.xlsm";
             string sourceFile = System.Windows.Forms.Application.StartupPath + "/clarity.xls";
             string dataFile = System.Windows.Forms.Application.StartupPath + "/data.xml";
@@ -126,12 +139,15 @@ namespace Paricom
             {
                 SysVar.dtOld = SysVar.dtNow;
                 DataProcess dp = new DataProcess(reportFile, sourceFile, testFile, dataFile);
-                dp.uploadInfo();
+                rtn = dp.uploadInfo();
             }
             else
             {
-                XtraMessageBox.Show("测试数据没有生成，请重新测试，如果还是不成功请联系管理员！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                rtn = false;
+                // XtraMessageBox.Show("测试数据没有生成，请重新测试，如果还是不成功请联系管理员！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LogHelper.WriteLog("测试数据没有生成，请重新测试，如果还是不成功请联系管理员！");
             }
+            return rtn;
         }
 
         

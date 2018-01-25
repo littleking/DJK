@@ -350,6 +350,7 @@
     <Content Include="Login.xml" />
     <Content Include="Resources\bottom_bg.png" />
     <Content Include="Resources\close_btn_over.png" />
+    <Content Include="Resources\icon.ico" />
     <Content Include="Resources\login_btn.png" />
     <Content Include="Resources\login_btn_over.png" />
     <Content Include="Setting.xml" />

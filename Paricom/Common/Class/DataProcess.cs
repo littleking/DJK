@@ -42,8 +42,9 @@ namespace Paricom
             isAdult = true;
         }
 
-        public void uploadInfo()
+        public bool uploadInfo()
         {
+            bool rtn = false;
             string code = "";
             bool isCorrect = false;
             string errormsg = "";
@@ -126,6 +127,7 @@ namespace Paricom
                         catch (Exception ex)
                         {
                             string er = ex.ToString();
+                            LogHelper.WriteLog(ex.ToString());
                         }
 
                     }
@@ -150,8 +152,8 @@ namespace Paricom
                     File.Delete(sourceFile);
                     //SetValue("ChangeTime", latestTime);
                     LogHelper.WriteLog(sourceFileName + "-" + errormsg + "文件存在问题，云端处理数据失败！");
-                    XtraMessageBox.Show(sourceFileName + "-" + errormsg + "云端处理数据失败！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
+                    //XtraMessageBox.Show(sourceFileName + "-" + errormsg + "云端处理数据失败！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return false;
                 }
                 //SetValue("ChangeTime", latestTime);
                 LogHelper.WriteLog("开始云端处理数据");
@@ -159,12 +161,14 @@ namespace Paricom
                 //上传数据
                 //Thread thdSub = new Thread(new ThreadStart(ThreadFun));
                 //thdSub.Start();
-                ThreadFun();
+                rtn = ThreadFun();
             }
+            return rtn;
         }
 
-        private void ThreadFun()
+        private bool ThreadFun()
         {
+            bool rtn = true;
             try
             {
                 Excel.ApplicationClass excel = new Microsoft.Office.Interop.Excel.ApplicationClass();
@@ -181,8 +185,8 @@ namespace Paricom
             {
                 File.Delete(sourceFile);
                 LogHelper.WriteLog(sourceFileName + "-Excel权限问题或没有安装，云端处理数据失败!");
-                XtraMessageBox.Show("Excel问题导致云端处理数据失败,请重试", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+               // XtraMessageBox.Show("Excel问题导致云端处理数据失败,请重试", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
             }
 
             File.Delete(sourceFile);
@@ -201,12 +205,17 @@ namespace Paricom
             LogHelper.WriteLog("云端处理数据结束");
             if (!uploaded)
             {
-                XtraMessageBox.Show(sourceFileName + "---云端数据处理分析失败,请联系管理员查找原因！！！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LogHelper.WriteLog(sourceFileName + "---云端数据处理分析失败,请联系管理员查找原因！！！");
+                //XtraMessageBox.Show(sourceFileName + "---云端数据处理分析失败,请联系管理员查找原因！！！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                rtn = false;
             }
             else
             {
-                XtraMessageBox.Show("云端数据处理成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LogHelper.WriteLog("云端数据处理成功！");
+                //XtraMessageBox.Show("云端数据处理成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                rtn = true;
             }
+            return rtn;
 
 
         }
