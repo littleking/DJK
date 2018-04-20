@@ -34,9 +34,10 @@ namespace Paricom
 
             }).ContinueWith(x =>
             {
-                splashScreenManager1.CloseWaitForm();
+                //splashScreenManager1.CloseWaitForm();
                 this.pictureBox1.Enabled = true;
                 this.Invoke((MethodInvoker)(() => {
+                    splashScreenManager1.CloseWaitForm();
                     FrmMain.Instance.XtraTabOpen("FrmDoTest", "信息");
                 }));
             });

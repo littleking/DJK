@@ -60,6 +60,8 @@ namespace Paricom
 
         public static DateTime dtOld;
 
+        public static bool isLocal;
+
 
 
     }

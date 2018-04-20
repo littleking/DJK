@@ -122,7 +122,14 @@ namespace Paricom
                 XtraMessageBox.Show("请输入出生地", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 rtn = false;
             }
-            
+
+            DataProcess dp = new DataProcess();
+            string msg = dp.validOrder(this.txtName.Text.Trim());
+            if (msg.Length > 0)
+            {
+                XtraMessageBox.Show(msg, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                rtn = false;
+            }
             return rtn;
         }
 

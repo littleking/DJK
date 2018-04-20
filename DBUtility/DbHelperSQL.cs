@@ -20,7 +20,43 @@ namespace DJK.DBUtility
         {            
         }
 
-         
+        public static int UpdateTable(string sql,DataTable dtNew)
+        {
+            SqlConnection conn = null;
+
+            DataTable dt = null;
+            DataSet ds = new DataSet();
+
+            try
+            {
+                conn = new SqlConnection(connectionString);
+                SqlDataAdapter sda = new SqlDataAdapter();
+                sda.SelectCommand = new SqlCommand(sql, conn);
+                SqlCommandBuilder cb = new SqlCommandBuilder(sda);//自动生成相应的命令，这句很重要
+
+                conn.Open();
+
+                sda.Fill(ds);
+                dt = ds.Tables[0];
+
+                int rows = sda.Update(dt);//对表的更新提交到数据库
+                //DataRow[] drs = dt.Select(null, null, DataViewRowState.Added);//或者搜索之后再更新
+                //sda.Update(drs);
+
+                dt.AcceptChanges();
+                return rows;
+            }
+            catch (SqlException ex)
+            {
+                return -1;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+
         #region 公用方法
         /// <summary>
         /// 判断是否存在某表的某个字段
@@ -663,6 +699,28 @@ namespace DJK.DBUtility
 
         }
 
+        public static SqlDataReader ExecuteReaderNoP(string SQLString)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                SqlCommand Comm = new SqlCommand(SQLString, connection);
+                SqlDataReader myReader = Comm.ExecuteReader();
+                myReader.Read();
+                return myReader;
+            }
+            catch (System.Data.SqlClient.SqlException e)
+            {
+                throw e;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
+
         /// <summary>
         /// 执行查询语句，返回DataSet
         /// </summary>
@@ -917,6 +975,8 @@ namespace DJK.DBUtility
                 false, 0, 0, string.Empty, DataRowVersion.Default, null));
             return command;
         }
+
+
         #endregion
     }
 

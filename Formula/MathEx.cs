@@ -38,6 +38,17 @@ namespace Formula
             return (value >= 0 ? decimal.Floor(value * multiple) : decimal.Ceiling(value * multiple)) / multiple;
         }
 
+        public static double getMax(List<double> range)
+        {
+            double rtn = 0;
+            rtn = range[0];
+            for (int i = 1; i < range.Count; i++)
+            {
+                rtn = Math.Max(rtn, range[i]);
+            }
+            return rtn;
+        }
+
         /// <summary>
         /// 四舍五入
         /// </summary>

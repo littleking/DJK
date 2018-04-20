@@ -18,7 +18,6 @@ namespace Paricom
 {
     static class Program
     {
-
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -93,17 +92,21 @@ namespace Paricom
                 SysVar.dtNow = DateTime.Now;
                 SysVar.dtOld = DateTime.Now;
 
+                SysVar.isLocal = false;
+                SysVar.isLocal = true;
+
                 FrmMain frmM = new FrmMain();
                 FrmMain.Instance = frmM;
-                FrmLogin myLogin = new FrmLogin();
-                if (myLogin.ShowDialog() != DialogResult.OK)
+                if (!SysVar.isLocal)
                 {
-                    myLogin.Dispose();
-                    Application.Exit();
-                    return;
+                    FrmLogin myLogin = new FrmLogin();
+                    if (myLogin.ShowDialog() != DialogResult.OK)
+                    {
+                        myLogin.Dispose();
+                        Application.Exit();
+                        return;
+                    }
                 }
-                //FrmMain frmM = new FrmMain();
-                //FrmMain.Instance = frmM;
                 Application.Run(frmM);
 
 

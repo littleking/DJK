@@ -42,6 +42,75 @@ namespace Paricom
             isAdult = true;
         }
 
+        public DataProcess()
+        {
+            this.sourceFileName = "";
+            this.verifyCode = "";
+            string ws = ConfigurationManager.AppSettings["WSAddress"].ToString();
+            webService = new KGMWebService.GmWebServletClient("GmWebServletImplPort", ws);
+            isAdult = true;
+        }
+
+        public string validOrder(string orderName)
+        {
+            string rtn = "";
+            if (orderName.IndexOf("_") > 0)
+            {
+                string[] nameCode = orderName.Split('_');
+                if (nameCode.Length == 2)
+                {
+                    string code = nameCode[1];
+                    verifyCode = code;
+                    try
+                    {
+                        string strOrder = webService.isExistOrder(code, CurrentUser.UserName);
+                        if (strOrder.Length > 2)
+                        {
+                            vjList = getValidate(strOrder);
+                            if (vjList.name.Length > 0)
+                            {
+                                return rtn;
+                            }
+                            string pType = vjList.peopleType;
+
+                        }
+                        else if (strOrder == "-1")
+                        {
+                            rtn = "验证码不存在，或者被使用,";
+                        }
+                        else if (strOrder == "-2")
+                        {
+                            rtn = "门店用户未设置所属门店,";
+                        }
+                        else if (strOrder == "-3")
+                        {
+                            rtn = "订单预约门店与使用门店不同,";
+                        }
+                        else if (strOrder == "-4")
+                        {
+                            rtn = "订单状态不可用,";
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        rtn = "验证时出错";
+                        string er = ex.ToString();
+                        LogHelper.WriteLog(ex.ToString());
+                    }
+
+                }
+                else
+                {
+                    rtn = "验证码录入有误,";
+                }
+            }
+            else
+            {
+                rtn = "验证码录入有误,";
+            }
+            return rtn;
+        }
+
         public bool uploadInfo()
         {
             bool rtn = false;
