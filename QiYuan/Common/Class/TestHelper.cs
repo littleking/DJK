@@ -65,6 +65,7 @@ namespace QiYuan
             Thread.Sleep(CommonTime * 1000);
         }
 
+
         public void OneClickTest()
         {
             Thread.Sleep(BandTime * 1000);

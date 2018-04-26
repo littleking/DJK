@@ -67,5 +67,10 @@ namespace QiYuan
                 SendMessage(this.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0);
             }
         }
+
+        private void FrmFinish_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            killP();
+        }
     }
 }

@@ -10,6 +10,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Diagnostics;
+using System.IO;
 
 namespace QiYuan
 {
@@ -20,6 +22,7 @@ namespace QiYuan
         public FrmInfo()
         {
             InitializeComponent();
+            runBat();
             th = new TestHelper();
             this.txtSex.SelectedIndex = -1;
             txtSex.Properties.Items.Add("男");
@@ -27,7 +30,11 @@ namespace QiYuan
             this.txtName.Text = "";
             this.txtBirthDay.Text = "";
             this.txtBirthPlace.Text = "";
-
+            string tempFolder = System.Windows.Forms.Application.StartupPath + "/temp/";
+            if (!Directory.Exists(tempFolder))
+            {
+                Directory.CreateDirectory(tempFolder);
+            }
         }
 
 
@@ -43,6 +50,7 @@ namespace QiYuan
                 string sql = string.Format("INSERT INTO patient VALUES (NULL, '{0}', '{1}', '{2}', '中国', NULL, NULL, NULL, NULL, NULL, 0, 0, 0, '{3}', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 0, 10, 0, 0, 76, 88, 85, 91, 98, 64, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 1, 1, 1, 1, 1, 2, NULL, NULL, NULL);", Patient.w_name, Patient.w_birth_day, Patient.w_location, Patient.w_sex);
                 string clearSql = "Delete from patient";
                 string dbpath = "C:\\Clasp32\\DATA\\data.db3";
+                bool findScio = false;
                 try
                 {
                     th.ExecSql(dbpath, clearSql);
@@ -57,11 +65,51 @@ namespace QiYuan
                 }
                 pictureBox1.Enabled = false;
                 splashScreenManager2.ShowWaitForm();
-                splashScreenManager2.SetWaitFormCaption("正在保存检测人信息");
-                splashScreenManager2.SetWaitFormDescription(" 请等待。。。");
+                //splashScreenManager2.SetWaitFormCaption("正在查找设备");
+                //splashScreenManager2.SetWaitFormDescription(" 请等待。。。");
                 Task.Factory.StartNew(() =>
                 {
-                    StartTool();
+                    int count = 0;
+                    while(!findScio){
+                        try
+                        {
+                            th.TestLaunch(this.checkEdit1.Checked);
+                            Thread.Sleep(4000);
+                            if (th.TestHead())
+                            {
+                                th.CloseBandTest();
+                                Thread.Sleep(8000);
+                                findScio = true;
+                            }
+                            else
+                            {
+                                
+                                splashScreenManager2.SetWaitFormCaption("设备和人体通讯异常，第"+(count+1)+"次重试中");
+                                count++;
+                                killP();
+                                Thread.Sleep(5000);
+                                
+                            }
+                            if (count == 3)
+                            {
+                                splashScreenManager2.CloseWaitForm();
+                                this.pictureBox1.Enabled = true;
+                                XtraMessageBox.Show("绑带检测未通过，请检查绑带后重新开始！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                            //th.TestLaunch(false);
+                            //th.CloseBandTest();
+                            //Thread.Sleep(6000);
+                        }
+                        catch (Exception ex)
+                        {
+                            string haha = ex.ToString();
+                            XtraMessageBox.Show("检测程序无法启动，请联系管理员", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            Application.Exit();
+                        }
+                    }
+                    //StartTool();
+
                 }).ContinueWith(x =>
                 {
                     splashScreenManager2.CloseWaitForm();
@@ -87,8 +135,10 @@ namespace QiYuan
             try
             {
                 th.TestLaunch(this.checkEdit1.Checked);
-                th.CloseBandTest();
-                Thread.Sleep(4000);
+                Thread.Sleep(2000);
+                //th.TestLaunch(false);
+                //th.CloseBandTest();
+                //Thread.Sleep(6000);
             }
             catch (Exception ex)
             {
@@ -98,6 +148,25 @@ namespace QiYuan
             }
         }
 
+        private void runBat()
+        {
+            Process proc = null;
+            try
+            {
+                string targetDir = Application.StartupPath;
+                proc = new Process();
+                proc.StartInfo.WorkingDirectory = targetDir;
+                proc.StartInfo.FileName = "run.bat";
+                proc.StartInfo.UseShellExecute = false;
+                proc.StartInfo.CreateNoWindow = true;
+                proc.Start();
+                proc.WaitForExit();
+            }
+            catch (Exception ex)
+            {
+                string error = ex.ToString();
+            }
+        }
 
         private bool ValidateInfo()
         {
@@ -189,6 +258,12 @@ namespace QiYuan
                     process.Kill(); //结束进程
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmTest test = new FrmTest();
+            test.Show();
         }
     }
 }

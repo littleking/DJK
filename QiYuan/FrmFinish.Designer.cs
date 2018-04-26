@@ -72,7 +72,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmFinish";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmFinish";
+            this.Text = "结束";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmFinish_FormClosing);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmFinish_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

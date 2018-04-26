@@ -108,6 +108,7 @@ namespace QiYuan
                 Thread.Sleep(3000);
                 FrmInfo i = new FrmInfo();
                 FrmInfo.Instance = i;
+                SplashScreenManager.CloseForm();
                 Application.Run(i);
 
 

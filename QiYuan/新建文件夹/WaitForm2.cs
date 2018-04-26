@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraWaitForm;
 
-namespace QiYuan
+namespace Paricom.Forms
 {
     public partial class WaitForm1 : WaitForm
     {
@@ -15,7 +15,6 @@ namespace QiYuan
         {
             InitializeComponent();
             this.progressPanel1.AutoHeight = true;
-            this.progressPanel1.AutoSize = true;
         }
 
         #region Overrides
@@ -32,11 +31,6 @@ namespace QiYuan
         }
         public override void ProcessCommand(Enum cmd, object arg)
         {
-            WaitFormCommand command = (WaitFormCommand)cmd;
-            if (command == WaitFormCommand.SetProgress)
-            {
-                progressBarControl1.EditValue = arg;
-            }
             base.ProcessCommand(cmd, arg);
         }
 
@@ -44,7 +38,6 @@ namespace QiYuan
 
         public enum WaitFormCommand
         {
-            SetProgress
         }
     }
 }

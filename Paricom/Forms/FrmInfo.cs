@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace Paricom
         public FrmInfo()
         {
             InitializeComponent();
+            runBat();
             th = new TestHelper();
             this.txtSex.SelectedIndex = -1;
             txtSex.Properties.Items.Add("男");
@@ -80,6 +82,26 @@ namespace Paricom
                     }));
                 });
 
+            }
+        }
+
+        private void runBat()
+        {
+            Process proc = null;
+            try
+            {
+                string targetDir = Application.StartupPath;
+                proc = new Process();
+                proc.StartInfo.WorkingDirectory = targetDir;
+                proc.StartInfo.FileName = "run.bat";
+                proc.StartInfo.UseShellExecute = false;
+                proc.StartInfo.CreateNoWindow = true;
+                proc.Start();
+                proc.WaitForExit();
+            }
+            catch (Exception ex)
+            {
+                string error = ex.ToString();
             }
         }
 

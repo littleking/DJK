@@ -9,9 +9,9 @@ using DevExpress.XtraWaitForm;
 
 namespace QiYuan
 {
-    public partial class WaitForm1 : WaitForm
+    public partial class WaitForm3 : WaitForm
     {
-        public WaitForm1()
+        public WaitForm3()
         {
             InitializeComponent();
             this.progressPanel1.AutoHeight = true;

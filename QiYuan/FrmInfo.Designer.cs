@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInfo));
-            this.splashScreenManager2 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::QiYuan.WaitForm1), false, false);
+            this.splashScreenManager2 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::QiYuan.WaitForm2), false, false);
             this.txtBirthPlace = new DevExpress.XtraEditors.TextEdit();
             this.txtSex = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txtBirthDay = new DevExpress.XtraEditors.DateEdit();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBirthPlace.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSex.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBirthDay.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBirthDay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splashScreenManager2
@@ -123,16 +123,6 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // checkEdit1
-            // 
-            this.checkEdit1.Location = new System.Drawing.Point(143, 741);
-            this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.Appearance.BackColor = System.Drawing.Color.White;
-            this.checkEdit1.Properties.Appearance.Options.UseBackColor = true;
-            this.checkEdit1.Properties.Caption = "显示";
-            this.checkEdit1.Size = new System.Drawing.Size(87, 19);
-            this.checkEdit1.TabIndex = 9;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = global::QiYuan.Properties.Resources.close_btn_over;
@@ -145,6 +135,15 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
+            // checkEdit1
+            // 
+            this.checkEdit1.Location = new System.Drawing.Point(146, 745);
+            this.checkEdit1.Name = "checkEdit1";
+            this.checkEdit1.Properties.Caption = "显示";
+            this.checkEdit1.Size = new System.Drawing.Size(75, 19);
+            this.checkEdit1.TabIndex = 11;
+            this.checkEdit1.Visible = false;
+            // 
             // FrmInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -152,8 +151,8 @@
             this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Tile;
             this.BackgroundImageStore = global::QiYuan.Properties.Resources._11;
             this.ClientSize = new System.Drawing.Size(1400, 900);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.checkEdit1);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtBirthPlace);
             this.Controls.Add(this.txtSex);
@@ -162,7 +161,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmInfo";
-            this.Text = "FrmInfo";
+            this.Text = "信息";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmInfo_FormClosing);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmInfo_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.txtBirthPlace.Properties)).EndInit();
@@ -171,8 +170,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBirthDay.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -184,8 +183,8 @@
         private DevExpress.XtraEditors.DateEdit txtBirthDay;
         private DevExpress.XtraEditors.TextEdit txtName;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private DevExpress.XtraEditors.CheckEdit checkEdit1;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager2;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private DevExpress.XtraEditors.CheckEdit checkEdit1;
     }
 }
