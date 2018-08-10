@@ -114,8 +114,8 @@ namespace Admin
             DataTable t = new DataTable();
             t.Columns.Add("ID", typeof(int));
             t.Columns.Add("FormulaDescription", typeof(string));
-            t.Rows.Add(new object[] { 1, "默认值" });
-            t.Rows.Add(new object[] { 2, "最大值" });
+            t.Rows.Add(new object[] { 1, "最大值" });
+            t.Rows.Add(new object[] { 2, "平均值" });
             lookUpFormula.Properties.DataSource = t;
             lookUpFormula.Properties.ValueMember = "ID";
             lookUpFormula.Properties.DisplayMember = "FormulaDescription";

@@ -239,7 +239,7 @@ namespace DJK.DBUtility
                     tx.Commit();
                     return count;
                 }
-                catch
+                catch(Exception ex)
                 {
                     tx.Rollback();
                     return 0;

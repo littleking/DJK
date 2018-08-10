@@ -13,6 +13,9 @@ namespace QiYuan
         private int PatientTime;
         private int CommonTime;
         private int PrepareTime;
+        private string dbpath = "";
+        private string infoFile = System.Windows.Forms.Application.StartupPath + "/info.xml";
+        private string matrixFile = System.Windows.Forms.Application.StartupPath + "/matrix.xml";
 
         public TestHelper()
         {
@@ -21,6 +24,7 @@ namespace QiYuan
             PatientTime = SettingHelper.ReadTime("PatientTime");
             CommonTime = SettingHelper.ReadTime("CommonTime");
             PrepareTime = SettingHelper.ReadTime("PrepareTime");
+            dbpath = "C:\\Clasp32\\DATA\\data.db3";
         }
             
         public void TestLaunch(bool bShow)
@@ -104,6 +108,15 @@ namespace QiYuan
             AgentDll.do_test();
             Thread.Sleep(CommonTime * 1000);
             AgentDll.export_report();
+            //ExportXML();
+        }
+
+        public void ExportXML()
+        {
+            Thread.Sleep(CommonTime * 1000);
+            AgentDll.export_xml(dbpath, "Info", infoFile);
+            Thread.Sleep(CommonTime * 1000);
+            AgentDll.export_xml(dbpath, "Matrix", matrixFile);
         }
 
         public bool TestBand(out string str)

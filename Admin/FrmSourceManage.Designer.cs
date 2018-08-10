@@ -133,8 +133,6 @@
             this.gridColumnMin.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumnMin.FieldName = "SourceMin";
             this.gridColumnMin.Name = "gridColumnMin";
-            this.gridColumnMin.Visible = true;
-            this.gridColumnMin.VisibleIndex = 2;
             // 
             // gridColumnMax
             // 
@@ -142,8 +140,6 @@
             this.gridColumnMax.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumnMax.FieldName = "SourceMax";
             this.gridColumnMax.Name = "gridColumnMax";
-            this.gridColumnMax.Visible = true;
-            this.gridColumnMax.VisibleIndex = 3;
             // 
             // barManager1
             // 

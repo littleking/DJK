@@ -384,7 +384,7 @@ namespace Paricom
             //    tempFile = System.Windows.Forms.Application.StartupPath + "/temp/report_kid.xlsm";
             //    dataFile = System.Windows.Forms.Application.StartupPath + "/data_kid.xml";
             //}
-            tempFile = System.Windows.Forms.Application.StartupPath + "/temp/report.xlsm";
+            tempFile = System.Windows.Forms.Application.StartupPath + "/tempreport/report.xlsm";
             dataFile = System.Windows.Forms.Application.StartupPath + "/data.xml";
             if (File.Exists(reportFile))
             {

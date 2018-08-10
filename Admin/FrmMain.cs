@@ -18,6 +18,10 @@ namespace Admin
     {
 
         private string sourceFile = System.Windows.Forms.Application.StartupPath + "/clarity.xls";
+        private string infoFile = System.Windows.Forms.Application.StartupPath + "/info.csv";
+        private string matrixFile = System.Windows.Forms.Application.StartupPath + "/matrix.csv";
+
+
         List<MatrixParser> mpList;
         List<InfoParser> ipList;
         public FrmMain()
@@ -212,7 +216,177 @@ namespace Admin
 
         private void button3_Click(object sender, EventArgs e)
         {
-            CalculateData();
+            //CalculateData();
+            CalculateTxtData();
+        }
+
+        private void CalculateTxtData()
+        {
+            System.Data.DataTable dtInfo = new System.Data.DataTable();
+            System.Data.DataTable dtMatrix = new System.Data.DataTable();
+            ipList = new List<InfoParser>();
+            mpList = new List<MatrixParser>();
+            if (File.Exists(infoFile)&&File.Exists(matrixFile))
+            {
+
+                splashScreenManager1.ShowWaitForm();
+                splashScreenManager1.SetWaitFormCaption("正在加载数据");
+                splashScreenManager1.SetWaitFormDescription(" 请等待。。。");
+
+                dtInfo = OpenCSV(infoFile, 0, 0, 0, 0, true);
+                dtMatrix = OpenCSV(matrixFile, 0, 0, 0, 0, true);
+                foreach(DataRow dr in dtInfo.Rows)
+                {
+                    if (dr[0].ToString() == "0")
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        InfoParser ip = new InfoParser();
+                        ip.No = dr[0].ToString();
+                        ip.Value = dr[1].ToString();
+                        ip.Name = dr[2].ToString();
+                        ipList.Add(ip);
+                    }
+
+                }
+                foreach(DataRow dr in dtMatrix.Rows)
+                {
+                    MatrixParser mp = new MatrixParser();
+                    mp.No = dr[0].ToString();
+                    mp.Value= dr[1].ToString();
+                    mp.Name = dr[2].ToString();
+                    mp.OldValue = dr[3].ToString();
+                    mpList.Add(mp);
+                }
+                
+                splashScreenManager1.SetWaitFormCaption("正在计算");
+                FrmCalculation frmCal = new FrmCalculation(mpList, ipList);
+                splashScreenManager1.CloseWaitForm();
+                frmCal.Show();
+            }
+            else
+            {
+                MessageBox.Show("CSV文件不存在");
+            }
+
+        }
+
+        /// <summary>
+        /// 打开CSV 文件
+        /// </summary>
+        /// <param name="fileName">文件全名</param>
+        /// <param name="firstRow">开始行</param>
+        /// <param name="firstColumn">开始列</param>
+        /// <param name="getRows">获取多少行</param>
+        /// <param name="getColumns">获取多少列</param>
+        /// <param name="haveTitleRow">是有标题行</param>
+        /// <returns>DataTable</returns>
+        public static System.Data.DataTable OpenCSV(string fullFileName, Int16 firstRow = 0, Int16 firstColumn = 0, Int16 getRows = 0, Int16 getColumns = 0, bool haveTitleRow = true)
+        {
+            System.Data.DataTable dt = new System.Data.DataTable();
+            FileStream fs = new FileStream(fullFileName, System.IO.FileMode.Open, System.IO.FileAccess.Read);
+            StreamReader sr = new StreamReader(fs, System.Text.Encoding.Default);
+            //记录每次读取的一行记录
+            string strLine = "";
+            //记录每行记录中的各字段内容
+            string[] aryLine;
+            //标示列数
+            int columnCount = 0;
+            //是否已建立了表的字段
+            bool bCreateTableColumns = false;
+            //第几行
+            int iRow = 1;
+
+            //去除无用行
+            if (firstRow > 0)
+            {
+                for (int i = 1; i < firstRow; i++)
+                {
+                    sr.ReadLine();
+                }
+            }
+
+            // { ",", ".", "!", "?", ";", ":", " " };
+            string[] separators = { "," };
+            //逐行读取CSV中的数据
+            while ((strLine = sr.ReadLine()) != null)
+            {
+                strLine = strLine.Trim();
+                aryLine = strLine.Split(separators, System.StringSplitOptions.RemoveEmptyEntries);
+
+                if (bCreateTableColumns == false)
+                {
+                    bCreateTableColumns = true;
+                    columnCount = aryLine.Length;
+                    //创建列
+                    for (int i = firstColumn; i < (getColumns == 0 ? columnCount : firstColumn + getColumns); i++)
+                    {
+                        DataColumn dc
+                            = new DataColumn(haveTitleRow == true ? aryLine[i] : "COL" + i.ToString());
+                        dt.Columns.Add(dc);
+                    }
+
+                    bCreateTableColumns = true;
+
+                    if (haveTitleRow == true)
+                    {
+                        continue;
+                    }
+                }
+
+
+                DataRow dr = dt.NewRow();
+                for (int j = firstColumn; j < (getColumns == 0 ? columnCount : firstColumn + getColumns); j++)
+                {
+                    try
+                    {
+                        dr[j - firstColumn] = aryLine[j];
+                    }
+                    catch (Exception ex)
+                    {
+                        dr[j - firstColumn] = "";
+                    }
+                }
+                dt.Rows.Add(dr);
+
+                iRow = iRow + 1;
+                if (getRows > 0)
+                {
+                    if (iRow > getRows)
+                    {
+                        break;
+                    }
+                }
+
+            }
+
+            sr.Close();
+            fs.Close();
+            return dt;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            importClarity();
+        }
+
+        private void importClarity()
+        {
+            List<string> sqlList = new List<string>();
+            for(int i = 1; i <= 410; i++)
+            {
+                string sql = string.Format("insert into admin_clarity (SourceTable,SourceNum,SourceMin,SourceMax) values ('info',{0},0,150)", i);
+                sqlList.Add(sql);
+            }
+            for(int i = 1; i <= 10763; i++)
+            {
+                string sql = string.Format("insert into admin_clarity (SourceTable,SourceNum,SourceMin,SourceMax) values ('matrix',{0},0,150)", i);
+                sqlList.Add(sql);
+            }
+            DJK.DAL.admin_MedicalData dal = new DJK.DAL.admin_MedicalData();
+            dal.insertBulk(sqlList);
         }
     }
 }

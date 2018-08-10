@@ -129,8 +129,6 @@
             this.treeListMin.Name = "treeListMin";
             this.treeListMin.OptionsColumn.AllowSort = false;
             this.treeListMin.UnboundType = DevExpress.XtraTreeList.Data.UnboundColumnType.Object;
-            this.treeListMin.Visible = true;
-            this.treeListMin.VisibleIndex = 2;
             this.treeListMin.Width = 66;
             // 
             // treeListMax
@@ -140,8 +138,6 @@
             this.treeListMax.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.treeListMax.Name = "treeListMax";
             this.treeListMax.OptionsColumn.AllowSort = false;
-            this.treeListMax.Visible = true;
-            this.treeListMax.VisibleIndex = 3;
             this.treeListMax.Width = 66;
             // 
             // treeListFormula
@@ -152,7 +148,7 @@
             this.treeListFormula.Name = "treeListFormula";
             this.treeListFormula.OptionsColumn.AllowSort = false;
             this.treeListFormula.Visible = true;
-            this.treeListFormula.VisibleIndex = 4;
+            this.treeListFormula.VisibleIndex = 2;
             // 
             // repositoryItemLookUpEdit1
             // 

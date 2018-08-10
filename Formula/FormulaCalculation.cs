@@ -62,11 +62,11 @@ namespace Formula
                 {
                     if (tableType == "info")
                     {
-                        sourceValue = double.Parse(ipList[sourceNum - 1].Value);
+                        sourceValue = double.Parse(ipList[sourceNum-1].Value);
                     }
                     else
                     {
-                        sourceValue = double.Parse(mpList[sourceNum - 1 - 2].Value);
+                        sourceValue = double.Parse(mpList[sourceNum-1].Value);
                     }
                 }catch(Exception ex)
                 {
@@ -84,7 +84,7 @@ namespace Formula
                 switch (formula)
                 {
                     case 1:
-                        rtn = resultList[0];
+                        rtn = MathEx.getMax(resultList);
                         break;
                     case 2:
                         rtn = MathEx.getMax(resultList);

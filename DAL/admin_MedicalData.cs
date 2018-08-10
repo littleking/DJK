@@ -375,18 +375,42 @@ namespace DJK.DAL
         {
             string code = "";
             Object maxCode = DbHelperSQL.GetSingle("select Max(code) as code from admin_medicalData where parentID=" + pid);
+            Object maxVal = null;
             if (maxCode != null)
             {
+
                 string rtn = maxCode.ToString();
-                int lastIndex = int.Parse(rtn.Substring(rtn.Length - 1, 1)) + 1;
-                code = rtn.Substring(0, rtn.Length - 1);
-                code = code + lastIndex;
+                if(rtn.IndexOf('_') < 0)
+                {
+                    maxCode = DbHelperSQL.GetSingle("select Max(convert(numeric(10),code)) as code from admin_medicalData where parentID=" + pid);
+                    int max = int.Parse(maxCode.ToString()) + 1;
+                    return max.ToString();
+                }
+                else
+                {
+                    maxVal = DbHelperSQL.GetSingle("select max(convert(numeric(10),REVERSE(SUBSTRING(REVERSE(code),0,CHARINDEX('_',REVERSE(code)))))) from admin_MedicalData where parentID = " + pid);
+                }
+                int lastindex = rtn.LastIndexOf('_');
+                int latest = int.Parse(maxVal.ToString()) + 1;
+                code = rtn.Substring(0, lastindex+1);
+                code = code + latest;
             }
             else
             {
                 code = currentCode + "_" + 1;
             }
             return code;
+        }
+
+        public int insertBulk(List<string> sqlList)
+        {
+            int ret = DbHelperSQL.ExecuteSqlTran(sqlList);
+            return ret;
+        }
+
+        public int runSql(string sql)
+        {
+            return DbHelperSQL.ExecuteSql(sql);
         }
         #endregion  ExtensionMethod
     }

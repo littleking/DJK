@@ -18,6 +18,7 @@ using System.Configuration;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using System.IO;
 
 namespace Admin
 {
@@ -370,8 +371,8 @@ namespace Admin
             DataTable t = new DataTable();
             t.Columns.Add("ID", typeof(int));
             t.Columns.Add("FormulaDescription", typeof(string));
-            t.Rows.Add(new object[] { 1,"默认值" });
-            t.Rows.Add(new object[] { 2, "最大值" });
+            t.Rows.Add(new object[] { 1, "最大值" });
+            t.Rows.Add(new object[] { 2, "平均值" });
             repositoryItemLookUpEdit1.DataSource = t;
             repositoryItemLookUpEdit1.ValueMember = "ID";
             repositoryItemLookUpEdit1.DisplayMember = "FormulaDescription";

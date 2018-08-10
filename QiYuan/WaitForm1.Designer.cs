@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
             this.progressPanel1 = new DevExpress.XtraWaitForm.ProgressPanel();
+            this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
             this.SuspendLayout();
@@ -41,27 +41,17 @@
             this.tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.progressPanel1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.progressBarControl1, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(738, 460);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.71429F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(738, 501);
             this.tableLayoutPanel1.TabIndex = 2;
-            // 
-            // progressBarControl1
-            // 
-            this.progressBarControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.progressBarControl1.Location = new System.Drawing.Point(3, 309);
-            this.progressBarControl1.Name = "progressBarControl1";
-            this.progressBarControl1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.progressBarControl1.Size = new System.Drawing.Size(467, 154);
-            this.progressBarControl1.TabIndex = 2;
             // 
             // progressPanel1
             // 
@@ -74,14 +64,22 @@
             this.progressPanel1.AppearanceDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.progressPanel1.AppearanceDescription.Options.UseFont = true;
             this.progressPanel1.BarAnimationElementThickness = 2;
-            this.progressPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.progressPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.progressPanel1.ImageHorzOffset = 10;
-            this.progressPanel1.Location = new System.Drawing.Point(0, 188);
+            this.progressPanel1.Location = new System.Drawing.Point(0, 381);
             this.progressPanel1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.progressPanel1.Name = "progressPanel1";
-            this.progressPanel1.Size = new System.Drawing.Size(630, 77);
+            this.progressPanel1.Size = new System.Drawing.Size(738, 56);
             this.progressPanel1.TabIndex = 4;
             this.progressPanel1.Text = "progressPanel1";
+            // 
+            // progressBarControl1
+            // 
+            this.progressBarControl1.Location = new System.Drawing.Point(3, 443);
+            this.progressBarControl1.Name = "progressBarControl1";
+            this.progressBarControl1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.progressBarControl1.Size = new System.Drawing.Size(732, 40);
+            this.progressBarControl1.TabIndex = 2;
             // 
             // WaitForm1
             // 
@@ -89,7 +87,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(738, 460);
+            this.ClientSize = new System.Drawing.Size(738, 501);
             this.Controls.Add(this.tableLayoutPanel1);
             this.DoubleBuffered = true;
             this.Name = "WaitForm1";
@@ -103,7 +101,7 @@
 
         #endregion
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private DevExpress.XtraEditors.ProgressBarControl progressBarControl1;
         private DevExpress.XtraWaitForm.ProgressPanel progressPanel1;
+        private DevExpress.XtraEditors.ProgressBarControl progressBarControl1;
     }
 }

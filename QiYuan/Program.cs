@@ -99,9 +99,6 @@ namespace QiYuan
 
                 //FrmMain frmMain = new FrmMain();
                 //FrmMain.Instance = frmMain;
-                ////AgentDll.launchEx(true);
-                //SplashScreenManager.ShowForm(typeof(SplashStart));
-                //Thread.Sleep(3000);
                 //Application.Run(frmMain);
 
                 SplashScreenManager.ShowForm(typeof(SplashStart));

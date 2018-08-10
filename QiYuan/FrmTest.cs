@@ -144,6 +144,7 @@ namespace QiYuan
             }
             catch (Exception ex)
             {
+                splashScreenManager1.CloseWaitForm();
                 File.Delete(sourceFile);
                 LogHelper.WriteLog("Excel权限问题或没有安装，处理数据失败!");
                 XtraMessageBox.Show("Excel问题导致云端处理数据失败,请重试", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -182,6 +183,7 @@ namespace QiYuan
             }
             catch (Exception ex)
             {
+                splashScreenManager1.CloseWaitForm();
                 string haha = ex.ToString();
                 LogHelper.WriteLog(haha);
                 XtraMessageBox.Show(ex.ToString(), "错误");

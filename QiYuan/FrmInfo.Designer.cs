@@ -149,7 +149,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Tile;
-            this.BackgroundImageStore = global::QiYuan.Properties.Resources._11;
+            this.BackgroundImageStore = global::QiYuan.Properties.Resources._2222;
             this.ClientSize = new System.Drawing.Size(1400, 900);
             this.Controls.Add(this.checkEdit1);
             this.Controls.Add(this.pictureBox2);
