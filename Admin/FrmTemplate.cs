@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Collections;
+using DJK.Common;
 
 namespace Admin
 {
@@ -255,7 +256,7 @@ namespace Admin
                 foreach (DevExpress.XtraBars.BarLargeButtonItem barItem in barManager1.Items)
                 {
                     string strBtnName = barItem.Name.Replace("btn", "");
-                    if (Common.Utils.Contains(strDisplayButtons, strBtnName))
+                    if (DJK.Common.Utils.Contains(strDisplayButtons, strBtnName))
                     {
                         //显示按钮
                         barItem.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;

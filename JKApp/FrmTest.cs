@@ -39,7 +39,7 @@ namespace JKApp
                         i = 100;
                     }
                     splashScreenManager1.SendCommand(WaitForm1.WaitFormCommand.SetProgress, i);
-                    Thread.Sleep(60 * 10 * 8);
+                    Thread.Sleep(60 * 10 * 12);
                     
                 }
             }));
@@ -47,52 +47,67 @@ namespace JKApp
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            DoTest();
+            try
+            {
+                DoTest();
+            }catch(Exception ex)
+            {
+                LogHelper.WriteLog(ex.ToString());
+            }
+            
         }
 
         private void DoTest()
         {
-            DeleteSource();
-            pictureBox1.Enabled = false;
-            splashScreenManager1.ShowWaitForm();
-            //splashScreenManager1.SetWaitFormCaption("校检测试仪并开始测试");
-            //splashScreenManager1.SetWaitFormDescription(" 请等待。。。");
-            bool start = false;
-            suspend = false;
-            pro = new Thread(DoProgress);
-            pro.Start();
-            Task.Factory.StartNew(() =>
+            try
             {
+                DeleteSource();
+                pictureBox1.Enabled = false;
+                splashScreenManager1.ShowWaitForm();
+                //splashScreenManager1.SetWaitFormCaption("校检测试仪并开始测试");
+                //splashScreenManager1.SetWaitFormDescription(" 请等待。。。");
+                bool start = false;
+                suspend = false;
+                pro = new Thread(DoProgress);
+                pro.Start();
+                Task.Factory.StartNew(() =>
+                {
                 start = StartTool();
                 suspend = true;
 
-            }).ContinueWith(x =>
-            {
-                if (!start)
+                }).ContinueWith(x =>
                 {
-                    killP();
-                    FrmInfo.Instance.Show();
-                    this.Close();
-                }
-                else
-                {
-
-                    // splashScreenManager1.CloseWaitForm();
-                    this.Invoke((MethodInvoker)(() =>
+                    if (!start)
                     {
-                        //splashScreenManager1.SendCommand(WaitForm1.WaitFormCommand.SetProgress, 100);
-                        this.pictureBox1.Enabled = true;
-                        //splashScreenManager1.CloseWaitForm();
-                        //FrmMain.Instance.XtraTabOpen("FrmFinish", "信息");
-                        //FrmFinish frmFinish = new FrmFinish();
-                        FrmFinish frmFinish = new FrmFinish();
-                        frmFinish.Show();
-                        pro.Abort();
-                        splashScreenManager1.CloseWaitForm();
-                        this.Close();
-                    }));
-                }
-            });
+                        this.Invoke((MethodInvoker)(() =>
+                        {
+                            killP();
+                            pro.Abort();
+                            //MessageBox.Show("came");
+                            FrmInfo.Instance.checkWaitedSource();
+                            FrmInfo.Instance.Show();
+                            splashScreenManager1.CloseWaitForm();
+                            XtraMessageBox.Show("报告数据处理失败，本次数据没有上传，请稍后重新上传数据或重新检测！", "错误");
+                            this.Close();
+                        }));
+                    }
+                    else
+                    {
+                        this.Invoke((MethodInvoker)(() =>
+                        { 
+                            this.pictureBox1.Enabled = true;
+                            FrmFinish frmFinish = new FrmFinish();
+                            frmFinish.Show();
+                            pro.Abort();
+                            splashScreenManager1.CloseWaitForm();
+                            this.Close();
+                        }));
+                    }
+                });
+            }catch(Exception ex)
+            {
+                LogHelper.WriteLog(ex.ToString());
+            }
         }
 
         private void ExportXml()
@@ -120,7 +135,7 @@ namespace JKApp
             {
                 //SysVar.dtOld = SysVar.dtNow;
                 DataProcess dp = new DataProcess(reportFile, sourceFile, testFile, dataFile);
-                rtn = dp.uploadInfo();
+                rtn = dp.uploadInfo(0,"");
             }
             else
             {
@@ -131,68 +146,6 @@ namespace JKApp
             return rtn;
         }
 
-
-        //private bool GetReport()
-        //{
-        //    bool rtn = false;
-        //    string reportFile = System.Windows.Forms.Application.StartupPath + "/report.xlsm";
-        //    string sourceFile = System.Windows.Forms.Application.StartupPath + "/clarity.xls";
-        //    string tempFolder = System.Windows.Forms.Application.StartupPath + "/temp/";
-        //    string testFile = ConfigurationManager.AppSettings["sourceAddress"];
-        //    string destFolder = ConfigurationManager.AppSettings["FileFolder"];
-        //    if (!Directory.Exists(tempFolder))
-        //    {
-        //        Directory.CreateDirectory(tempFolder);
-        //    }
-        //    if (File.Exists(testFile))
-        //    {
-        //        if (File.Exists(sourceFile))
-        //        {
-        //            File.Delete(sourceFile);
-        //        }
-        //        File.Copy(testFile, sourceFile,true);
-        //        //LogHelper.WriteLog("开始生成报告!");
-        //        //XtraMessageBox.Show("开始生成报告", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        rtn = ThreadFun(reportFile, sourceFile);
-
-        //        CopyDirectory(tempFolder, destFolder);
-        //        //Thread.Sleep(60000);
-        //        //LogHelper.WriteLog("报告生成结束!");
-        //        //XtraMessageBox.Show("报告生成结束", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    }
-        //    else
-        //    {
-        //        rtn = false;
-        //    }
-        //    return rtn;
-        //}
-
-        //private bool ThreadFun(string reportFile, string sourceFile)
-        //{
-        //    bool rtn = true;
-        //    try
-        //    {
-        //        Microsoft.Office.Interop.Excel.ApplicationClass excel = new Microsoft.Office.Interop.Excel.ApplicationClass();
-        //        excel.Visible = false;
-        //        excel.Workbooks.Open(reportFile, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-
-        //        IntPtr t = new IntPtr(excel.Hwnd);
-        //        int k = 0;
-        //        GetWindowThreadProcessId(t, out k);
-        //        System.Diagnostics.Process p = System.Diagnostics.Process.GetProcessById(k);
-        //        p.Kill();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        File.Delete(sourceFile);
-        //        LogHelper.WriteLog("Excel权限问题或没有安装，处理数据失败!");
-        //        XtraMessageBox.Show("Excel问题导致云端处理数据失败,请重试", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        return false;
-        //    }
-
-        //    File.Delete(sourceFile);
-        //    return true;
-        //}
 
         [DllImport("User32.dll", CharSet = CharSet.Auto)]
         public static extern int GetWindowThreadProcessId(IntPtr hwnd, out int ID);
@@ -211,7 +164,6 @@ namespace JKApp
             bool rtn = false;
             try
             {
-                //th.OneClickTest();
                 th.TestToStart();
                 splashScreenManager1.SetWaitFormCaption("检测中");
                 th.TestStart();
@@ -219,21 +171,99 @@ namespace JKApp
                 splashScreenManager1.SetWaitFormCaption("数据处理中");
                 ExportXml();
                 rtn = GetReport();
+                //rtn = false;
                 if (!rtn)
                 {
-                    splashScreenManager1.CloseWaitForm();
-                    XtraMessageBox.Show("报告数据处理失败，请重新尝试一次", "错误");
+                   // splashScreenManager1.CloseWaitForm();
+                    string msg = "";
+                    if(saveSource()){
+                        msg = "数据已保存，请稍后重新上传数据或重新检测!";
+                        LogHelper.WriteLog(Patient.w_code + "_" + "本地数据保存成功。");
+                    }
+                    else
+                    {
+                        msg = "数据在本地保存失败，请稍后重新检测!";
+                        LogHelper.WriteLog(Patient.w_code + "_" + "本地数据保存失败。");
+                    }
+                    //splashScreenManager1.SetWaitFormCaption("报告数据处理失败，本次数据没有上传，请稍后重新上传数据或重新检测！");
+                    //XtraMessageBox.Show("报告数据处理失败，本次数据没有上传，请稍后重新上传数据或重新检测！", "错误");
+                    return rtn;
                 }
                 return true;
             }
             catch (Exception ex)
             {
-                splashScreenManager1.CloseWaitForm();
+                if (splashScreenManager1.IsSplashFormVisible)
+                {
+                    splashScreenManager1.CloseWaitForm();
+                }
                 string haha = ex.ToString();
                 LogHelper.WriteLog(haha);
                 XtraMessageBox.Show(ex.ToString(), "错误");
                 return false;
             }
+        }
+
+        private bool saveSource()
+        {
+            string sourceFile = "c:/clasp32/clarity.xls";
+            if(!File.Exists(sourceFile)){
+                return false;
+            }
+            string bakPath = System.Windows.Forms.Application.StartupPath + "/WaitedSource/";
+            if (!Directory.Exists(bakPath))
+                Directory.CreateDirectory(bakPath);
+            string filename = Patient.w_code + ".bak";
+            string savePath = bakPath + filename;
+            string sourcePath = bakPath + "clarity.xls";
+            if (File.Exists(sourcePath))
+            {
+                File.Delete(sourcePath);
+            }
+            FileInfo file = new FileInfo(sourceFile);
+            file.CopyTo(sourcePath, true);
+            bool saved = ReadXlsToBase64(savePath, sourcePath);
+            return saved;
+        }
+
+        private bool ReadXlsToBase64(string savePath,string sourcePath)
+        {
+            bool rtn = true;
+            try
+            {
+                FileStream filestream = new FileStream(sourcePath, FileMode.Open);
+                byte[] bt = new byte[filestream.Length];
+
+                //调用read读取方法  
+                filestream.Read(bt, 0, bt.Length);
+                string base64Str = Convert.ToBase64String(bt);
+                filestream.Close();
+
+                //将Base64串写入临时文本文件  
+                if (File.Exists(savePath))
+                {
+                    File.Delete(savePath);
+                }
+                FileStream fs = new FileStream(savePath, FileMode.Create);
+                byte[] data = System.Text.Encoding.Default.GetBytes(base64Str);
+                //开始写入  
+                fs.Write(data, 0, data.Length);
+                //清空缓冲区、关闭流  
+                fs.Flush();
+                fs.Close();
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            File.Delete(sourcePath);
+
+
+            return rtn;
+
+
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

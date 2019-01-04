@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <wsdl:definitions xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://impl.webService.jeesite.thinkgem.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://webService.jeesite.thinkgem.com/" name="gmWebServlet" targetNamespace="http://impl.webService.jeesite.thinkgem.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
-  <wsdl:import namespace="http://webService.jeesite.thinkgem.com/" location="http://www.shilebang.cn/YUYUE/ws/GmWebServlet?wsdl=GmWebServlet.wsdl" />
+  <wsdl:import namespace="http://webService.jeesite.thinkgem.com/" location="http://www.shilebang.cn/HY/ws/GmWebServlet?wsdl=GmWebServlet.wsdl" />
   <wsdl:types />
   <wsdl:binding name="gmWebServletSoapBinding" type="ns1:GmWebServlet">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -115,7 +115,7 @@
   </wsdl:binding>
   <wsdl:service name="gmWebServlet">
     <wsdl:port name="GmWebServletImplPort" binding="tns:gmWebServletSoapBinding">
-      <soap:address location="http://www.shilebang.cn/YUYUE/ws/GmWebServlet" />
+      <soap:address location="http://www.shilebang.cn/HY/ws/GmWebServlet" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

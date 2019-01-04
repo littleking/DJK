@@ -8,11 +8,24 @@ namespace JHHY
 {
     public class AgentDll
     {
+
+        [DllImport("agent.dll")]
+        public static extern bool check_dev_con();
+
         [DllImport("agent.dll")]
         public static extern void launchEx(bool bShow);
 
         [DllImport("agent.dll")]
         public static extern void export_report();
+
+        [DllImport("agent.dll")]
+        public static extern void risk_load_data();
+
+        [DllImport("agent.dll")]
+        public static extern void make_emotion_chart();
+
+        [DllImport("agent.dll")]
+        public static extern void nutr_load();
 
         [DllImport("agent.dll")]
         public static extern void exit_target();

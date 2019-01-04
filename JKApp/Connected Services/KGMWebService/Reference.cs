@@ -22,6 +22,13 @@ namespace JKApp.KGMWebService {
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         System.Threading.Tasks.Task<JKApp.KGMWebService.saveSchedulingResponse> saveSchedulingAsync(JKApp.KGMWebService.saveScheduling request);
         
+        // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 loginName 以后生成的消息协定未标记为 nillable
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        JKApp.KGMWebService.getOrderInfoByPeopleNoResponse getOrderInfoByPeopleNo(JKApp.KGMWebService.getOrderInfoByPeopleNo request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<JKApp.KGMWebService.getOrderInfoByPeopleNoResponse> getOrderInfoByPeopleNoAsync(JKApp.KGMWebService.getOrderInfoByPeopleNo request);
+        
         // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 base64Code 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         JKApp.KGMWebService.jsonOutTxtResponse jsonOutTxt(JKApp.KGMWebService.jsonOutTxt request);
@@ -29,12 +36,12 @@ namespace JKApp.KGMWebService {
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         System.Threading.Tasks.Task<JKApp.KGMWebService.jsonOutTxtResponse> jsonOutTxtAsync(JKApp.KGMWebService.jsonOutTxt request);
         
-        // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 loginName 以后生成的消息协定未标记为 nillable
+        // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 verifyCode 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        JKApp.KGMWebService.getOrderInfoByPeopleNoResponse getOrderInfoByPeopleNo(JKApp.KGMWebService.getOrderInfoByPeopleNo request);
+        JKApp.KGMWebService.isTiaoliServiceResponse isTiaoliService(JKApp.KGMWebService.isTiaoliService request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.getOrderInfoByPeopleNoResponse> getOrderInfoByPeopleNoAsync(JKApp.KGMWebService.getOrderInfoByPeopleNo request);
+        System.Threading.Tasks.Task<JKApp.KGMWebService.isTiaoliServiceResponse> isTiaoliServiceAsync(JKApp.KGMWebService.isTiaoliService request);
         
         // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 name 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -57,33 +64,12 @@ namespace JKApp.KGMWebService {
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         System.Threading.Tasks.Task<JKApp.KGMWebService.datacodeOutJsonResponse> datacodeOutJsonAsync(JKApp.KGMWebService.datacodeOutJson request);
         
-        // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 verifyCode 以后生成的消息协定未标记为 nillable
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        JKApp.KGMWebService.saveCardNoResponse saveCardNo(JKApp.KGMWebService.saveCardNo request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.saveCardNoResponse> saveCardNoAsync(JKApp.KGMWebService.saveCardNo request);
-        
-        // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 verifyCode 以后生成的消息协定未标记为 nillable
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        JKApp.KGMWebService.isExistOrderResponse isExistOrder(JKApp.KGMWebService.isExistOrder request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.isExistOrderResponse> isExistOrderAsync(JKApp.KGMWebService.isExistOrder request);
-        
         // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 cardid 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         JKApp.KGMWebService.getServiceTimeResponse getServiceTime(JKApp.KGMWebService.getServiceTime request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         System.Threading.Tasks.Task<JKApp.KGMWebService.getServiceTimeResponse> getServiceTimeAsync(JKApp.KGMWebService.getServiceTime request);
-        
-        // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 verifyCode 以后生成的消息协定未标记为 nillable
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        JKApp.KGMWebService.getResultResponse getResult(JKApp.KGMWebService.getResult request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.getResultResponse> getResultAsync(JKApp.KGMWebService.getResult request);
         
         // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 loginName 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -98,6 +84,34 @@ namespace JKApp.KGMWebService {
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         System.Threading.Tasks.Task<JKApp.KGMWebService.fileOutXlsResponse> fileOutXlsAsync(JKApp.KGMWebService.fileOutXls request);
+        
+        // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 verifyCode 以后生成的消息协定未标记为 nillable
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        JKApp.KGMWebService.saveCardNoResponse saveCardNo(JKApp.KGMWebService.saveCardNo request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<JKApp.KGMWebService.saveCardNoResponse> saveCardNoAsync(JKApp.KGMWebService.saveCardNo request);
+        
+        // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 verifyCode 以后生成的消息协定未标记为 nillable
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        JKApp.KGMWebService.setUsedResponse setUsed(JKApp.KGMWebService.setUsed request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<JKApp.KGMWebService.setUsedResponse> setUsedAsync(JKApp.KGMWebService.setUsed request);
+        
+        // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 verifyCode 以后生成的消息协定未标记为 nillable
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        JKApp.KGMWebService.isExistOrderResponse isExistOrder(JKApp.KGMWebService.isExistOrder request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<JKApp.KGMWebService.isExistOrderResponse> isExistOrderAsync(JKApp.KGMWebService.isExistOrder request);
+        
+        // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 verifyCode 以后生成的消息协定未标记为 nillable
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        JKApp.KGMWebService.getResultResponse getResult(JKApp.KGMWebService.getResult request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<JKApp.KGMWebService.getResultResponse> getResultAsync(JKApp.KGMWebService.getResult request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -164,6 +178,78 @@ namespace JKApp.KGMWebService {
         }
         
         public saveSchedulingResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getOrderInfoByPeopleNo {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getOrderInfoByPeopleNo", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
+        public JKApp.KGMWebService.getOrderInfoByPeopleNoBody Body;
+        
+        public getOrderInfoByPeopleNo() {
+        }
+        
+        public getOrderInfoByPeopleNo(JKApp.KGMWebService.getOrderInfoByPeopleNoBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://impl.webService.jeesite.thinkgem.com/")]
+    public partial class getOrderInfoByPeopleNoBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string loginName;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string peopleNo;
+        
+        public getOrderInfoByPeopleNoBody() {
+        }
+        
+        public getOrderInfoByPeopleNoBody(string loginName, string peopleNo) {
+            this.loginName = loginName;
+            this.peopleNo = peopleNo;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getOrderInfoByPeopleNoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getOrderInfoByPeopleNoResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
+        public JKApp.KGMWebService.getOrderInfoByPeopleNoResponseBody Body;
+        
+        public getOrderInfoByPeopleNoResponse() {
+        }
+        
+        public getOrderInfoByPeopleNoResponse(JKApp.KGMWebService.getOrderInfoByPeopleNoResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class getOrderInfoByPeopleNoResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public getOrderInfoByPeopleNoResponseBody() {
+        }
+        
+        public getOrderInfoByPeopleNoResponseBody(string @return) {
             this.@return = @return;
         }
     }
@@ -244,15 +330,15 @@ namespace JKApp.KGMWebService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class getOrderInfoByPeopleNo {
+    public partial class isTiaoliService {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getOrderInfoByPeopleNo", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.getOrderInfoByPeopleNoBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="isTiaoliService", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
+        public JKApp.KGMWebService.isTiaoliServiceBody Body;
         
-        public getOrderInfoByPeopleNo() {
+        public isTiaoliService() {
         }
         
-        public getOrderInfoByPeopleNo(JKApp.KGMWebService.getOrderInfoByPeopleNoBody Body) {
+        public isTiaoliService(JKApp.KGMWebService.isTiaoliServiceBody Body) {
             this.Body = Body;
         }
     }
@@ -261,20 +347,20 @@ namespace JKApp.KGMWebService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://impl.webService.jeesite.thinkgem.com/")]
-    public partial class getOrderInfoByPeopleNoBody {
+    public partial class isTiaoliServiceBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string loginName;
+        public string verifyCode;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string peopleNo;
+        public string loginName;
         
-        public getOrderInfoByPeopleNoBody() {
+        public isTiaoliServiceBody() {
         }
         
-        public getOrderInfoByPeopleNoBody(string loginName, string peopleNo) {
+        public isTiaoliServiceBody(string verifyCode, string loginName) {
+            this.verifyCode = verifyCode;
             this.loginName = loginName;
-            this.peopleNo = peopleNo;
         }
     }
     
@@ -282,15 +368,15 @@ namespace JKApp.KGMWebService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class getOrderInfoByPeopleNoResponse {
+    public partial class isTiaoliServiceResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getOrderInfoByPeopleNoResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.getOrderInfoByPeopleNoResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="isTiaoliServiceResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
+        public JKApp.KGMWebService.isTiaoliServiceResponseBody Body;
         
-        public getOrderInfoByPeopleNoResponse() {
+        public isTiaoliServiceResponse() {
         }
         
-        public getOrderInfoByPeopleNoResponse(JKApp.KGMWebService.getOrderInfoByPeopleNoResponseBody Body) {
+        public isTiaoliServiceResponse(JKApp.KGMWebService.isTiaoliServiceResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -299,15 +385,15 @@ namespace JKApp.KGMWebService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class getOrderInfoByPeopleNoResponseBody {
+    public partial class isTiaoliServiceResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
         public string @return;
         
-        public getOrderInfoByPeopleNoResponseBody() {
+        public isTiaoliServiceResponseBody() {
         }
         
-        public getOrderInfoByPeopleNoResponseBody(string @return) {
+        public isTiaoliServiceResponseBody(string @return) {
             this.@return = @return;
         }
     }
@@ -528,150 +614,6 @@ namespace JKApp.KGMWebService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class saveCardNo {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="saveCardNo", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.saveCardNoBody Body;
-        
-        public saveCardNo() {
-        }
-        
-        public saveCardNo(JKApp.KGMWebService.saveCardNoBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://impl.webService.jeesite.thinkgem.com/")]
-    public partial class saveCardNoBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string verifyCode;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string cardNo;
-        
-        public saveCardNoBody() {
-        }
-        
-        public saveCardNoBody(string verifyCode, string cardNo) {
-            this.verifyCode = verifyCode;
-            this.cardNo = cardNo;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class saveCardNoResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="saveCardNoResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.saveCardNoResponseBody Body;
-        
-        public saveCardNoResponse() {
-        }
-        
-        public saveCardNoResponse(JKApp.KGMWebService.saveCardNoResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class saveCardNoResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string @return;
-        
-        public saveCardNoResponseBody() {
-        }
-        
-        public saveCardNoResponseBody(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class isExistOrder {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="isExistOrder", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.isExistOrderBody Body;
-        
-        public isExistOrder() {
-        }
-        
-        public isExistOrder(JKApp.KGMWebService.isExistOrderBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://impl.webService.jeesite.thinkgem.com/")]
-    public partial class isExistOrderBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string verifyCode;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string loginName;
-        
-        public isExistOrderBody() {
-        }
-        
-        public isExistOrderBody(string verifyCode, string loginName) {
-            this.verifyCode = verifyCode;
-            this.loginName = loginName;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class isExistOrderResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="isExistOrderResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.isExistOrderResponseBody Body;
-        
-        public isExistOrderResponse() {
-        }
-        
-        public isExistOrderResponse(JKApp.KGMWebService.isExistOrderResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class isExistOrderResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string @return;
-        
-        public isExistOrderResponseBody() {
-        }
-        
-        public isExistOrderResponseBody(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class getServiceTime {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="getServiceTime", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
@@ -732,74 +674,6 @@ namespace JKApp.KGMWebService {
         }
         
         public getServiceTimeResponseBody(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class getResult {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getResult", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.getResultBody Body;
-        
-        public getResult() {
-        }
-        
-        public getResult(JKApp.KGMWebService.getResultBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://impl.webService.jeesite.thinkgem.com/")]
-    public partial class getResultBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string verifyCode;
-        
-        public getResultBody() {
-        }
-        
-        public getResultBody(string verifyCode) {
-            this.verifyCode = verifyCode;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class getResultResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getResultResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.getResultResponseBody Body;
-        
-        public getResultResponse() {
-        }
-        
-        public getResultResponse(JKApp.KGMWebService.getResultResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class getResultResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string @return;
-        
-        public getResultResponseBody() {
-        }
-        
-        public getResultResponseBody(string @return) {
             this.@return = @return;
         }
     }
@@ -956,6 +830,290 @@ namespace JKApp.KGMWebService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class saveCardNo {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="saveCardNo", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
+        public JKApp.KGMWebService.saveCardNoBody Body;
+        
+        public saveCardNo() {
+        }
+        
+        public saveCardNo(JKApp.KGMWebService.saveCardNoBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://impl.webService.jeesite.thinkgem.com/")]
+    public partial class saveCardNoBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string verifyCode;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string cardNo;
+        
+        public saveCardNoBody() {
+        }
+        
+        public saveCardNoBody(string verifyCode, string cardNo) {
+            this.verifyCode = verifyCode;
+            this.cardNo = cardNo;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class saveCardNoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="saveCardNoResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
+        public JKApp.KGMWebService.saveCardNoResponseBody Body;
+        
+        public saveCardNoResponse() {
+        }
+        
+        public saveCardNoResponse(JKApp.KGMWebService.saveCardNoResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class saveCardNoResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public saveCardNoResponseBody() {
+        }
+        
+        public saveCardNoResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class setUsed {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="setUsed", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
+        public JKApp.KGMWebService.setUsedBody Body;
+        
+        public setUsed() {
+        }
+        
+        public setUsed(JKApp.KGMWebService.setUsedBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://impl.webService.jeesite.thinkgem.com/")]
+    public partial class setUsedBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string verifyCode;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string loginName;
+        
+        public setUsedBody() {
+        }
+        
+        public setUsedBody(string verifyCode, string loginName) {
+            this.verifyCode = verifyCode;
+            this.loginName = loginName;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class setUsedResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="setUsedResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
+        public JKApp.KGMWebService.setUsedResponseBody Body;
+        
+        public setUsedResponse() {
+        }
+        
+        public setUsedResponse(JKApp.KGMWebService.setUsedResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class setUsedResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public setUsedResponseBody() {
+        }
+        
+        public setUsedResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class isExistOrder {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="isExistOrder", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
+        public JKApp.KGMWebService.isExistOrderBody Body;
+        
+        public isExistOrder() {
+        }
+        
+        public isExistOrder(JKApp.KGMWebService.isExistOrderBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://impl.webService.jeesite.thinkgem.com/")]
+    public partial class isExistOrderBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string verifyCode;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string loginName;
+        
+        public isExistOrderBody() {
+        }
+        
+        public isExistOrderBody(string verifyCode, string loginName) {
+            this.verifyCode = verifyCode;
+            this.loginName = loginName;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class isExistOrderResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="isExistOrderResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
+        public JKApp.KGMWebService.isExistOrderResponseBody Body;
+        
+        public isExistOrderResponse() {
+        }
+        
+        public isExistOrderResponse(JKApp.KGMWebService.isExistOrderResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class isExistOrderResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public isExistOrderResponseBody() {
+        }
+        
+        public isExistOrderResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getResult {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getResult", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
+        public JKApp.KGMWebService.getResultBody Body;
+        
+        public getResult() {
+        }
+        
+        public getResult(JKApp.KGMWebService.getResultBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://impl.webService.jeesite.thinkgem.com/")]
+    public partial class getResultBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string verifyCode;
+        
+        public getResultBody() {
+        }
+        
+        public getResultBody(string verifyCode) {
+            this.verifyCode = verifyCode;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getResultResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getResultResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
+        public JKApp.KGMWebService.getResultResponseBody Body;
+        
+        public getResultResponse() {
+        }
+        
+        public getResultResponse(JKApp.KGMWebService.getResultResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class getResultResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public getResultResponseBody() {
+        }
+        
+        public getResultResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface GmWebServletChannel : JKApp.KGMWebService.GmWebServlet, System.ServiceModel.IClientChannel {
     }
@@ -1009,6 +1167,33 @@ namespace JKApp.KGMWebService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        JKApp.KGMWebService.getOrderInfoByPeopleNoResponse JKApp.KGMWebService.GmWebServlet.getOrderInfoByPeopleNo(JKApp.KGMWebService.getOrderInfoByPeopleNo request) {
+            return base.Channel.getOrderInfoByPeopleNo(request);
+        }
+        
+        public string getOrderInfoByPeopleNo(string loginName, string peopleNo) {
+            JKApp.KGMWebService.getOrderInfoByPeopleNo inValue = new JKApp.KGMWebService.getOrderInfoByPeopleNo();
+            inValue.Body = new JKApp.KGMWebService.getOrderInfoByPeopleNoBody();
+            inValue.Body.loginName = loginName;
+            inValue.Body.peopleNo = peopleNo;
+            JKApp.KGMWebService.getOrderInfoByPeopleNoResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).getOrderInfoByPeopleNo(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<JKApp.KGMWebService.getOrderInfoByPeopleNoResponse> JKApp.KGMWebService.GmWebServlet.getOrderInfoByPeopleNoAsync(JKApp.KGMWebService.getOrderInfoByPeopleNo request) {
+            return base.Channel.getOrderInfoByPeopleNoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<JKApp.KGMWebService.getOrderInfoByPeopleNoResponse> getOrderInfoByPeopleNoAsync(string loginName, string peopleNo) {
+            JKApp.KGMWebService.getOrderInfoByPeopleNo inValue = new JKApp.KGMWebService.getOrderInfoByPeopleNo();
+            inValue.Body = new JKApp.KGMWebService.getOrderInfoByPeopleNoBody();
+            inValue.Body.loginName = loginName;
+            inValue.Body.peopleNo = peopleNo;
+            return ((JKApp.KGMWebService.GmWebServlet)(this)).getOrderInfoByPeopleNoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         JKApp.KGMWebService.jsonOutTxtResponse JKApp.KGMWebService.GmWebServlet.jsonOutTxt(JKApp.KGMWebService.jsonOutTxt request) {
             return base.Channel.jsonOutTxt(request);
         }
@@ -1036,30 +1221,30 @@ namespace JKApp.KGMWebService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        JKApp.KGMWebService.getOrderInfoByPeopleNoResponse JKApp.KGMWebService.GmWebServlet.getOrderInfoByPeopleNo(JKApp.KGMWebService.getOrderInfoByPeopleNo request) {
-            return base.Channel.getOrderInfoByPeopleNo(request);
+        JKApp.KGMWebService.isTiaoliServiceResponse JKApp.KGMWebService.GmWebServlet.isTiaoliService(JKApp.KGMWebService.isTiaoliService request) {
+            return base.Channel.isTiaoliService(request);
         }
         
-        public string getOrderInfoByPeopleNo(string loginName, string peopleNo) {
-            JKApp.KGMWebService.getOrderInfoByPeopleNo inValue = new JKApp.KGMWebService.getOrderInfoByPeopleNo();
-            inValue.Body = new JKApp.KGMWebService.getOrderInfoByPeopleNoBody();
+        public string isTiaoliService(string verifyCode, string loginName) {
+            JKApp.KGMWebService.isTiaoliService inValue = new JKApp.KGMWebService.isTiaoliService();
+            inValue.Body = new JKApp.KGMWebService.isTiaoliServiceBody();
+            inValue.Body.verifyCode = verifyCode;
             inValue.Body.loginName = loginName;
-            inValue.Body.peopleNo = peopleNo;
-            JKApp.KGMWebService.getOrderInfoByPeopleNoResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).getOrderInfoByPeopleNo(inValue);
+            JKApp.KGMWebService.isTiaoliServiceResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).isTiaoliService(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.getOrderInfoByPeopleNoResponse> JKApp.KGMWebService.GmWebServlet.getOrderInfoByPeopleNoAsync(JKApp.KGMWebService.getOrderInfoByPeopleNo request) {
-            return base.Channel.getOrderInfoByPeopleNoAsync(request);
+        System.Threading.Tasks.Task<JKApp.KGMWebService.isTiaoliServiceResponse> JKApp.KGMWebService.GmWebServlet.isTiaoliServiceAsync(JKApp.KGMWebService.isTiaoliService request) {
+            return base.Channel.isTiaoliServiceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<JKApp.KGMWebService.getOrderInfoByPeopleNoResponse> getOrderInfoByPeopleNoAsync(string loginName, string peopleNo) {
-            JKApp.KGMWebService.getOrderInfoByPeopleNo inValue = new JKApp.KGMWebService.getOrderInfoByPeopleNo();
-            inValue.Body = new JKApp.KGMWebService.getOrderInfoByPeopleNoBody();
+        public System.Threading.Tasks.Task<JKApp.KGMWebService.isTiaoliServiceResponse> isTiaoliServiceAsync(string verifyCode, string loginName) {
+            JKApp.KGMWebService.isTiaoliService inValue = new JKApp.KGMWebService.isTiaoliService();
+            inValue.Body = new JKApp.KGMWebService.isTiaoliServiceBody();
+            inValue.Body.verifyCode = verifyCode;
             inValue.Body.loginName = loginName;
-            inValue.Body.peopleNo = peopleNo;
-            return ((JKApp.KGMWebService.GmWebServlet)(this)).getOrderInfoByPeopleNoAsync(inValue);
+            return ((JKApp.KGMWebService.GmWebServlet)(this)).isTiaoliServiceAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1142,60 +1327,6 @@ namespace JKApp.KGMWebService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        JKApp.KGMWebService.saveCardNoResponse JKApp.KGMWebService.GmWebServlet.saveCardNo(JKApp.KGMWebService.saveCardNo request) {
-            return base.Channel.saveCardNo(request);
-        }
-        
-        public string saveCardNo(string verifyCode, string cardNo) {
-            JKApp.KGMWebService.saveCardNo inValue = new JKApp.KGMWebService.saveCardNo();
-            inValue.Body = new JKApp.KGMWebService.saveCardNoBody();
-            inValue.Body.verifyCode = verifyCode;
-            inValue.Body.cardNo = cardNo;
-            JKApp.KGMWebService.saveCardNoResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).saveCardNo(inValue);
-            return retVal.Body.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.saveCardNoResponse> JKApp.KGMWebService.GmWebServlet.saveCardNoAsync(JKApp.KGMWebService.saveCardNo request) {
-            return base.Channel.saveCardNoAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<JKApp.KGMWebService.saveCardNoResponse> saveCardNoAsync(string verifyCode, string cardNo) {
-            JKApp.KGMWebService.saveCardNo inValue = new JKApp.KGMWebService.saveCardNo();
-            inValue.Body = new JKApp.KGMWebService.saveCardNoBody();
-            inValue.Body.verifyCode = verifyCode;
-            inValue.Body.cardNo = cardNo;
-            return ((JKApp.KGMWebService.GmWebServlet)(this)).saveCardNoAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        JKApp.KGMWebService.isExistOrderResponse JKApp.KGMWebService.GmWebServlet.isExistOrder(JKApp.KGMWebService.isExistOrder request) {
-            return base.Channel.isExistOrder(request);
-        }
-        
-        public string isExistOrder(string verifyCode, string loginName) {
-            JKApp.KGMWebService.isExistOrder inValue = new JKApp.KGMWebService.isExistOrder();
-            inValue.Body = new JKApp.KGMWebService.isExistOrderBody();
-            inValue.Body.verifyCode = verifyCode;
-            inValue.Body.loginName = loginName;
-            JKApp.KGMWebService.isExistOrderResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).isExistOrder(inValue);
-            return retVal.Body.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.isExistOrderResponse> JKApp.KGMWebService.GmWebServlet.isExistOrderAsync(JKApp.KGMWebService.isExistOrder request) {
-            return base.Channel.isExistOrderAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<JKApp.KGMWebService.isExistOrderResponse> isExistOrderAsync(string verifyCode, string loginName) {
-            JKApp.KGMWebService.isExistOrder inValue = new JKApp.KGMWebService.isExistOrder();
-            inValue.Body = new JKApp.KGMWebService.isExistOrderBody();
-            inValue.Body.verifyCode = verifyCode;
-            inValue.Body.loginName = loginName;
-            return ((JKApp.KGMWebService.GmWebServlet)(this)).isExistOrderAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         JKApp.KGMWebService.getServiceTimeResponse JKApp.KGMWebService.GmWebServlet.getServiceTime(JKApp.KGMWebService.getServiceTime request) {
             return base.Channel.getServiceTime(request);
         }
@@ -1218,31 +1349,6 @@ namespace JKApp.KGMWebService {
             inValue.Body = new JKApp.KGMWebService.getServiceTimeBody();
             inValue.Body.cardid = cardid;
             return ((JKApp.KGMWebService.GmWebServlet)(this)).getServiceTimeAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        JKApp.KGMWebService.getResultResponse JKApp.KGMWebService.GmWebServlet.getResult(JKApp.KGMWebService.getResult request) {
-            return base.Channel.getResult(request);
-        }
-        
-        public string getResult(string verifyCode) {
-            JKApp.KGMWebService.getResult inValue = new JKApp.KGMWebService.getResult();
-            inValue.Body = new JKApp.KGMWebService.getResultBody();
-            inValue.Body.verifyCode = verifyCode;
-            JKApp.KGMWebService.getResultResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).getResult(inValue);
-            return retVal.Body.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.getResultResponse> JKApp.KGMWebService.GmWebServlet.getResultAsync(JKApp.KGMWebService.getResult request) {
-            return base.Channel.getResultAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<JKApp.KGMWebService.getResultResponse> getResultAsync(string verifyCode) {
-            JKApp.KGMWebService.getResult inValue = new JKApp.KGMWebService.getResult();
-            inValue.Body = new JKApp.KGMWebService.getResultBody();
-            inValue.Body.verifyCode = verifyCode;
-            return ((JKApp.KGMWebService.GmWebServlet)(this)).getResultAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1301,6 +1407,112 @@ namespace JKApp.KGMWebService {
             inValue.Body.orderId = orderId;
             inValue.Body.testDate = testDate;
             return ((JKApp.KGMWebService.GmWebServlet)(this)).fileOutXlsAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        JKApp.KGMWebService.saveCardNoResponse JKApp.KGMWebService.GmWebServlet.saveCardNo(JKApp.KGMWebService.saveCardNo request) {
+            return base.Channel.saveCardNo(request);
+        }
+        
+        public string saveCardNo(string verifyCode, string cardNo) {
+            JKApp.KGMWebService.saveCardNo inValue = new JKApp.KGMWebService.saveCardNo();
+            inValue.Body = new JKApp.KGMWebService.saveCardNoBody();
+            inValue.Body.verifyCode = verifyCode;
+            inValue.Body.cardNo = cardNo;
+            JKApp.KGMWebService.saveCardNoResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).saveCardNo(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<JKApp.KGMWebService.saveCardNoResponse> JKApp.KGMWebService.GmWebServlet.saveCardNoAsync(JKApp.KGMWebService.saveCardNo request) {
+            return base.Channel.saveCardNoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<JKApp.KGMWebService.saveCardNoResponse> saveCardNoAsync(string verifyCode, string cardNo) {
+            JKApp.KGMWebService.saveCardNo inValue = new JKApp.KGMWebService.saveCardNo();
+            inValue.Body = new JKApp.KGMWebService.saveCardNoBody();
+            inValue.Body.verifyCode = verifyCode;
+            inValue.Body.cardNo = cardNo;
+            return ((JKApp.KGMWebService.GmWebServlet)(this)).saveCardNoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        JKApp.KGMWebService.setUsedResponse JKApp.KGMWebService.GmWebServlet.setUsed(JKApp.KGMWebService.setUsed request) {
+            return base.Channel.setUsed(request);
+        }
+        
+        public string setUsed(string verifyCode, string loginName) {
+            JKApp.KGMWebService.setUsed inValue = new JKApp.KGMWebService.setUsed();
+            inValue.Body = new JKApp.KGMWebService.setUsedBody();
+            inValue.Body.verifyCode = verifyCode;
+            inValue.Body.loginName = loginName;
+            JKApp.KGMWebService.setUsedResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).setUsed(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<JKApp.KGMWebService.setUsedResponse> JKApp.KGMWebService.GmWebServlet.setUsedAsync(JKApp.KGMWebService.setUsed request) {
+            return base.Channel.setUsedAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<JKApp.KGMWebService.setUsedResponse> setUsedAsync(string verifyCode, string loginName) {
+            JKApp.KGMWebService.setUsed inValue = new JKApp.KGMWebService.setUsed();
+            inValue.Body = new JKApp.KGMWebService.setUsedBody();
+            inValue.Body.verifyCode = verifyCode;
+            inValue.Body.loginName = loginName;
+            return ((JKApp.KGMWebService.GmWebServlet)(this)).setUsedAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        JKApp.KGMWebService.isExistOrderResponse JKApp.KGMWebService.GmWebServlet.isExistOrder(JKApp.KGMWebService.isExistOrder request) {
+            return base.Channel.isExistOrder(request);
+        }
+        
+        public string isExistOrder(string verifyCode, string loginName) {
+            JKApp.KGMWebService.isExistOrder inValue = new JKApp.KGMWebService.isExistOrder();
+            inValue.Body = new JKApp.KGMWebService.isExistOrderBody();
+            inValue.Body.verifyCode = verifyCode;
+            inValue.Body.loginName = loginName;
+            JKApp.KGMWebService.isExistOrderResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).isExistOrder(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<JKApp.KGMWebService.isExistOrderResponse> JKApp.KGMWebService.GmWebServlet.isExistOrderAsync(JKApp.KGMWebService.isExistOrder request) {
+            return base.Channel.isExistOrderAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<JKApp.KGMWebService.isExistOrderResponse> isExistOrderAsync(string verifyCode, string loginName) {
+            JKApp.KGMWebService.isExistOrder inValue = new JKApp.KGMWebService.isExistOrder();
+            inValue.Body = new JKApp.KGMWebService.isExistOrderBody();
+            inValue.Body.verifyCode = verifyCode;
+            inValue.Body.loginName = loginName;
+            return ((JKApp.KGMWebService.GmWebServlet)(this)).isExistOrderAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        JKApp.KGMWebService.getResultResponse JKApp.KGMWebService.GmWebServlet.getResult(JKApp.KGMWebService.getResult request) {
+            return base.Channel.getResult(request);
+        }
+        
+        public string getResult(string verifyCode) {
+            JKApp.KGMWebService.getResult inValue = new JKApp.KGMWebService.getResult();
+            inValue.Body = new JKApp.KGMWebService.getResultBody();
+            inValue.Body.verifyCode = verifyCode;
+            JKApp.KGMWebService.getResultResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).getResult(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<JKApp.KGMWebService.getResultResponse> JKApp.KGMWebService.GmWebServlet.getResultAsync(JKApp.KGMWebService.getResult request) {
+            return base.Channel.getResultAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<JKApp.KGMWebService.getResultResponse> getResultAsync(string verifyCode) {
+            JKApp.KGMWebService.getResult inValue = new JKApp.KGMWebService.getResult();
+            inValue.Body = new JKApp.KGMWebService.getResultBody();
+            inValue.Body.verifyCode = verifyCode;
+            return ((JKApp.KGMWebService.GmWebServlet)(this)).getResultAsync(inValue);
         }
     }
 }

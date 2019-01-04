@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -13,6 +14,10 @@ namespace Paricom
         private int PatientTime;
         private int CommonTime;
         private int PrepareTime;
+        private string dbpath = "";
+        private string infoFile = System.Windows.Forms.Application.StartupPath + "/info.xml";
+        private string matrixFile = System.Windows.Forms.Application.StartupPath + "/matrix.xml";
+        private string risksFile = System.Windows.Forms.Application.StartupPath + "/risks.xml";
 
         public TestHelper()
         {
@@ -21,6 +26,7 @@ namespace Paricom
             PatientTime = SettingHelper.ReadTime("PatientTime");
             CommonTime = SettingHelper.ReadTime("CommonTime");
             PrepareTime = SettingHelper.ReadTime("PrepareTime");
+            dbpath = "C:\\Clasp32\\DATA\\data.db3";
         }
             
         public void TestLaunch(bool bShow)
@@ -65,6 +71,35 @@ namespace Paricom
             Thread.Sleep(CommonTime * 1000);
         }
 
+        public void ExportXML()
+        {
+            try
+            {
+                if (File.Exists(infoFile))
+                {
+                    File.Delete(infoFile);
+                }
+                if (File.Exists(matrixFile))
+                {
+                    File.Delete(matrixFile);
+                }
+                if (File.Exists(risksFile))
+                {
+                    File.Delete(risksFile);
+                }
+                Thread.Sleep(CommonTime * 1000);
+                AgentDll.dump_table(dbpath, "Info", infoFile);
+                Thread.Sleep(CommonTime * 1000);
+                AgentDll.dump_table(dbpath, "Conscida", matrixFile);
+                Thread.Sleep(CommonTime * 1000);
+                AgentDll.dump_table(dbpath, "Risks", risksFile);
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteLog(ex.ToString());
+                string str = ex.ToString();
+            }
+        }
         public void TestStart()
         {
             AgentDll.start_test();

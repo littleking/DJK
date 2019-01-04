@@ -21,11 +21,14 @@ namespace JKApp
     public partial class FrmInfo : XtraForm
     {
         private TestHelper th;
+        private int orderType;
 
         public FrmInfo()
         {
             InitializeComponent();
+            checkWaitedSource();
             runBat();
+            orderType = 1;
             th = new TestHelper();
             this.labelControl1.Text = "健康检测系统运用高科技手段有效检测不同人群在身、心、灵多层面的健康风险，并精准评估，\r\n靶向调理，形成健康追踪、无创干预、慢病管理、诊疗指导等全方位的健康管理体系。";
             this.txtSex.SelectedIndex = -1;
@@ -42,7 +45,24 @@ namespace JKApp
         }
 
 
-
+        public void checkWaitedSource()
+        {
+            string bakPath = System.Windows.Forms.Application.StartupPath + "/waitedSource/";
+            if (Directory.Exists(bakPath))
+            {
+                DirectoryInfo Dir = new DirectoryInfo(bakPath);
+                FileInfo[] fi = Dir.GetFiles();
+                if (fi.Length > 0)
+                {
+                    simpleButton4.Visible = true;
+                    simpleButton4.Text = fi.Length + "份健康档案未处理";
+                }
+                else
+                {
+                    simpleButton4.Visible = false;
+                }
+            }
+        }
 
         private void StartTool()
         {
@@ -112,6 +132,7 @@ namespace JKApp
             }
             DataProcess dp = new DataProcess();
             string msg = dp.validCode(this.txtCode.Text.Trim());
+            orderType = dp.getTL(this.txtCode.Text.Trim());
             if (msg.Length > 0)
             {
                 XtraMessageBox.Show(msg, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -218,75 +239,58 @@ namespace JKApp
                     LogHelper.WriteLog("1:" + ex.ToString());
                     this.simpleButton1.Enabled = true;
                     XtraMessageBox.Show("数据保存失败，请联系管理员!", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //XtraMessageBox.Show("检测程序启动失败，请联系管理员!", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                //pictureBox1.Enabled = false;
+                bool hasDev = true;
                 splashScreenManager2.ShowWaitForm();
-                //splashScreenManager2.SetWaitFormCaption("正在查找设备");
-                //splashScreenManager2.SetWaitFormDescription(" 请等待。。。");
                 Task.Factory.StartNew(() =>
                 {
-                    int count = 0;
-                    while (!findScio)
+                    th.TestLaunch(this.checkEdit1.Checked);
+                    Thread.Sleep(15000);
+                    if (!th.TestDevice())
                     {
-                        try
+                        killP();
+                        this.simpleButton1.Enabled = true;
+                        splashScreenManager2.CloseWaitForm();
+                        XtraMessageBox.Show("检测设备初始化未完成，请重试！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        hasDev = false;
+                        return;
+                    }
+                    string testMsg = "";
+                    bool bandCheck = false;
+                    while (!bandCheck)
+                    {
+                        Thread.Sleep(200);
+                        if (!th.TestBand(out testMsg))
                         {
-                            th.TestLaunch(this.checkEdit1.Checked);
-                            //findScio = true;
-                            Thread.Sleep(12000);
-                            if (th.TestLF())
+                            splashScreenManager2.CloseWaitForm();
+                            if (XtraMessageBox.Show(testMsg + "绑带检测未通过，是否重新检测？选Yes将重试，选No将跳过绑带检测", "错误", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
                             {
-                                th.CloseBandTest();
-                                Thread.Sleep(8000);
-                                findScio = true;
+                                splashScreenManager2.ShowWaitForm();
                             }
                             else
                             {
-                                splashScreenManager2.SetWaitFormCaption("设备和人体通讯异常，第" + (count + 1) + "次重试中");
-                                count++;
-                                killP();
-                                Thread.Sleep(3000);
+                                th.CloseBandTest();
+                                bandCheck = true;
                             }
-                            if (count == 3)
-                            {
-                                this.simpleButton1.Enabled = true;
-                                splashScreenManager2.CloseWaitForm();
-                                //this.pictureBox1.Enabled = true;
-                                if (XtraMessageBox.Show("绑带检测未通过，是否跳过绑带检查并继续?", "错误", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
-                                {
-                                    splashScreenManager2.ShowWaitForm();
-                                    splashScreenManager2.SetWaitFormCaption(" 请等待。。。");
-                                    th.TestLaunch(this.checkEdit1.Checked);
-                                    Thread.Sleep(8000);
-                                    th.CloseBandTest();
-                                    Thread.Sleep(8000);
-                                    findScio = true;
-                                }
-                                else
-                                {
-                                    XtraMessageBox.Show("绑带检测未通过，请检查绑带后重新开始！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    return;
-                                }
-                            }
-                            //th.TestLaunch(false);
-                            //th.CloseBandTest();
-                            //Thread.Sleep(6000);
                         }
-                        catch (Exception ex)
+                        else
                         {
-                            this.simpleButton1.Enabled = true;
-                            string haha = ex.ToString();
-                            XtraMessageBox.Show("检测程序无法启动，请联系管理员", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            LogHelper.WriteLog("2:" + haha);
-                            Application.Exit();
+                            th.CloseBandTest();
+                            bandCheck = true;
                         }
                     }
-                    //StartTool();
 
                 }).ContinueWith(x =>
                 {
-                    splashScreenManager2.CloseWaitForm();
+                    if (!hasDev)
+                    {
+                        return;
+                    }
+                    if (splashScreenManager2.IsSplashFormVisible)
+                    {
+                        splashScreenManager2.CloseWaitForm();
+                    }
                     this.Invoke((MethodInvoker)(() =>
                     {
                         this.txtSex.SelectedIndex = -1;
@@ -297,8 +301,18 @@ namespace JKApp
                         this.simpleButton1.Enabled = true;
                         //this.pictureBox1.Enabled = true;
                         //FrmMain.Instance.XtraTabOpen("FrmTest", "信息");
-                        FrmTest frmTest = new FrmTest();
-                        frmTest.Show();
+                        if (orderType == 1)
+                        {
+                            FrmTest frmTest = new FrmTest();
+                            frmTest.Show();
+                        }
+                        else
+                        {
+                            killP();
+                            FrmTherapy frmTherapy = new FrmTherapy();
+                            frmTherapy.Show();
+                        }
+                        orderType = 1;
                         FrmInfo.Instance.Hide();
                     }));
                 });
@@ -306,21 +320,6 @@ namespace JKApp
             }
         }
 
-        private void simpleButton2_Click(object sender, EventArgs e)
-        {
-            //Patient.w_name = txtName.Text.Trim();
-            //Patient.w_birth_day = txtBirthDay.Text;
-            //Patient.w_location = txtBirthPlace.Text.Trim();
-            //Patient.w_sex = txtSex.Text;
-            //Patient.w_code = txtCode.Text.Trim();
-            //string reportFile = System.Windows.Forms.Application.StartupPath + "/report.xlsm";
-            //string sourceFile = System.Windows.Forms.Application.StartupPath + "/clarity.xls";
-            //string dataFile = System.Windows.Forms.Application.StartupPath + "/data.xml";
-            //string testFile = ConfigurationManager.AppSettings["sourceAddress"];
-            //DataProcess dp = new DataProcess(reportFile, sourceFile, testFile, dataFile);
-            //dp.uploadInfo();
-            th.ExportXML();
-        }
 
         private void testUpload()
         {
@@ -332,19 +331,12 @@ namespace JKApp
             string dataFile = System.Windows.Forms.Application.StartupPath + "/data.xml";
             string testFile = ConfigurationManager.AppSettings["sourceAddress"];
             DataProcess dp = new DataProcess(reportFile, sourceFile, testFile, dataFile);
-            bool rtn = dp.uploadInfo();
-            string haha = "";
+            string infoStr = dp.GetInfoData(txtCode.Text.Trim());
+            StreamWriter strmsave = new StreamWriter("E:\\InfoTestTxt.txt", false, System.Text.Encoding.Default);
+            strmsave.Write(infoStr);
+            strmsave.Close();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            testUpload();
-        }
-
-        private void button1_Click_2(object sender, EventArgs e)
-        {
-            testUpload();
-        }
 
         private void checkSheet()
         {
@@ -370,15 +362,11 @@ namespace JKApp
             }
         }
 
-        private void simpleButton2_Click_1(object sender, EventArgs e)
+        private void simpleButton2_Click(object sender, EventArgs e)
         {
             checkSheet();
         }
 
-        private void button1_Click_3(object sender, EventArgs e)
-        {
-            string rtn = th.GetRiskData(txtCode.Text.Trim());;
-        }
 
         private int iPort;
         private int port;
@@ -583,13 +571,156 @@ namespace JKApp
             return rtn;
         }
 
-        private void button1_Click_4(object sender, EventArgs e)
+        private void button2_Click_1(object sender, EventArgs e)
         {
-            string rtn = th.GetRiskData(txtCode.Text.Trim());
-            string ws = ConfigurationManager.AppSettings["WSAddress"].ToString();
-            KGMWebService.GmWebServletClient webService = new KGMWebService.GmWebServletClient("GmWebServletImplPort", ws);
-            string xxx = webService.jsonOutTxt(rtn, txtCode.Text.Trim());
-            string haha = "";
+            testUpload();
+        }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            if (XtraMessageBox.Show("是否开始上传健康档案？", "重新上传", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.simpleButton4.Enabled = false;
+                splashScreenManager2.ShowWaitForm();
+                splashScreenManager2.SetWaitFormCaption("健康档案正在处理上传中。。。");
+                int[] result = new int[3];
+                Task.Factory.StartNew(() =>
+                {
+                    result = uploadSource();
+
+                }).ContinueWith(x =>
+                {
+
+                    this.Invoke((MethodInvoker)(() =>
+                    {
+                        splashScreenManager2.CloseWaitForm();
+                        XtraMessageBox.Show(result[0] + "份健康档案成功上传," + result[1] + "份健康档案上传失败," + result[2] + "份健康档案无效或已处理", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        checkWaitedSource();
+                        this.simpleButton4.Enabled = true;
+                    }));
+                });
+            }
+        }
+
+        private int[] uploadSource()
+        {
+            int[] result = new int[3];
+            string bakPath = System.Windows.Forms.Application.StartupPath + "/WaitedSource/";
+            if (Directory.Exists(bakPath))
+            {
+                DirectoryInfo Dir = new DirectoryInfo(bakPath);
+                FileInfo[] fi = Dir.GetFiles();
+                //splashScreenManager2.SetWaitFormCaption("待处理健康档案数为" + fi.Length+"。。。");
+                //Thread.Sleep(2000);
+                int i = 1;
+                foreach (FileInfo file in fi)
+                {
+                    int rtn = SourceProcess(file);
+                    splashScreenManager2.SetWaitFormCaption("第" + i + "个健康档案正在处理上传中。。。");
+                    if (rtn == 1) //成功上传
+                    {
+                        result[0]++;
+                    }
+                    else if (rtn == 0)//上传失败
+                    {
+                        result[1]++;
+                    }
+                    else //不正确的数据文件被删除
+                    {
+                        result[2]++;
+                    }
+                    i++;
+                }
+            }
+            return result;
+        }
+
+        private int SourceProcess(FileInfo file)
+        {
+            string filename = file.Name;
+            string[] fileDetail = filename.Split('.');
+            string verifyCode = "";
+            if (fileDetail.Length == 2)
+            {
+                verifyCode = fileDetail[0];
+                string fileType = fileDetail[1];
+                //文件有问题，删除文件
+                if (fileType != "bak")
+                {
+                    File.Delete(file.FullName);
+                    return -1;
+                }
+                DataProcess dpN = new DataProcess();
+                string msg = dpN.validCode(verifyCode);
+                //校验码有问题，删除文件
+                if (msg.Length > 0)
+                {
+                    if (msg != "验证时出错")
+                    {
+                        File.Delete(file.FullName);
+                    }
+                    return -1;
+                }
+            }
+            else
+            {
+
+                File.Delete(file.FullName);
+                return -1; //文件有问题
+            }
+
+            //开始处理文件
+            string testFile = System.Windows.Forms.Application.StartupPath + "/WaitedSource/clarity.xls";
+            if (File.Exists(testFile))
+            {
+                File.Delete(testFile);
+            }
+            string tempSource = file.FullName;
+            copyStream(testFile, tempSource);
+
+            string reportFile = "c:/clasp32/data" + "/test.xlsm";
+            string sourceFile = "c:/clasp32/data" + "/clarity.xls";  
+            string dataFile = System.Windows.Forms.Application.StartupPath + "/data.xml";
+            DataProcess dp = new DataProcess(reportFile, sourceFile, testFile, dataFile);
+            bool rtn = dp.uploadInfo(1, verifyCode);
+            if (File.Exists(testFile))
+            {
+                File.Delete(testFile);
+            }
+            if (rtn)
+            {
+                File.Delete(file.FullName);
+                return 1; //成功
+            }
+            else
+            {
+                return 0; //失败
+            }
+
+        }
+
+        private void copyStream(string resultFile,string temp)
+        {
+            if (File.Exists(resultFile))
+            {
+                File.Delete(resultFile);
+            }
+            FileStream filestream = new FileStream(temp, FileMode.Open);
+            byte[] bt = new byte[filestream.Length];
+            filestream.Read(bt, 0, bt.Length);
+            string base64Str = System.Text.Encoding.Default.GetString(bt);
+            var contents = Convert.FromBase64String(base64Str);
+            using (var fss = new FileStream(resultFile, FileMode.Create, FileAccess.Write))
+            {
+                fss.Write(contents, 0, contents.Length);
+                fss.Flush();
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            FrmTherapy frmTherapy = new FrmTherapy();
+            frmTherapy.Show();
         }
     }
 }

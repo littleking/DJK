@@ -20,6 +20,7 @@ namespace JKApp
         private string infoFile = System.Windows.Forms.Application.StartupPath + "/info.xml";
         private string matrixFile = System.Windows.Forms.Application.StartupPath + "/matrix.xml";
         private string risksFile = System.Windows.Forms.Application.StartupPath + "/risks.xml";
+        private string emotionFile = System.Windows.Forms.Application.StartupPath + "/emotion.xml";
 
         public TestHelper()
         {
@@ -111,7 +112,14 @@ namespace JKApp
             Thread.Sleep(PrepareTime * 1000);
             AgentDll.do_test();
             Thread.Sleep(CommonTime * 1000);
+            AgentDll.make_emotion_chart();
+            Thread.Sleep(CommonTime * 1000);
+            AgentDll.nutr_load();
+            Thread.Sleep(CommonTime * 1000);
+            AgentDll.risk_load_data();
+            Thread.Sleep(CommonTime * 1000);
             AgentDll.export_report();
+            Thread.Sleep(CommonTime * 1000);
             //ExportXML();
         }
 
@@ -142,6 +150,29 @@ namespace JKApp
             return data;
         }
 
+        public List<EmotionData> GetEmotionData()
+        {
+            List<EmotionData> emotionDataList = new List<EmotionData>();
+            XmlDocument xmlDocument = new XmlDocument();
+            if (File.Exists(emotionFile))
+            {
+                emotionDataList = new List<EmotionData>();
+                xmlDocument.Load(emotionFile);
+                XmlElement xmlElement = xmlDocument.DocumentElement;
+                XmlNodeList nodeList = xmlElement.ChildNodes;
+                XmlNodeList nodeList2 = nodeList[1].ChildNodes;
+                foreach (XmlNode item in nodeList2)
+                {
+                    EmotionData rd = new EmotionData();
+                    rd.name = item.Attributes["Emotion"].Value;
+                    rd.no = item.Attributes["NO"].Value;
+                    rd.value = item.Attributes["Value"].Value;
+                    emotionDataList.Add(rd);
+                }
+            }
+            return emotionDataList;
+        }
+
         public void ExportXML()
         {
             try
@@ -158,12 +189,18 @@ namespace JKApp
                 {
                     File.Delete(risksFile);
                 }
+                if (File.Exists(emotionFile))
+                {
+                    File.Delete(emotionFile);
+                }
                 Thread.Sleep(CommonTime * 1000);
                 AgentDll.dump_table(dbpath, "Info", infoFile);
                 Thread.Sleep(CommonTime * 1000);
                 AgentDll.dump_table(dbpath, "Conscida", matrixFile);
                 Thread.Sleep(CommonTime * 1000);
                 AgentDll.dump_table(dbpath, "Risks", risksFile);
+                Thread.Sleep(CommonTime * 1000);
+                AgentDll.dump_table(dbpath, "emotion", emotionFile);
             }
             catch(Exception ex)
             {
@@ -210,6 +247,12 @@ namespace JKApp
             }
             str = msg;
             return rtn;
+        }
+
+        public bool TestDevice()
+        {
+            bool rtn  = AgentDll.check_dev_con();
+            return !rtn;
         }
         public bool TestLF()
         {

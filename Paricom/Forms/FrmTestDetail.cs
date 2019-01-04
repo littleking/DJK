@@ -56,5 +56,7 @@ namespace Paricom
                 XtraMessageBox.Show(ex.ToString(), "错误");
             }
         }
+
+
     }
 }

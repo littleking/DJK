@@ -98,6 +98,14 @@ namespace JKApp
         public string value { get; set; }
     }
 
+    public class EmotionData
+    {
+        public string no { get; set; }
+        public string name { get; set; }
+
+        public string value { get; set; }
+    }
+
     public class TestData
     {
         public string id { get; set; }
@@ -137,6 +145,7 @@ namespace JKApp
 
         public List<RiskData> riskDatas { get; set; }
     }
+
 
     public class DataList
     {

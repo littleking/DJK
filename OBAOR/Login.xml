@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="yes"?>
+<Login>
+  <User>
+    <Account></Account>
+    <Password></Password>
+    <KeepPwd></KeepPwd>
+    <AutoLogin></AutoLogin>
+    <PosPrintType></PosPrintType>
+    <Skin></Skin>
+    <AutoLock></AutoLock>
+  </User>
+</Login>

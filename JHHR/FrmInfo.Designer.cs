@@ -259,7 +259,7 @@
             this.simpleButton3.Appearance.Options.UseForeColor = true;
             this.simpleButton3.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.simpleButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.simpleButton3.Location = new System.Drawing.Point(180, 738);
+            this.simpleButton3.Location = new System.Drawing.Point(193, 740);
             this.simpleButton3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.simpleButton3.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton3.Name = "simpleButton3";
@@ -278,11 +278,11 @@
             this.simpleButton2.Appearance.Options.UseForeColor = true;
             this.simpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.simpleButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.simpleButton2.Location = new System.Drawing.Point(378, 738);
+            this.simpleButton2.Location = new System.Drawing.Point(387, 740);
             this.simpleButton2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.simpleButton2.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(160, 48);
+            this.simpleButton2.Size = new System.Drawing.Size(176, 48);
             this.simpleButton2.TabIndex = 47;
             this.simpleButton2.Text = "开 始";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);

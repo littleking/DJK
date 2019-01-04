@@ -16,6 +16,10 @@ namespace KeyGenerator
     {
 
         private static string encryptKey = "%dn*";
+        //private static string preKey = "dfgfdgergdfgcfaaasdfdswesddsdd";
+        //private static string postKey = "cvfdgvbvbvbdfe3433fdfw@df";
+
+        //private static string encryptKey = "%ghe";
         private static string preKey = "dfgfdgergdfgcfaaasdfdswesddsdd";
         private static string postKey = "cvfdgvbvbvbdfe3433fdfw@df";
 

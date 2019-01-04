@@ -284,6 +284,7 @@
     <None Include="Resources\555.jpg" />
     <None Include="Resources\queren1.png" />
     <None Include="Resources\quxiao1.png" />
+    <None Include="Resources\5551.jpg" />
     <Content Include="Setting.xml" />
   </ItemGroup>
   <ItemGroup>

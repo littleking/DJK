@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="yes"?>
+<TestData>
+  <Data>
+    <SheetName>Data code</SheetName>
+    <StartRow>6</StartRow>
+    <EndRow>2483</EndRow>
+    <Code>0</Code>
+    <Key>1</Key>
+    <Value>2</Value>
+  </Data>
+</TestData>

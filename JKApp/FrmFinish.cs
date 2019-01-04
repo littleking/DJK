@@ -24,6 +24,7 @@ namespace JKApp
             killP();
             //FrmMain.Instance.XtraTabOpen("FrmInfo", "信息");
             this.Close();
+            FrmInfo.Instance.checkWaitedSource();
             FrmInfo.Instance.Show();
         }
 
@@ -91,6 +92,15 @@ namespace JKApp
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             QuitApp();
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            TestHelper th = new TestHelper();
+            List<EmotionData> result = th.GetEmotionData();
+            FrmEmotionSheet cs = new FrmEmotionSheet(result);
+            cs.TopMost = true;
+            cs.Show();
         }
     }
 }

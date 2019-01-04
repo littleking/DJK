@@ -18,6 +18,7 @@ namespace JHHY
         private string infoFile = System.Windows.Forms.Application.StartupPath + "/info.xml";
         private string matrixFile = System.Windows.Forms.Application.StartupPath + "/matrix.xml";
         private string risksFile = System.Windows.Forms.Application.StartupPath + "/risks.xml";
+        private string emotionFile = System.Windows.Forms.Application.StartupPath + "/emotion.xml";
 
         public TestHelper()
         {
@@ -109,7 +110,19 @@ namespace JHHY
             Thread.Sleep(PrepareTime * 1000);
             AgentDll.do_test();
             Thread.Sleep(CommonTime * 1000);
+            AgentDll.make_emotion_chart();
+            Thread.Sleep(CommonTime * 1000);
+            AgentDll.nutr_load();
+            Thread.Sleep(CommonTime * 1000);
+            AgentDll.risk_load_data();
+            Thread.Sleep(CommonTime * 1000);
             AgentDll.export_report();
+            Thread.Sleep(CommonTime * 1000);
+            //AgentDll.start_test();
+            //Thread.Sleep(PrepareTime * 1000);
+            //AgentDll.do_test();
+            //Thread.Sleep(CommonTime * 1000);
+            //AgentDll.export_report();
         }
 
         public void ExportXML()
@@ -140,6 +153,12 @@ namespace JHHY
                 LogHelper.WriteLog(ex.ToString());
                 string str = ex.ToString();
             }
+        }
+
+        public bool TestDevice()
+        {
+            bool rtn = AgentDll.check_dev_con();
+            return !rtn;
         }
 
         public bool TestBand(out string str)

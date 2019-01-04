@@ -94,19 +94,8 @@ namespace JKApp
                 SysVar.dtOld = DateTime.Now;
 
                 SysVar.isLocal = false;
-                //SysVar.isLocal = true;
 
-                //FrmInfo frmM = new FrmInfo();
-                //Application.Run(frmM);
-
-
-                //SplashScreenManager.ShowForm(typeof(SplashStart));
-                //Thread.Sleep(3000);
-                //FrmInfo i = new FrmInfo();
-                //FrmInfo.Instance = i;
-                //SplashScreenManager.CloseForm();
-                //Application.Run(i);
-
+                //云端版本
                 FrmInfo i = new FrmInfo();
                 FrmInfo.Instance = i;
                 if (!SysVar.isLocal)
@@ -120,6 +109,14 @@ namespace JKApp
                     }
                 }
                 Application.Run(i);
+
+                //本地版本
+                //SplashScreenManager.ShowForm(typeof(SplashStart));
+                //Thread.Sleep(2000);
+                //FrmInfoLocal j = new FrmInfoLocal();
+                //FrmInfoLocal.Instance = j;
+                //SplashScreenManager.CloseForm();
+                //Application.Run(j);
 
 
 

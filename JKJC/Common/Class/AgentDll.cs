@@ -15,6 +15,15 @@ namespace JKJC
         public static extern void export_report();
 
         [DllImport("agent.dll")]
+        public static extern void risk_load_data();
+
+        [DllImport("agent.dll")]
+        public static extern void make_emotion_chart();
+
+        [DllImport("agent.dll")]
+        public static extern void nutr_load();
+
+        [DllImport("agent.dll")]
         public static extern void exit_target();
 
         [DllImport("dbagent.dll", CharSet = CharSet.Unicode)]

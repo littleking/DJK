@@ -271,93 +271,133 @@ namespace JHHY
                 string clearSql = "Delete from patient";
                 string dbpath = "C:\\Clasp32\\DATA\\data.db3";
                 bool findScio = false;
+                this.simpleButton2.Enabled = false;
                 try
                 {
                     th.ExecSql(dbpath, clearSql);
                     Thread.Sleep(100);
                     th.ExecSql(dbpath, sql);
-                    
                 }
                 catch (Exception ex)
                 {
                     LogHelper.WriteLog("1:" + ex.ToString());
-                    //XtraMessageBox.Show("数据保存失败，请联系管理员!" + ex.ToString(), "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    XtraMessageBox.Show("检测程序启动失败，请联系管理员!", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.simpleButton2.Enabled = true;
+                    XtraMessageBox.Show("数据保存失败，请联系管理员!", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                this.simpleButton2.Enabled = false;
+                bool hasDev = true;
                 splashScreenManager2.ShowWaitForm();
-                //splashScreenManager2.SetWaitFormCaption("正在查找设备");
-                //splashScreenManager2.SetWaitFormDescription(" 请等待。。。");
                 Task.Factory.StartNew(() =>
                 {
-                    int count = 0;
-                    while (!findScio)
+                    th.TestLaunch(this.checkEdit1.Checked);
+                    Thread.Sleep(15000);
+                    if (!th.TestDevice())
                     {
-                        try
+                        killP();
+                        this.simpleButton2.Enabled = true;
+                        splashScreenManager2.CloseWaitForm();
+                        XtraMessageBox.Show("检测设备初始化未完成，请重试！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        hasDev = false;
+                        return;
+                    }
+                    string testMsg = "";
+                    bool bandCheck = false;
+                    while (!bandCheck)
+                    {
+                        Thread.Sleep(200);
+                        if (!th.TestBand(out testMsg))
                         {
-                            th.TestLaunch(this.checkEdit1.Checked);
-                            Thread.Sleep(12000);
-                            if (th.TestLF())
+                            splashScreenManager2.CloseWaitForm();
+                            if (XtraMessageBox.Show(testMsg + "绑带检测未通过，是否重新检测？选Yes将重试，选No将跳过绑带检测", "错误", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
                             {
-                                th.CloseBandTest();
-                                Thread.Sleep(8000);
-                                findScio = true;
+                                splashScreenManager2.ShowWaitForm();
                             }
                             else
                             {
-
-                                splashScreenManager2.SetWaitFormCaption("设备和人体通讯异常，第" + (count + 1) + "次重试中");
-                                count++;
-                                killP();
-                                Thread.Sleep(3000);
-
+                                th.CloseBandTest();
+                                bandCheck = true;
                             }
-                            if (count == 3)
-                            {
-                                splashScreenManager2.CloseWaitForm();
-                                this.simpleButton2.Enabled = true;
-                                if (XtraMessageBox.Show("绑带检测未通过，是否跳过绑带检查并继续?", "错误", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
-                                {
-                                    splashScreenManager2.ShowWaitForm();
-                                    splashScreenManager2.SetWaitFormCaption(" 请等待。。。");
-                                    th.TestLaunch(this.checkEdit1.Checked);
-                                    Thread.Sleep(8000);
-                                    th.CloseBandTest();
-                                    Thread.Sleep(8000);
-                                    findScio = true;
-                                }
-                                else
-                                {
-                                    XtraMessageBox.Show("绑带检测未通过，请检查绑带后重新开始！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    return;
-                                }
-
-                            }
-                            //th.TestLaunch(false);
-                            //th.CloseBandTest();
-                            //Thread.Sleep(6000);
                         }
-                        catch (Exception ex)
+                        else
                         {
-                            string haha = ex.ToString();
-                            XtraMessageBox.Show("检测程序无法启动，请联系管理员", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            LogHelper.WriteLog("2:" + haha);
-                            Application.Exit();
+                            th.CloseBandTest();
+                            bandCheck = true;
                         }
                     }
-                    //StartTool();
+
+
+                    //int count = 0;
+                    //while (!findScio)
+                    //{
+                    //    try
+                    //    {
+                    //        th.TestLaunch(this.checkEdit1.Checked);
+                    //        //findScio = true;
+                    //        Thread.Sleep(15000);
+                    //        if (th.TestLF())
+                    //        {
+                    //            th.CloseBandTest();
+                    //            Thread.Sleep(8000);
+                    //            findScio = true;
+                    //        }
+                    //        else
+                    //        {
+                    //            splashScreenManager2.SetWaitFormCaption("设备和人体通讯异常，第" + (count + 1) + "次重试中");
+                    //            count++;
+                    //            killP();
+                    //            Thread.Sleep(3000);
+                    //        }
+                    //        if (count == 3)
+                    //        {
+                    //            this.simpleButton2.Enabled = true;
+                    //            splashScreenManager2.CloseWaitForm();
+                    //            //this.pictureBox1.Enabled = true;
+                    //            if (XtraMessageBox.Show("绑带检测未通过，是否跳过绑带检查并继续?", "错误", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                    //            {
+                    //                splashScreenManager2.ShowWaitForm();
+                    //                splashScreenManager2.SetWaitFormCaption(" 请等待。。。");
+                    //                th.TestLaunch(this.checkEdit1.Checked);
+                    //                Thread.Sleep(8000);
+                    //                th.CloseBandTest();
+                    //                Thread.Sleep(8000);
+                    //                findScio = true;
+                    //            }
+                    //            else
+                    //            {
+                    //                XtraMessageBox.Show("绑带检测未通过，请检查绑带后重新开始！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //                return;
+                    //            }
+                    //        }
+                    //    }
+                    //    catch (Exception ex)
+                    //    {
+                    //        this.simpleButton2.Enabled = true;
+                    //        string haha = ex.ToString();
+                    //        XtraMessageBox.Show("检测程序无法启动，请联系管理员", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //        LogHelper.WriteLog("2:" + haha);
+                    //        Application.Exit();
+                    //    }
+                    //}
 
                 }).ContinueWith(x =>
                 {
-                    splashScreenManager2.CloseWaitForm();
+                    if (!hasDev)
+                    {
+                        return;
+                    }
+                    if (splashScreenManager2.IsSplashFormVisible)
+                    {
+                        splashScreenManager2.CloseWaitForm();
+                    }
                     this.Invoke((MethodInvoker)(() =>
                     {
                         this.txtSex.SelectedIndex = -1;
+                        this.txtCode.Text = "";
                         this.txtName.Text = "";
                         this.txtBirthDay.Text = "";
                         this.txtBirthPlace.Text = "";
                         this.simpleButton2.Enabled = true;
+                        //this.pictureBox1.Enabled = true;
                         //FrmMain.Instance.XtraTabOpen("FrmTest", "信息");
                         FrmTest frmTest = new FrmTest();
                         frmTest.Show();

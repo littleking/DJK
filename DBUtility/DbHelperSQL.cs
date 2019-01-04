@@ -15,7 +15,7 @@ namespace DJK.DBUtility
     public abstract class DbHelperSQL
     {
         //数据库连接字符串(web.config来配置)，多数据库可使用DbHelperSQLP来实现.
-        public static string connectionString = System.Configuration.ConfigurationSettings.AppSettings["connectionstring"]; //ConfigurationManager.AppSettings["ConnectionString"];
+        public static string connectionString = System.Configuration.ConfigurationManager.AppSettings["connectionstring"]; //ConfigurationManager.AppSettings["ConnectionString"];
         public DbHelperSQL()
         {            
         }

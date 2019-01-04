@@ -11,6 +11,9 @@ using System.IO;
 using Microsoft.Office.Interop.Excel;
 using Formula;
 using DJK.Model;
+using DJK.Common;
+using System.Xml;
+using Newtonsoft.Json;
 
 namespace Admin
 {
@@ -127,7 +130,7 @@ namespace Admin
 
                 //worksheet 1
                 Microsoft.Office.Interop.Excel.Worksheet ws = (Worksheet)sheets.get_Item(1);
-                if (ws == null) return ;
+                if (ws == null) return;
 
                 string machineSourceCode = ((Range)ws.Cells[1, 1]).Text.ToString();
                 string machineCode = "";
@@ -192,16 +195,16 @@ namespace Admin
                     mpList.Add(mp);
                 }
 
-                
+
 
                 string dsd = "";
 
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 string exxx = ex.ToString();
-                return ;
+                return;
             }
             finally
             {
@@ -226,7 +229,7 @@ namespace Admin
             System.Data.DataTable dtMatrix = new System.Data.DataTable();
             ipList = new List<InfoParser>();
             mpList = new List<MatrixParser>();
-            if (File.Exists(infoFile)&&File.Exists(matrixFile))
+            if (File.Exists(infoFile) && File.Exists(matrixFile))
             {
 
                 splashScreenManager1.ShowWaitForm();
@@ -235,7 +238,7 @@ namespace Admin
 
                 dtInfo = OpenCSV(infoFile, 0, 0, 0, 0, true);
                 dtMatrix = OpenCSV(matrixFile, 0, 0, 0, 0, true);
-                foreach(DataRow dr in dtInfo.Rows)
+                foreach (DataRow dr in dtInfo.Rows)
                 {
                     if (dr[0].ToString() == "0")
                     {
@@ -251,16 +254,16 @@ namespace Admin
                     }
 
                 }
-                foreach(DataRow dr in dtMatrix.Rows)
+                foreach (DataRow dr in dtMatrix.Rows)
                 {
                     MatrixParser mp = new MatrixParser();
                     mp.No = dr[0].ToString();
-                    mp.Value= dr[1].ToString();
+                    mp.Value = dr[1].ToString();
                     mp.Name = dr[2].ToString();
                     mp.OldValue = dr[3].ToString();
                     mpList.Add(mp);
                 }
-                
+
                 splashScreenManager1.SetWaitFormCaption("正在计算");
                 FrmCalculation frmCal = new FrmCalculation(mpList, ipList);
                 splashScreenManager1.CloseWaitForm();
@@ -375,12 +378,12 @@ namespace Admin
         private void importClarity()
         {
             List<string> sqlList = new List<string>();
-            for(int i = 1; i <= 410; i++)
+            for (int i = 1; i <= 410; i++)
             {
                 string sql = string.Format("insert into admin_clarity (SourceTable,SourceNum,SourceMin,SourceMax) values ('info',{0},0,150)", i);
                 sqlList.Add(sql);
             }
-            for(int i = 1; i <= 10763; i++)
+            for (int i = 1; i <= 10763; i++)
             {
                 string sql = string.Format("insert into admin_clarity (SourceTable,SourceNum,SourceMin,SourceMax) values ('matrix',{0},0,150)", i);
                 sqlList.Add(sql);
@@ -388,5 +391,104 @@ namespace Admin
             DJK.DAL.admin_MedicalData dal = new DJK.DAL.admin_MedicalData();
             dal.insertBulk(sqlList);
         }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            string sendJson = GetXmlData("123456789");
+            DataService.DataServiceSoapClient webService = new DataService.DataServiceSoapClient();
+            int i = webService.SendData(sendJson);
+            MessageBox.Show("" + i);
+        }
+
+        private string GetXmlData(string verifyCode)
+        {
+            string infoData = System.Windows.Forms.Application.StartupPath + "/info.xml";
+            string matrixData = System.Windows.Forms.Application.StartupPath + "/matrix.xml";
+            string data = "";
+            HealthData hdata = new HealthData();
+            HeadData head = new HeadData();
+            head.deviceNo = "testDevice";
+            head.organizationID = "testOrgID";
+            head.uploadTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            head.verifyCode = verifyCode;
+            TestDatas tds = new TestDatas();
+            XmlDocument xmlDocument = new XmlDocument();
+            if (File.Exists(infoData))
+            {
+                List<TestData> infoDataList = new List<TestData>();
+                xmlDocument.Load(infoData);
+                XmlElement xmlElement = xmlDocument.DocumentElement;
+                XmlNodeList nodeList = xmlElement.ChildNodes;
+                XmlNodeList nodeList2 = nodeList[1].ChildNodes;
+                foreach (XmlNode item in nodeList2)
+                {
+                    TestData rd = new TestData();
+                    if (item.Attributes["No"].Value == "0")
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        rd.value = item.Attributes["No"].Value;
+                        if (item.Attributes["Name"] != null)
+                        {
+                            rd.name = item.Attributes["Name"].Value.Replace("'", "''");
+                        }
+                        else
+                        {
+                            rd.name = "";
+                        }
+                        if (item.Attributes["Value"] != null)
+                        {
+                            rd.value = item.Attributes["Value"].Value;
+                        }
+                        else
+                        {
+                            rd.value = "0";
+                        }
+                        infoDataList.Add(rd);
+                    }
+                }
+                tds.InfoDatas = infoDataList;
+                //data = JsonConvert.SerializeObject(rl);
+            }
+            if (File.Exists(matrixData))
+            {
+                List<TestData> matrixDataList = new List<TestData>();
+                xmlDocument.Load(matrixData);
+                XmlElement xmlElement = xmlDocument.DocumentElement;
+                XmlNodeList nodeList = xmlElement.ChildNodes;
+                XmlNodeList nodeList2 = nodeList[1].ChildNodes;
+                foreach (XmlNode item in nodeList2)
+                {
+                    TestData rd = new TestData();
+                    rd.name = item.Attributes["Name"].Value.Replace("'", "''");
+                    rd.no = item.Attributes["No"].Value;
+                    rd.value = item.Attributes["Value"].Value;
+                    matrixDataList.Add(rd);
+                }
+                tds.MatrixDatas = matrixDataList;
+            }
+            hdata.HeadData = head;
+            hdata.TestDatas = tds;
+            data = JsonConvert.SerializeObject(hdata);
+            return data;
+        }
+
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DataService.DataServiceSoapClient webService = new DataService.DataServiceSoapClient();
+            string result = webService.GetData("123456789");
+            if (result != "0")
+            {
+                MessageBox.Show("成功");
+            }
+            else
+            {
+                MessageBox.Show("失败");
+            }
+        }
+
     }
 }

@@ -39,7 +39,7 @@ namespace JHHY
                         i = 100;
                     }
                     splashScreenManager1.SendCommand(WaitForm1.WaitFormCommand.SetProgress, i);
-                    Thread.Sleep(60 * 10 * 8);
+                    Thread.Sleep(60 * 10 * 12);
                     
                 }
             }));

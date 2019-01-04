@@ -19,6 +19,10 @@ namespace JHHY.KGMWebService {
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         JHHY.KGMWebService.saveSchedulingResponse saveScheduling(JHHY.KGMWebService.saveScheduling request);
         
+        // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 base64Code 以后生成的消息协定未标记为 nillable
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        JHHY.KGMWebService.jsonOutTxtResponse jsonOutTxt(JHHY.KGMWebService.jsonOutTxt request);
+        
         // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 loginName 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         JHHY.KGMWebService.getOrderInfoByPeopleNoResponse getOrderInfoByPeopleNo(JHHY.KGMWebService.getOrderInfoByPeopleNo request);
@@ -30,6 +34,10 @@ namespace JHHY.KGMWebService {
         // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 verifyCode 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         JHHY.KGMWebService.getVerifyCodeByContactsNameResponse getVerifyCodeByContactsName(JHHY.KGMWebService.getVerifyCodeByContactsName request);
+        
+        // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 base64Code 以后生成的消息协定未标记为 nillable
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        JHHY.KGMWebService.datacodeOutJsonResponse datacodeOutJson(JHHY.KGMWebService.datacodeOutJson request);
         
         // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 verifyCode 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
@@ -120,6 +128,78 @@ namespace JHHY.KGMWebService {
         }
         
         public saveSchedulingResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class jsonOutTxt {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="jsonOutTxt", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
+        public JHHY.KGMWebService.jsonOutTxtBody Body;
+        
+        public jsonOutTxt() {
+        }
+        
+        public jsonOutTxt(JHHY.KGMWebService.jsonOutTxtBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://impl.webService.jeesite.thinkgem.com/")]
+    public partial class jsonOutTxtBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string base64Code;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string TxtNmae;
+        
+        public jsonOutTxtBody() {
+        }
+        
+        public jsonOutTxtBody(string base64Code, string TxtNmae) {
+            this.base64Code = base64Code;
+            this.TxtNmae = TxtNmae;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class jsonOutTxtResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="jsonOutTxtResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
+        public JHHY.KGMWebService.jsonOutTxtResponseBody Body;
+        
+        public jsonOutTxtResponse() {
+        }
+        
+        public jsonOutTxtResponse(JHHY.KGMWebService.jsonOutTxtResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class jsonOutTxtResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public jsonOutTxtResponseBody() {
+        }
+        
+        public jsonOutTxtResponseBody(string @return) {
             this.@return = @return;
         }
     }
@@ -332,6 +412,78 @@ namespace JHHY.KGMWebService {
         }
         
         public getVerifyCodeByContactsNameResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class datacodeOutJson {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="datacodeOutJson", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
+        public JHHY.KGMWebService.datacodeOutJsonBody Body;
+        
+        public datacodeOutJson() {
+        }
+        
+        public datacodeOutJson(JHHY.KGMWebService.datacodeOutJsonBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://impl.webService.jeesite.thinkgem.com/")]
+    public partial class datacodeOutJsonBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string base64Code;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string TxtNmae;
+        
+        public datacodeOutJsonBody() {
+        }
+        
+        public datacodeOutJsonBody(string base64Code, string TxtNmae) {
+            this.base64Code = base64Code;
+            this.TxtNmae = TxtNmae;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class datacodeOutJsonResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="datacodeOutJsonResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
+        public JHHY.KGMWebService.datacodeOutJsonResponseBody Body;
+        
+        public datacodeOutJsonResponse() {
+        }
+        
+        public datacodeOutJsonResponse(JHHY.KGMWebService.datacodeOutJsonResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class datacodeOutJsonResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public datacodeOutJsonResponseBody() {
+        }
+        
+        public datacodeOutJsonResponseBody(string @return) {
             this.@return = @return;
         }
     }
@@ -809,6 +961,20 @@ namespace JHHY.KGMWebService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        JHHY.KGMWebService.jsonOutTxtResponse JHHY.KGMWebService.GmWebServlet.jsonOutTxt(JHHY.KGMWebService.jsonOutTxt request) {
+            return base.Channel.jsonOutTxt(request);
+        }
+        
+        public string jsonOutTxt(string base64Code, string TxtNmae) {
+            JHHY.KGMWebService.jsonOutTxt inValue = new JHHY.KGMWebService.jsonOutTxt();
+            inValue.Body = new JHHY.KGMWebService.jsonOutTxtBody();
+            inValue.Body.base64Code = base64Code;
+            inValue.Body.TxtNmae = TxtNmae;
+            JHHY.KGMWebService.jsonOutTxtResponse retVal = ((JHHY.KGMWebService.GmWebServlet)(this)).jsonOutTxt(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         JHHY.KGMWebService.getOrderInfoByPeopleNoResponse JHHY.KGMWebService.GmWebServlet.getOrderInfoByPeopleNo(JHHY.KGMWebService.getOrderInfoByPeopleNo request) {
             return base.Channel.getOrderInfoByPeopleNo(request);
         }
@@ -846,6 +1012,20 @@ namespace JHHY.KGMWebService {
             inValue.Body = new JHHY.KGMWebService.getVerifyCodeByContactsNameBody();
             inValue.Body.verifyCode = verifyCode;
             JHHY.KGMWebService.getVerifyCodeByContactsNameResponse retVal = ((JHHY.KGMWebService.GmWebServlet)(this)).getVerifyCodeByContactsName(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        JHHY.KGMWebService.datacodeOutJsonResponse JHHY.KGMWebService.GmWebServlet.datacodeOutJson(JHHY.KGMWebService.datacodeOutJson request) {
+            return base.Channel.datacodeOutJson(request);
+        }
+        
+        public string datacodeOutJson(string base64Code, string TxtNmae) {
+            JHHY.KGMWebService.datacodeOutJson inValue = new JHHY.KGMWebService.datacodeOutJson();
+            inValue.Body = new JHHY.KGMWebService.datacodeOutJsonBody();
+            inValue.Body.base64Code = base64Code;
+            inValue.Body.TxtNmae = TxtNmae;
+            JHHY.KGMWebService.datacodeOutJsonResponse retVal = ((JHHY.KGMWebService.GmWebServlet)(this)).datacodeOutJson(inValue);
             return retVal.Body.@return;
         }
         

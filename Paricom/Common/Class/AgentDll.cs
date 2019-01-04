@@ -20,6 +20,9 @@ namespace Paricom
         [DllImport("dbagent.dll", CharSet = CharSet.Unicode)]
         public static extern void exec_sql(string dbPath, string sql);
 
+        [DllImport("dbagent.dll", CharSet = CharSet.Unicode)]
+        public static extern void dump_table(string dbPath, string tablename, string filename);
+
         [DllImport("dbagent.dll")]
         public static extern void clear_patient(string dbPath);
 

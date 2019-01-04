@@ -446,31 +446,30 @@ namespace JHHY
                 }
                 dl.testDatas = listData;
                 string rtnJson = JsonConvert.SerializeObject(dl);
+                if (riskStr.Length > 0)
+                {
+                    string txtOut = webService.jsonOutTxt(riskStr, verifyCode);
+                    if (txtOut == "1")
+                    {
+                        LogHelper.WriteLog(verifyCode + "---" + "risks上传成功");
+                    }
+                    else
+                    {
+                        LogHelper.WriteLog(verifyCode + "---" + "risks上传失败" + txtOut);
+                    }
+                }
                 if (rtnJson.Length > 0)
                 {
-                    string saveStr = webService.saveScheduling(rtnJson);
+                    string saveStr = webService.datacodeOutJson(rtnJson, verifyCode);// .saveScheduling(rtnJson);
                     if (saveStr == "1")
                     {
                         LogHelper.WriteLog(verifyCode + "---" + "DataCode上传成功");
                     }
                     else
                     {
-                        LogHelper.WriteLog(verifyCode + "---" + "DataCode上传失败");
+                        LogHelper.WriteLog(verifyCode + "---" + "DataCode上传失败" + saveStr);
                     }
                 }
-
-                //if (riskStr.Length > 0)
-                //{
-                //    string txtOut = webService.jsonOutTxt(riskStr, verifyCode);
-                //    if (txtOut == "1")
-                //    {
-                //        LogHelper.WriteLog(verifyCode + "---" + "risks上传成功");
-                //    }
-                //    else
-                //    {
-                //        LogHelper.WriteLog(verifyCode + "---" + "risks上传失败" + txtOut);
-                //    }
-                //}
                 if (base64Str.Length > 0)
                 {
                     string xlsOut = webService.fileOutXls(base64Str, verifyCode, dl.orderid, ttime);

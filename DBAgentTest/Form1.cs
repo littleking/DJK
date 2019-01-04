@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -9,6 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace DBAgentTest
 {
@@ -18,9 +20,11 @@ namespace DBAgentTest
         private string infoFile = System.Windows.Forms.Application.StartupPath + "/info.xml";
         private string matrixFile = System.Windows.Forms.Application.StartupPath + "/matrix.xml";
         private string risksFile = System.Windows.Forms.Application.StartupPath + "/risks.xml";
+        private TestHelper th;
         public Form1()
         {
             InitializeComponent();
+            th = new TestHelper();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -154,5 +158,135 @@ namespace DBAgentTest
         {
             AgentDll.btn_Continue();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AgentDll.launchEx(false);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Agent启动失败" + ex.ToString(), "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                WriteLog("Agent启动失败" + ex.ToString());
+            }
+        }
+
+        [DllImport("user32.dll", EntryPoint = "ShowWindow", SetLastError = true)]
+        static extern bool ShowWindow(IntPtr hWnd, uint nCmdShow);
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process[] processList = System.Diagnostics.Process.GetProcesses();
+            foreach (System.Diagnostics.Process process in processList)
+            {
+                if (process.ProcessName.ToUpper() == "CONMAIN")
+                {
+                    IntPtr intptr = process.Handle;
+                    ShowWindow(intptr, 1);
+                }
+            }
+            
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            DoTest();
+        }
+
+        private void DoTest()
+        {
+            StartTool();
+               
+        }
+
+        private void StartTool()
+        {
+            try
+            {
+                th.TestToStart();
+                Thread.Sleep(2000);
+                th.TestStart();
+            }
+            catch (Exception ex)
+            {
+                WriteLog(ex.ToString());
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            th.Emotion();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            th.Nutrition();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            th.Risk();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            th.ExportReport();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            bool isCon = AgentDll.check_dev_con();
+            if (isCon)
+            {
+                MessageBox.Show("设备已经连接");
+
+            }
+            else
+            {
+                MessageBox.Show("设备没有连接");
+            }
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            AgentDll.btn_tformcomport_close();
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            bool rtn = false;
+            StringBuilder buf = new StringBuilder(1024);
+            AgentDll.btn_check_head_band(buf);
+            string txt = buf.ToString();
+            if (txt == "HEAD_OK")
+            {
+                rtn = true;
+            }
+            if (rtn)
+            {
+                MessageBox.Show("头部绑带正常");
+
+            }
+            else
+            {
+                MessageBox.Show("头部绑带不正常");
+            }
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process[] processList = System.Diagnostics.Process.GetProcesses();
+            foreach (System.Diagnostics.Process process in processList)
+            {
+                if (process.ProcessName.ToUpper() == "CONMAIN")
+                {
+                    IntPtr intptr = process.Handle;
+                    ShowWindow(intptr, 0);
+                }
+            }
+        }
+
+
     }
 }

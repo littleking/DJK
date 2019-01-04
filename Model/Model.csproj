@@ -42,6 +42,7 @@
     <Compile Include="admin_Clarity.cs" />
     <Compile Include="admin_MedicalData.cs" />
     <Compile Include="admin_MedicalSource.cs" />
+    <Compile Include="djk_cloudData.cs" />
     <Compile Include="djk_SavedData.cs" />
     <Compile Include="djk_SourceData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

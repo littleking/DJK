@@ -45,7 +45,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Location = new System.Drawing.Point(185, 431);
+            this.pictureBox1.Location = new System.Drawing.Point(595, 399);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(221, 212);
             this.pictureBox1.TabIndex = 0;
@@ -82,7 +82,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Tile;
-            this.BackgroundImageStore = global::JKApp.Properties.Resources.dotest;
+            this.BackgroundImageStore = global::JKApp.Properties.Resources._33;
             this.ClientSize = new System.Drawing.Size(1400, 900);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label1);

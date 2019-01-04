@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://www.shilebang.cn/YUYUE/ws/GmWebServlet?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://www.lchh.com/HY/ws/GmWebServlet?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="gmWebServlet2.wsdl" MetadataType="Wsdl" ID="b84c3e3f-fc92-4016-a7fb-17b8c5994cf3" SourceId="1" SourceUrl="http://www.shilebang.cn/YUYUE/ws/GmWebServlet?wsdl" />
-    <MetadataFile FileName="GmWebServlet21.wsdl" MetadataType="Wsdl" ID="b06a636d-9d03-4e13-b73e-876667dde3ec" SourceId="1" SourceUrl="http://www.shilebang.cn/YUYUE/ws/GmWebServlet?wsdl=GmWebServlet.wsdl" />
+    <MetadataFile FileName="GmWebServlet.wsdl" MetadataType="Wsdl" ID="d171b9c6-7290-494d-b3e9-06d480abd709" SourceId="1" SourceUrl="http://www.lchh.com/HY/ws/GmWebServlet?wsdl=GmWebServlet.wsdl" />
+    <MetadataFile FileName="gmWebServlet1.wsdl" MetadataType="Wsdl" ID="36e7ec6d-696c-4e33-a261-bd3884431457" SourceId="1" SourceUrl="http://www.lchh.com/HY/ws/GmWebServlet?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

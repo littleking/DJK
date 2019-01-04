@@ -37,13 +37,13 @@ namespace JKJC
                     Application.Exit();
                     return;
                 }
-                FrmMain frmM = new FrmMain();
-                FrmMain.Instance = frmM;
-                Application.Run(frmM);
+                //FrmMain frmM = new FrmMain();
+                //FrmMain.Instance = frmM;
+                //Application.Run(frmM);
 
-                //FrmMain2 frmM2 = new FrmMain2();
-                //FrmMain2.Instance = frmM2;
-                //Application.Run(frmM2);
+                FrmMain2 frmM2 = new FrmMain2();
+                FrmMain2.Instance = frmM2;
+                Application.Run(frmM2);
             }
             else
             {

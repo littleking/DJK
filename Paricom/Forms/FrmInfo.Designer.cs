@@ -105,7 +105,7 @@
             this.txtBirthPlace.Name = "txtBirthPlace";
             this.txtBirthPlace.Properties.Appearance.Font = new System.Drawing.Font("宋体", 16F);
             this.txtBirthPlace.Properties.Appearance.Options.UseFont = true;
-            this.txtBirthPlace.Size = new System.Drawing.Size(185, 28);
+            this.txtBirthPlace.Size = new System.Drawing.Size(215, 28);
             this.txtBirthPlace.TabIndex = 3;
             // 
             // txtSex
@@ -117,7 +117,7 @@
             this.txtSex.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtSex.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.txtSex.Size = new System.Drawing.Size(185, 28);
+            this.txtSex.Size = new System.Drawing.Size(215, 28);
             this.txtSex.TabIndex = 1;
             // 
             // txtBirthDay
@@ -139,7 +139,7 @@
             this.txtBirthDay.Properties.Mask.EditMask = resources.GetString("txtBirthDay.Properties.Mask.EditMask");
             this.txtBirthDay.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtBirthDay.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtBirthDay.Size = new System.Drawing.Size(185, 28);
+            this.txtBirthDay.Size = new System.Drawing.Size(215, 28);
             this.txtBirthDay.TabIndex = 2;
             // 
             // txtName
@@ -148,7 +148,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("宋体", 16F);
             this.txtName.Properties.Appearance.Options.UseFont = true;
-            this.txtName.Size = new System.Drawing.Size(185, 28);
+            this.txtName.Size = new System.Drawing.Size(215, 28);
             this.txtName.TabIndex = 0;
             // 
             // splashScreenManager2

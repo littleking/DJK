@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://webService.jeesite.thinkgem.com/" name="GmWebServlet" targetNamespace="http://webService.jeesite.thinkgem.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="http://webService.jeesite.thinkgem.com/" xmlns:ns1="http://impl.webService.jeesite.thinkgem.com/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://webService.jeesite.thinkgem.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://impl.webService.jeesite.thinkgem.com/" />
+      <xs:element name="datacodeOutJson" type="tns:datacodeOutJson" />
+      <xs:element name="datacodeOutJsonResponse" type="tns:datacodeOutJsonResponse" />
+      <xs:element name="fileOutXls" type="tns:fileOutXls" />
+      <xs:element name="fileOutXlsResponse" type="tns:fileOutXlsResponse" />
+      <xs:element name="getCardNoByOrder" type="tns:getCardNoByOrder" />
+      <xs:element name="getCardNoByOrderResponse" type="tns:getCardNoByOrderResponse" />
+      <xs:element name="getOrderInfoByPeopleNo" type="tns:getOrderInfoByPeopleNo" />
+      <xs:element name="getOrderInfoByPeopleNoResponse" type="tns:getOrderInfoByPeopleNoResponse" />
+      <xs:element name="getResult" type="tns:getResult" />
+      <xs:element name="getResultResponse" type="tns:getResultResponse" />
+      <xs:element name="getServiceTime" type="tns:getServiceTime" />
+      <xs:element name="getServiceTimeResponse" type="tns:getServiceTimeResponse" />
+      <xs:element name="getVerifyCodeByContactsName" type="tns:getVerifyCodeByContactsName" />
+      <xs:element name="getVerifyCodeByContactsNameResponse" type="tns:getVerifyCodeByContactsNameResponse" />
+      <xs:element name="isExistOrder" type="tns:isExistOrder" />
+      <xs:element name="isExistOrderResponse" type="tns:isExistOrderResponse" />
+      <xs:element name="isTiaoliService" type="tns:isTiaoliService" />
+      <xs:element name="isTiaoliServiceResponse" type="tns:isTiaoliServiceResponse" />
+      <xs:element name="jsonOutTxt" type="tns:jsonOutTxt" />
+      <xs:element name="jsonOutTxtResponse" type="tns:jsonOutTxtResponse" />
+      <xs:element name="login" type="tns:login" />
+      <xs:element name="loginResponse" type="tns:loginResponse" />
+      <xs:element name="saveCardNo" type="tns:saveCardNo" />
+      <xs:element name="saveCardNoResponse" type="tns:saveCardNoResponse" />
+      <xs:element name="saveScheduling" type="tns:saveScheduling" />
+      <xs:element name="saveSchedulingResponse" type="tns:saveSchedulingResponse" />
+      <xs:element name="setUsed" type="tns:setUsed" />
+      <xs:element name="setUsedResponse" type="tns:setUsedResponse" />
+      <xs:complexType name="saveScheduling">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:jsonVlue" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="saveSchedulingResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getOrderInfoByPeopleNo">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:loginName" />
+          <xs:element minOccurs="0" ref="ns1:peopleNo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getOrderInfoByPeopleNoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="jsonOutTxt">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:base64Code" />
+          <xs:element minOccurs="0" ref="ns1:TxtNmae" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="jsonOutTxtResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="isTiaoliService">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:verifyCode" />
+          <xs:element minOccurs="0" ref="ns1:loginName" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="isTiaoliServiceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="login">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:name" />
+          <xs:element minOccurs="0" ref="ns1:password" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="loginResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getVerifyCodeByContactsName">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:verifyCode" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getVerifyCodeByContactsNameResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="datacodeOutJson">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:base64Code" />
+          <xs:element minOccurs="0" ref="ns1:TxtNmae" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="datacodeOutJsonResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getServiceTime">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:cardid" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getServiceTimeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getCardNoByOrder">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:loginName" />
+          <xs:element minOccurs="0" ref="ns1:cardNo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getCardNoByOrderResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="fileOutXls">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:base64Code" />
+          <xs:element minOccurs="0" ref="ns1:xlsNmae" />
+          <xs:element minOccurs="0" ref="ns1:orderId" />
+          <xs:element minOccurs="0" ref="ns1:testDate" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="fileOutXlsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="saveCardNo">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:verifyCode" />
+          <xs:element minOccurs="0" ref="ns1:cardNo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="saveCardNoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="setUsed">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:verifyCode" />
+          <xs:element minOccurs="0" ref="ns1:loginName" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="setUsedResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="isExistOrder">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:verifyCode" />
+          <xs:element minOccurs="0" ref="ns1:loginName" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="isExistOrderResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="ns1:verifyCode" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getResultResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://impl.webService.jeesite.thinkgem.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="TxtNmae" type="xs:string" />
+      <xs:element name="base64Code" type="xs:string" />
+      <xs:element name="cardNo" type="xs:string" />
+      <xs:element name="cardid" type="xs:string" />
+      <xs:element name="jsonVlue" type="xs:string" />
+      <xs:element name="loginName" type="xs:string" />
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="orderId" type="xs:string" />
+      <xs:element name="password" type="xs:string" />
+      <xs:element name="peopleNo" type="xs:string" />
+      <xs:element name="testDate" type="xs:string" />
+      <xs:element name="verifyCode" type="xs:string" />
+      <xs:element name="xlsNmae" type="xs:string" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="jsonOutTxt">
+    <wsdl:part name="parameters" element="ns1:jsonOutTxt" />
+  </wsdl:message>
+  <wsdl:message name="getCardNoByOrder">
+    <wsdl:part name="parameters" element="ns1:getCardNoByOrder" />
+  </wsdl:message>
+  <wsdl:message name="getCardNoByOrderResponse">
+    <wsdl:part name="parameters" element="ns1:getCardNoByOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="getServiceTime">
+    <wsdl:part name="parameters" element="ns1:getServiceTime" />
+  </wsdl:message>
+  <wsdl:message name="isTiaoliServiceResponse">
+    <wsdl:part name="parameters" element="ns1:isTiaoliServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="loginResponse">
+    <wsdl:part name="parameters" element="ns1:loginResponse" />
+  </wsdl:message>
+  <wsdl:message name="saveSchedulingResponse">
+    <wsdl:part name="parameters" element="ns1:saveSchedulingResponse" />
+  </wsdl:message>
+  <wsdl:message name="getResultResponse">
+    <wsdl:part name="parameters" element="ns1:getResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="datacodeOutJsonResponse">
+    <wsdl:part name="parameters" element="ns1:datacodeOutJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="saveScheduling">
+    <wsdl:part name="parameters" element="ns1:saveScheduling" />
+  </wsdl:message>
+  <wsdl:message name="getServiceTimeResponse">
+    <wsdl:part name="parameters" element="ns1:getServiceTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="saveCardNo">
+    <wsdl:part name="parameters" element="ns1:saveCardNo" />
+  </wsdl:message>
+  <wsdl:message name="saveCardNoResponse">
+    <wsdl:part name="parameters" element="ns1:saveCardNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="setUsedResponse">
+    <wsdl:part name="parameters" element="ns1:setUsedResponse" />
+  </wsdl:message>
+  <wsdl:message name="isExistOrderResponse">
+    <wsdl:part name="parameters" element="ns1:isExistOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="getOrderInfoByPeopleNoResponse">
+    <wsdl:part name="parameters" element="ns1:getOrderInfoByPeopleNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="fileOutXlsResponse">
+    <wsdl:part name="parameters" element="ns1:fileOutXlsResponse" />
+  </wsdl:message>
+  <wsdl:message name="setUsed">
+    <wsdl:part name="parameters" element="ns1:setUsed" />
+  </wsdl:message>
+  <wsdl:message name="fileOutXls">
+    <wsdl:part name="parameters" element="ns1:fileOutXls" />
+  </wsdl:message>
+  <wsdl:message name="getVerifyCodeByContactsName">
+    <wsdl:part name="parameters" element="ns1:getVerifyCodeByContactsName" />
+  </wsdl:message>
+  <wsdl:message name="datacodeOutJson">
+    <wsdl:part name="parameters" element="ns1:datacodeOutJson" />
+  </wsdl:message>
+  <wsdl:message name="getVerifyCodeByContactsNameResponse">
+    <wsdl:part name="parameters" element="ns1:getVerifyCodeByContactsNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="login">
+    <wsdl:part name="parameters" element="ns1:login" />
+  </wsdl:message>
+  <wsdl:message name="getOrderInfoByPeopleNo">
+    <wsdl:part name="parameters" element="ns1:getOrderInfoByPeopleNo" />
+  </wsdl:message>
+  <wsdl:message name="getResult">
+    <wsdl:part name="parameters" element="ns1:getResult" />
+  </wsdl:message>
+  <wsdl:message name="isTiaoliService">
+    <wsdl:part name="parameters" element="ns1:isTiaoliService" />
+  </wsdl:message>
+  <wsdl:message name="isExistOrder">
+    <wsdl:part name="parameters" element="ns1:isExistOrder" />
+  </wsdl:message>
+  <wsdl:message name="jsonOutTxtResponse">
+    <wsdl:part name="parameters" element="ns1:jsonOutTxtResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GmWebServlet">
+    <wsdl:operation name="saveScheduling">
+      <wsdl:input name="saveScheduling" message="ns1:saveScheduling" />
+      <wsdl:output name="saveSchedulingResponse" message="ns1:saveSchedulingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrderInfoByPeopleNo">
+      <wsdl:input name="getOrderInfoByPeopleNo" message="ns1:getOrderInfoByPeopleNo" />
+      <wsdl:output name="getOrderInfoByPeopleNoResponse" message="ns1:getOrderInfoByPeopleNoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="jsonOutTxt">
+      <wsdl:input name="jsonOutTxt" message="ns1:jsonOutTxt" />
+      <wsdl:output name="jsonOutTxtResponse" message="ns1:jsonOutTxtResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="isTiaoliService">
+      <wsdl:input name="isTiaoliService" message="ns1:isTiaoliService" />
+      <wsdl:output name="isTiaoliServiceResponse" message="ns1:isTiaoliServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <wsdl:input name="login" message="ns1:login" />
+      <wsdl:output name="loginResponse" message="ns1:loginResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getVerifyCodeByContactsName">
+      <wsdl:input name="getVerifyCodeByContactsName" message="ns1:getVerifyCodeByContactsName" />
+      <wsdl:output name="getVerifyCodeByContactsNameResponse" message="ns1:getVerifyCodeByContactsNameResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="datacodeOutJson">
+      <wsdl:input name="datacodeOutJson" message="ns1:datacodeOutJson" />
+      <wsdl:output name="datacodeOutJsonResponse" message="ns1:datacodeOutJsonResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getServiceTime">
+      <wsdl:input name="getServiceTime" message="ns1:getServiceTime" />
+      <wsdl:output name="getServiceTimeResponse" message="ns1:getServiceTimeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getCardNoByOrder">
+      <wsdl:input name="getCardNoByOrder" message="ns1:getCardNoByOrder" />
+      <wsdl:output name="getCardNoByOrderResponse" message="ns1:getCardNoByOrderResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fileOutXls">
+      <wsdl:input name="fileOutXls" message="ns1:fileOutXls" />
+      <wsdl:output name="fileOutXlsResponse" message="ns1:fileOutXlsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="saveCardNo">
+      <wsdl:input name="saveCardNo" message="ns1:saveCardNo" />
+      <wsdl:output name="saveCardNoResponse" message="ns1:saveCardNoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="setUsed">
+      <wsdl:input name="setUsed" message="ns1:setUsed" />
+      <wsdl:output name="setUsedResponse" message="ns1:setUsedResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="isExistOrder">
+      <wsdl:input name="isExistOrder" message="ns1:isExistOrder" />
+      <wsdl:output name="isExistOrderResponse" message="ns1:isExistOrderResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getResult">
+      <wsdl:input name="getResult" message="ns1:getResult" />
+      <wsdl:output name="getResultResponse" message="ns1:getResultResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

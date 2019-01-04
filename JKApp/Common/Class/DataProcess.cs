@@ -26,6 +26,7 @@ namespace JKApp
         //private string resultFile = System.Windows.Forms.Application.StartupPath + "/result.xlsm";
         private string resultFile = "c:/clasp32/data" + "/result.xlsm";
         private string risksFile = System.Windows.Forms.Application.StartupPath + "/risks.xml";
+        private string infoFile = System.Windows.Forms.Application.StartupPath + "/info.xml";
         private string sourceFileName;
         private string verifyCode;
         private ValidateJson vjList;
@@ -78,6 +79,61 @@ namespace JKApp
                 rl.riskDatas = riskDataList;
                 data = JsonConvert.SerializeObject(rl);
             }
+            return data;
+        }
+
+        public string GetInfoData(string verifyCode)
+        {
+            string data = "";
+            XmlDocument xmlDocument = new XmlDocument();
+            RiskList rl = new RiskList();
+            rl.verifyCode = verifyCode;
+            List<RiskData> riskDataList = new List<RiskData>();
+            if (File.Exists(infoFile))
+            {
+                xmlDocument = new XmlDocument();
+                xmlDocument.Load(infoFile);
+                XmlElement xmlElement = xmlDocument.DocumentElement;
+                XmlNodeList nodeList = xmlElement.ChildNodes;
+                XmlNodeList nodeList2 = nodeList[1].ChildNodes;
+                foreach (XmlNode item in nodeList2)
+                {
+                    RiskData rd = new RiskData();
+                    rd.name = item.Attributes["Name"].Value;
+                    rd.no = item.Attributes["No"].Value;
+                    string value = "";
+                    try
+                    {
+                        value = item.Attributes["Value"].Value;
+                    }
+                    catch(Exception ex)
+                    {
+                        value = "";
+                    }
+                    rd.value = value;
+                    riskDataList.Add(rd);
+                }
+            }
+            int count = riskDataList.Count+2;
+            if (File.Exists(risksFile))
+            {
+                xmlDocument = new XmlDocument();
+                xmlDocument.Load(risksFile);
+                XmlElement xmlElement = xmlDocument.DocumentElement;
+                XmlNodeList nodeList = xmlElement.ChildNodes;
+                XmlNodeList nodeList2 = nodeList[1].ChildNodes;
+                foreach (XmlNode item in nodeList2)
+                {
+                    RiskData rd = new RiskData();
+                    rd.name = item.Attributes["Name"].Value;
+                    rd.no = count + "";
+                    rd.value = item.Attributes["Value"].Value;
+                    riskDataList.Add(rd);
+                    count++;
+                }
+            }
+            rl.riskDatas = riskDataList;
+            data = JsonConvert.SerializeObject(rl);
             return data;
         }
 
@@ -155,6 +211,57 @@ namespace JKApp
             }
             return rtn;
         }
+
+        /// <summary>
+        /// 返回1：设置成功，返回0：设置失败
+        /// </summary>
+        /// <param name="verifyCode"></param>
+        /// <returns></returns>
+        public int setUsed(string verifyCode)
+        {
+            int rtn = 0;
+            try
+            {
+                string rtnStr = webService.setUsed(verifyCode, CurrentUser.UserName);
+                if (rtnStr == "1")
+                {
+                    rtn = 1;
+                }
+                else
+                {
+                    rtn = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                string er = ex.ToString();
+                LogHelper.WriteLog(ex.ToString());
+            }
+            return rtn;
+        }
+        public int getTL(string verifyCode)
+        {
+            int rtn = 1;
+            
+            try
+            {
+                string rtnStr = webService.isTiaoliService(verifyCode, CurrentUser.UserName);
+                if (rtnStr == "1")
+                {
+                    rtn = 1;
+                }
+                else
+                {
+                    rtn = 2;
+                }
+            }
+            catch(Exception ex)
+            {
+                string er = ex.ToString();
+                LogHelper.WriteLog(ex.ToString());
+            }
+            return rtn;
+        }
         public string validCode(string verifyCode)
         {
             string rtn = "";
@@ -216,7 +323,7 @@ namespace JKApp
 
             return rtn;
         }
-        public bool uploadInfo()
+        public bool uploadInfo(int type, string vCode)   //type 0: 正常上传， type 1: 补充上传
         {
             bool rtn = false;
             string code = "";
@@ -252,59 +359,67 @@ namespace JKApp
                 System.Diagnostics.Process p = System.Diagnostics.Process.GetProcessById(k);
                 p.Kill();
 
-                if (Patient.w_code != "")
+                if (type == 0)
                 {
-                    code = Patient.w_code;
-                    verifyCode = code;
-                    try
+                    if (Patient.w_code != "")
                     {
-                        string strOrder = webService.isExistOrder(code, CurrentUser.UserName);
-                        if (strOrder.Length > 2)
+                        code = Patient.w_code;
+                        verifyCode = code;
+                        try
                         {
-                            vjList = getValidate(strOrder);
-                            if (vjList.name.Length > 0)
+                            string strOrder = webService.isExistOrder(code, CurrentUser.UserName);
+                            if (strOrder.Length > 2)
                             {
-                                isCorrect = true;
+                                vjList = getValidate(strOrder);
+                                if (vjList.name.Length > 0)
+                                {
+                                    isCorrect = true;
+                                }
+                                string pType = vjList.peopleType;
+                                //if (pType == "1")
+                                //{
+                                //    isAdult = false;
+                                //}
+                                //else
+                                //{
+                                //    isAdult = true;
+                                //}
+
+
                             }
-                            string pType = vjList.peopleType;
-                            //if (pType == "1")
-                            //{
-                            //    isAdult = false;
-                            //}
-                            //else
-                            //{
-                            //    isAdult = true;
-                            //}
+                            else if (strOrder == "-1")
+                            {
+                                errormsg = "验证码不存在，或者被使用,";
+                            }
+                            else if (strOrder == "-2")
+                            {
+                                errormsg = "门店用户未设置所属门店,";
+                            }
+                            else if (strOrder == "-3")
+                            {
+                                errormsg = "订单预约门店与使用门店不同,";
+                            }
+                            else if (strOrder == "-4")
+                            {
+                                errormsg = "订单状态不可用,";
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            string er = ex.ToString();
+                            LogHelper.WriteLog(ex.ToString());
+                        }
 
-
-                        }
-                        else if (strOrder == "-1")
-                        {
-                            errormsg = "验证码不存在，或者被使用,";
-                        }
-                        else if (strOrder == "-2")
-                        {
-                            errormsg = "门店用户未设置所属门店,";
-                        }
-                        else if (strOrder == "-3")
-                        {
-                            errormsg = "订单预约门店与使用门店不同,";
-                        }
-                        else if (strOrder == "-4")
-                        {
-                            errormsg = "订单状态不可用,";
-                        }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        string er = ex.ToString();
-                        LogHelper.WriteLog(ex.ToString());
+                        errormsg = "验证码录入有误,";
                     }
-
                 }
                 else
                 {
-                    errormsg = "验证码录入有误,";
+                    verifyCode = vCode;
+                    isCorrect = true;
                 }
 
 
@@ -324,7 +439,8 @@ namespace JKApp
                 //SetValue("ChangeTime", latestTime);
                 LogHelper.WriteLog("开始云端处理数据");
                 //copyTemp();
-                copyStream();
+                string temp = System.Windows.Forms.Application.StartupPath + "/DevExpress.Map.v16.2.dll";
+                copyStream(reportFile,temp);
                 //上传数据
                 //Thread thdSub = new Thread(new ThreadStart(ThreadFun));
                 //thdSub.Start();
@@ -333,7 +449,7 @@ namespace JKApp
             return rtn;
         }
 
-        private void copyStream()
+        private void copyStreamBak()
         {
             if (File.Exists(reportFile))
             {
@@ -352,7 +468,25 @@ namespace JKApp
             }
         }
 
-        private string ReadXlsToBase64(string path)
+        private void copyStream(string resultFile, string temp)
+        {
+            if (File.Exists(resultFile))
+            {
+                File.Delete(resultFile);
+            }
+            FileStream filestream = new FileStream(temp, FileMode.Open);
+            byte[] bt = new byte[filestream.Length];
+            filestream.Read(bt, 0, bt.Length);
+            string base64Str = System.Text.Encoding.Default.GetString(bt);
+            var contents = Convert.FromBase64String(base64Str);
+            using (var fss = new FileStream(resultFile, FileMode.Create, FileAccess.Write))
+            {
+                fss.Write(contents, 0, contents.Length);
+                fss.Flush();
+            }
+        }
+
+    private string ReadXlsToBase64(string path)
         {
             string rtn = "";
             try
@@ -440,7 +574,7 @@ namespace JKApp
             bool uploaded = false;
             int errI = 0;
             string base64Str = ReadXlsToBase64(resultFile);
-            string riskStr = GetRiskData(Patient.w_code);
+            string riskStr = GetRiskData(verifyCode);
             FileStream input = new FileStream(resultFile, FileMode.Open);
             int haha = 0;
             try

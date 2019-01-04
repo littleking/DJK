@@ -142,7 +142,14 @@ namespace JKJC
             Thread.Sleep(PrepareTime * 1000);
             AgentDll.do_test();
             Thread.Sleep(CommonTime * 1000);
+            AgentDll.make_emotion_chart();
+            Thread.Sleep(CommonTime * 1000);
+            AgentDll.nutr_load();
+            Thread.Sleep(CommonTime * 1000);
+            AgentDll.risk_load_data();
+            Thread.Sleep(CommonTime * 1000);
             AgentDll.export_report();
+            Thread.Sleep(CommonTime * 1000);
         }
 
         public bool TestBand(out string str)
