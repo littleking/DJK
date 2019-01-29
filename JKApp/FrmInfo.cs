@@ -141,6 +141,37 @@ namespace JKApp
             return rtn;
         }
 
+        private bool ValidateInfoOnly()
+        {
+            bool rtn = true;
+            if (this.txtCode.Text.Length == 0)
+            {
+                XtraMessageBox.Show("请输入校验码", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                rtn = false;
+            }
+            if (this.txtName.Text.Length == 0)
+            {
+                XtraMessageBox.Show("请输入姓名", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                rtn = false;
+            }
+            else if (this.txtSex.SelectedIndex < 0)
+            {
+                XtraMessageBox.Show("请选择性别", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                rtn = false;
+            }
+            else if (this.txtBirthDay.Text.Length == 0)
+            {
+                XtraMessageBox.Show("请输入出生日期", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                rtn = false;
+            }
+            else if (this.txtBirthPlace.Text.Length == 0)
+            {
+                XtraMessageBox.Show("请输入出生地", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                rtn = false;
+            }
+            return rtn;
+        }
+
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -213,60 +244,71 @@ namespace JKApp
             test.Show();
         }
 
+        
+
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            if (ValidateInfo())
+            string file = System.Windows.Forms.Application.StartupPath + "/HealthTesting.lic";
+            if (File.Exists(file))
             {
-                killP();
-                Patient.w_name = txtName.Text.Trim();
-                Patient.w_birth_day = txtBirthDay.Text;
-                Patient.w_location = txtBirthPlace.Text.Trim();
-                Patient.w_sex = txtSex.Text == "男" ? "Male" : "Female";
-                Patient.w_code = txtCode.Text.Trim();
-                string sql = string.Format("INSERT INTO patient VALUES (NULL, '{0}', '{1}', '{2}', '中国', NULL, NULL, NULL, NULL, NULL, 0, 0, 0, '{3}', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 0, 10, 0, 0, 76, 88, 85, 91, 98, 64, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 1, 1, 1, 1, 1, 2, NULL, NULL, NULL);", Patient.w_name, Patient.w_birth_day, Patient.w_location, Patient.w_sex);
-                string clearSql = "Delete from patient";
-                string dbpath = "C:\\Clasp32\\DATA\\data.db3";
-                bool findScio = false;
-                this.simpleButton1.Enabled = false;
-                try
+                if (ValidateInfo())
                 {
-                    th.ExecSql(dbpath, clearSql);
-                    Thread.Sleep(100);
-                    th.ExecSql(dbpath, sql);
-                }
-                catch (Exception ex)
-                {
-                    LogHelper.WriteLog("1:" + ex.ToString());
-                    this.simpleButton1.Enabled = true;
-                    XtraMessageBox.Show("数据保存失败，请联系管理员!", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                bool hasDev = true;
-                splashScreenManager2.ShowWaitForm();
-                Task.Factory.StartNew(() =>
-                {
-                    th.TestLaunch(this.checkEdit1.Checked);
-                    Thread.Sleep(15000);
-                    if (!th.TestDevice())
+                    killP();
+                    Patient.w_name = txtName.Text.Trim();
+                    Patient.w_birth_day = txtBirthDay.Text;
+                    Patient.w_location = txtBirthPlace.Text.Trim();
+                    Patient.w_sex = txtSex.Text == "男" ? "Male" : "Female";
+                    Patient.w_code = txtCode.Text.Trim();
+                    string sql = string.Format("INSERT INTO patient VALUES (NULL, '{0}', '{1}', '{2}', '中国', NULL, NULL, NULL, NULL, NULL, 0, 0, 0, '{3}', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 0, 10, 0, 0, 76, 88, 85, 91, 98, 64, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 1, 1, 1, 1, 1, 2, NULL, NULL, NULL);", Patient.w_name, Patient.w_birth_day, Patient.w_location, Patient.w_sex);
+                    string clearSql = "Delete from patient";
+                    string dbpath = "C:\\Clasp32\\DATA\\data.db3";
+                    bool findScio = false;
+                    this.simpleButton1.Enabled = false;
+                    try
                     {
-                        killP();
+                        th.ExecSql(dbpath, clearSql);
+                        Thread.Sleep(100);
+                        th.ExecSql(dbpath, sql);
+                    }
+                    catch (Exception ex)
+                    {
+                        LogHelper.WriteLog("1:" + ex.ToString());
                         this.simpleButton1.Enabled = true;
-                        splashScreenManager2.CloseWaitForm();
-                        XtraMessageBox.Show("检测设备初始化未完成，请重试！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        hasDev = false;
+                        XtraMessageBox.Show("数据保存失败，请联系管理员!", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    string testMsg = "";
-                    bool bandCheck = false;
-                    while (!bandCheck)
+                    bool hasDev = true;
+                    splashScreenManager2.ShowWaitForm();
+                    Task.Factory.StartNew(() =>
                     {
-                        Thread.Sleep(200);
-                        if (!th.TestBand(out testMsg))
+                        th.TestLaunch(this.checkEdit1.Checked);
+                        Thread.Sleep(15000);
+                        if (!th.TestDevice())
                         {
+                            killP();
+                            this.simpleButton1.Enabled = true;
                             splashScreenManager2.CloseWaitForm();
-                            if (XtraMessageBox.Show(testMsg + "绑带检测未通过，是否重新检测？选Yes将重试，选No将跳过绑带检测", "错误", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                            XtraMessageBox.Show("检测设备初始化未完成，请重试！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            hasDev = false;
+                            return;
+                        }
+                        string testMsg = "";
+                        bool bandCheck = false;
+                        while (!bandCheck)
+                        {
+                            Thread.Sleep(200);
+                            if (!th.TestBand(out testMsg))
                             {
-                                splashScreenManager2.ShowWaitForm();
+                                splashScreenManager2.CloseWaitForm();
+                                if (XtraMessageBox.Show(testMsg + "绑带检测未通过，是否重新检测？选Yes将重试，选No将跳过绑带检测", "错误", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                                {
+                                    splashScreenManager2.ShowWaitForm();
+                                }
+                                else
+                                {
+                                    th.CloseBandTest();
+                                    bandCheck = true;
+                                }
                             }
                             else
                             {
@@ -274,49 +316,48 @@ namespace JKApp
                                 bandCheck = true;
                             }
                         }
-                        else
-                        {
-                            th.CloseBandTest();
-                            bandCheck = true;
-                        }
-                    }
 
-                }).ContinueWith(x =>
-                {
-                    if (!hasDev)
+                    }).ContinueWith(x =>
                     {
-                        return;
-                    }
-                    if (splashScreenManager2.IsSplashFormVisible)
-                    {
-                        splashScreenManager2.CloseWaitForm();
-                    }
-                    this.Invoke((MethodInvoker)(() =>
-                    {
-                        this.txtSex.SelectedIndex = -1;
-                        this.txtCode.Text = "";
-                        this.txtName.Text = "";
-                        this.txtBirthDay.Text = "";
-                        this.txtBirthPlace.Text = "";
-                        this.simpleButton1.Enabled = true;
+                        if (!hasDev)
+                        {
+                            return;
+                        }
+                        if (splashScreenManager2.IsSplashFormVisible)
+                        {
+                            splashScreenManager2.CloseWaitForm();
+                        }
+                        this.Invoke((MethodInvoker)(() =>
+                        {
+                            this.txtSex.SelectedIndex = -1;
+                            this.txtCode.Text = "";
+                            this.txtName.Text = "";
+                            this.txtBirthDay.Text = "";
+                            this.txtBirthPlace.Text = "";
+                            this.simpleButton1.Enabled = true;
                         //this.pictureBox1.Enabled = true;
                         //FrmMain.Instance.XtraTabOpen("FrmTest", "信息");
                         if (orderType == 1)
-                        {
-                            FrmTest frmTest = new FrmTest();
-                            frmTest.Show();
-                        }
-                        else
-                        {
-                            killP();
-                            FrmTherapy frmTherapy = new FrmTherapy();
-                            frmTherapy.Show();
-                        }
-                        orderType = 1;
-                        FrmInfo.Instance.Hide();
-                    }));
-                });
+                            {
+                                FrmTest frmTest = new FrmTest();
+                                frmTest.Show();
+                            }
+                            else
+                            {
+                                killP();
+                                FrmTherapy frmTherapy = new FrmTherapy();
+                                frmTherapy.Show();
+                            }
+                            orderType = 1;
+                            FrmInfo.Instance.Hide();
+                        }));
+                    });
 
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show("设备授权存在问题，请联系管理员!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -721,6 +762,39 @@ namespace JKApp
         {
             FrmTherapy frmTherapy = new FrmTherapy();
             frmTherapy.Show();
+        }
+
+        private void simpleButton5_Click(object sender, EventArgs e)
+        {
+            string file = System.Windows.Forms.Application.StartupPath + "/HealthTesting.lic";
+            if (File.Exists(file))
+            {
+                if (ValidateInfo())
+                {
+                    killP();
+                    Patient.w_name = txtName.Text.Trim();
+                    Patient.w_birth_day = txtBirthDay.Text;
+                    Patient.w_location = txtBirthPlace.Text.Trim();
+                    Patient.w_sex = txtSex.Text == "男" ? "Male" : "Female";
+                    Patient.w_code = txtCode.Text.Trim();
+
+                    this.txtSex.SelectedIndex = -1;
+                    this.txtCode.Text = "";
+                    this.txtName.Text = "";
+                    this.txtBirthDay.Text = "";
+                    this.txtBirthPlace.Text = "";
+                    this.simpleButton1.Enabled = true;
+
+
+                    FrmRemote fr = new FrmRemote();
+                    fr.Show();
+                    FrmInfo.Instance.Hide();
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show("设备授权存在问题，请联系管理员!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JKApp.KGMWebService {
+namespace CloudOperator.KGMWebService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -17,115 +17,115 @@ namespace JKApp.KGMWebService {
         
         // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 jsonVlue 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        JKApp.KGMWebService.saveSchedulingResponse saveScheduling(JKApp.KGMWebService.saveScheduling request);
+        CloudOperator.KGMWebService.saveSchedulingResponse saveScheduling(CloudOperator.KGMWebService.saveScheduling request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.saveSchedulingResponse> saveSchedulingAsync(JKApp.KGMWebService.saveScheduling request);
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.saveSchedulingResponse> saveSchedulingAsync(CloudOperator.KGMWebService.saveScheduling request);
         
         // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 verifyCode 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        JKApp.KGMWebService.isExistOrder_v2Response isExistOrder_v2(JKApp.KGMWebService.isExistOrder_v2 request);
+        CloudOperator.KGMWebService.isExistOrder_v2Response isExistOrder_v2(CloudOperator.KGMWebService.isExistOrder_v2 request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.isExistOrder_v2Response> isExistOrder_v2Async(JKApp.KGMWebService.isExistOrder_v2 request);
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.isExistOrder_v2Response> isExistOrder_v2Async(CloudOperator.KGMWebService.isExistOrder_v2 request);
         
         // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 loginName 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        JKApp.KGMWebService.getOrderInfoByPeopleNoResponse getOrderInfoByPeopleNo(JKApp.KGMWebService.getOrderInfoByPeopleNo request);
+        CloudOperator.KGMWebService.getOrderInfoByPeopleNoResponse getOrderInfoByPeopleNo(CloudOperator.KGMWebService.getOrderInfoByPeopleNo request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.getOrderInfoByPeopleNoResponse> getOrderInfoByPeopleNoAsync(JKApp.KGMWebService.getOrderInfoByPeopleNo request);
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.getOrderInfoByPeopleNoResponse> getOrderInfoByPeopleNoAsync(CloudOperator.KGMWebService.getOrderInfoByPeopleNo request);
         
         // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 base64Code 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        JKApp.KGMWebService.jsonOutTxtResponse jsonOutTxt(JKApp.KGMWebService.jsonOutTxt request);
+        CloudOperator.KGMWebService.jsonOutTxtResponse jsonOutTxt(CloudOperator.KGMWebService.jsonOutTxt request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.jsonOutTxtResponse> jsonOutTxtAsync(JKApp.KGMWebService.jsonOutTxt request);
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.jsonOutTxtResponse> jsonOutTxtAsync(CloudOperator.KGMWebService.jsonOutTxt request);
         
         // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 verifyCode 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        JKApp.KGMWebService.isTiaoliServiceResponse isTiaoliService(JKApp.KGMWebService.isTiaoliService request);
+        CloudOperator.KGMWebService.isTiaoliServiceResponse isTiaoliService(CloudOperator.KGMWebService.isTiaoliService request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.isTiaoliServiceResponse> isTiaoliServiceAsync(JKApp.KGMWebService.isTiaoliService request);
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.isTiaoliServiceResponse> isTiaoliServiceAsync(CloudOperator.KGMWebService.isTiaoliService request);
         
         // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 name 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        JKApp.KGMWebService.loginResponse login(JKApp.KGMWebService.login request);
+        CloudOperator.KGMWebService.loginResponse login(CloudOperator.KGMWebService.login request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.loginResponse> loginAsync(JKApp.KGMWebService.login request);
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.loginResponse> loginAsync(CloudOperator.KGMWebService.login request);
         
         // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 base64Code 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        JKApp.KGMWebService.fileOutXls_v2Response fileOutXls_v2(JKApp.KGMWebService.fileOutXls_v2 request);
+        CloudOperator.KGMWebService.fileOutXls_v2Response fileOutXls_v2(CloudOperator.KGMWebService.fileOutXls_v2 request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.fileOutXls_v2Response> fileOutXls_v2Async(JKApp.KGMWebService.fileOutXls_v2 request);
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.fileOutXls_v2Response> fileOutXls_v2Async(CloudOperator.KGMWebService.fileOutXls_v2 request);
         
         // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 verifyCode 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        JKApp.KGMWebService.getVerifyCodeByContactsNameResponse getVerifyCodeByContactsName(JKApp.KGMWebService.getVerifyCodeByContactsName request);
+        CloudOperator.KGMWebService.getVerifyCodeByContactsNameResponse getVerifyCodeByContactsName(CloudOperator.KGMWebService.getVerifyCodeByContactsName request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.getVerifyCodeByContactsNameResponse> getVerifyCodeByContactsNameAsync(JKApp.KGMWebService.getVerifyCodeByContactsName request);
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.getVerifyCodeByContactsNameResponse> getVerifyCodeByContactsNameAsync(CloudOperator.KGMWebService.getVerifyCodeByContactsName request);
         
         // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 base64Code 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        JKApp.KGMWebService.datacodeOutJsonResponse datacodeOutJson(JKApp.KGMWebService.datacodeOutJson request);
+        CloudOperator.KGMWebService.datacodeOutJsonResponse datacodeOutJson(CloudOperator.KGMWebService.datacodeOutJson request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.datacodeOutJsonResponse> datacodeOutJsonAsync(JKApp.KGMWebService.datacodeOutJson request);
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.datacodeOutJsonResponse> datacodeOutJsonAsync(CloudOperator.KGMWebService.datacodeOutJson request);
         
         // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 cardid 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        JKApp.KGMWebService.getServiceTimeResponse getServiceTime(JKApp.KGMWebService.getServiceTime request);
+        CloudOperator.KGMWebService.getServiceTimeResponse getServiceTime(CloudOperator.KGMWebService.getServiceTime request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.getServiceTimeResponse> getServiceTimeAsync(JKApp.KGMWebService.getServiceTime request);
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.getServiceTimeResponse> getServiceTimeAsync(CloudOperator.KGMWebService.getServiceTime request);
         
         // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 loginName 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        JKApp.KGMWebService.getCardNoByOrderResponse getCardNoByOrder(JKApp.KGMWebService.getCardNoByOrder request);
+        CloudOperator.KGMWebService.getCardNoByOrderResponse getCardNoByOrder(CloudOperator.KGMWebService.getCardNoByOrder request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.getCardNoByOrderResponse> getCardNoByOrderAsync(JKApp.KGMWebService.getCardNoByOrder request);
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.getCardNoByOrderResponse> getCardNoByOrderAsync(CloudOperator.KGMWebService.getCardNoByOrder request);
         
         // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 base64Code 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        JKApp.KGMWebService.fileOutXlsResponse fileOutXls(JKApp.KGMWebService.fileOutXls request);
+        CloudOperator.KGMWebService.fileOutXlsResponse fileOutXls(CloudOperator.KGMWebService.fileOutXls request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.fileOutXlsResponse> fileOutXlsAsync(JKApp.KGMWebService.fileOutXls request);
-        
-        // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 verifyCode 以后生成的消息协定未标记为 nillable
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        JKApp.KGMWebService.saveCardNoResponse saveCardNo(JKApp.KGMWebService.saveCardNo request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.saveCardNoResponse> saveCardNoAsync(JKApp.KGMWebService.saveCardNo request);
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.fileOutXlsResponse> fileOutXlsAsync(CloudOperator.KGMWebService.fileOutXls request);
         
         // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 verifyCode 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        JKApp.KGMWebService.setUsedResponse setUsed(JKApp.KGMWebService.setUsed request);
+        CloudOperator.KGMWebService.saveCardNoResponse saveCardNo(CloudOperator.KGMWebService.saveCardNo request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.setUsedResponse> setUsedAsync(JKApp.KGMWebService.setUsed request);
-        
-        // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 verifyCode 以后生成的消息协定未标记为 nillable
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        JKApp.KGMWebService.isExistOrderResponse isExistOrder(JKApp.KGMWebService.isExistOrder request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.isExistOrderResponse> isExistOrderAsync(JKApp.KGMWebService.isExistOrder request);
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.saveCardNoResponse> saveCardNoAsync(CloudOperator.KGMWebService.saveCardNo request);
         
         // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 verifyCode 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        JKApp.KGMWebService.getResultResponse getResult(JKApp.KGMWebService.getResult request);
+        CloudOperator.KGMWebService.setUsedResponse setUsed(CloudOperator.KGMWebService.setUsed request);
         
         [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.getResultResponse> getResultAsync(JKApp.KGMWebService.getResult request);
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.setUsedResponse> setUsedAsync(CloudOperator.KGMWebService.setUsed request);
+        
+        // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 verifyCode 以后生成的消息协定未标记为 nillable
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        CloudOperator.KGMWebService.isExistOrderResponse isExistOrder(CloudOperator.KGMWebService.isExistOrder request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.isExistOrderResponse> isExistOrderAsync(CloudOperator.KGMWebService.isExistOrder request);
+        
+        // CODEGEN: 命名空间 http://impl.webService.jeesite.thinkgem.com/ 的元素名称 verifyCode 以后生成的消息协定未标记为 nillable
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        CloudOperator.KGMWebService.getResultResponse getResult(CloudOperator.KGMWebService.getResult request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.getResultResponse> getResultAsync(CloudOperator.KGMWebService.getResult request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -135,12 +135,12 @@ namespace JKApp.KGMWebService {
     public partial class saveScheduling {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="saveScheduling", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.saveSchedulingBody Body;
+        public CloudOperator.KGMWebService.saveSchedulingBody Body;
         
         public saveScheduling() {
         }
         
-        public saveScheduling(JKApp.KGMWebService.saveSchedulingBody Body) {
+        public saveScheduling(CloudOperator.KGMWebService.saveSchedulingBody Body) {
             this.Body = Body;
         }
     }
@@ -169,12 +169,12 @@ namespace JKApp.KGMWebService {
     public partial class saveSchedulingResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="saveSchedulingResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.saveSchedulingResponseBody Body;
+        public CloudOperator.KGMWebService.saveSchedulingResponseBody Body;
         
         public saveSchedulingResponse() {
         }
         
-        public saveSchedulingResponse(JKApp.KGMWebService.saveSchedulingResponseBody Body) {
+        public saveSchedulingResponse(CloudOperator.KGMWebService.saveSchedulingResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -203,12 +203,12 @@ namespace JKApp.KGMWebService {
     public partial class isExistOrder_v2 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="isExistOrder_v2", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.isExistOrder_v2Body Body;
+        public CloudOperator.KGMWebService.isExistOrder_v2Body Body;
         
         public isExistOrder_v2() {
         }
         
-        public isExistOrder_v2(JKApp.KGMWebService.isExistOrder_v2Body Body) {
+        public isExistOrder_v2(CloudOperator.KGMWebService.isExistOrder_v2Body Body) {
             this.Body = Body;
         }
     }
@@ -245,12 +245,12 @@ namespace JKApp.KGMWebService {
     public partial class isExistOrder_v2Response {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="isExistOrder_v2Response", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.isExistOrder_v2ResponseBody Body;
+        public CloudOperator.KGMWebService.isExistOrder_v2ResponseBody Body;
         
         public isExistOrder_v2Response() {
         }
         
-        public isExistOrder_v2Response(JKApp.KGMWebService.isExistOrder_v2ResponseBody Body) {
+        public isExistOrder_v2Response(CloudOperator.KGMWebService.isExistOrder_v2ResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -279,12 +279,12 @@ namespace JKApp.KGMWebService {
     public partial class getOrderInfoByPeopleNo {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="getOrderInfoByPeopleNo", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.getOrderInfoByPeopleNoBody Body;
+        public CloudOperator.KGMWebService.getOrderInfoByPeopleNoBody Body;
         
         public getOrderInfoByPeopleNo() {
         }
         
-        public getOrderInfoByPeopleNo(JKApp.KGMWebService.getOrderInfoByPeopleNoBody Body) {
+        public getOrderInfoByPeopleNo(CloudOperator.KGMWebService.getOrderInfoByPeopleNoBody Body) {
             this.Body = Body;
         }
     }
@@ -317,12 +317,12 @@ namespace JKApp.KGMWebService {
     public partial class getOrderInfoByPeopleNoResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="getOrderInfoByPeopleNoResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.getOrderInfoByPeopleNoResponseBody Body;
+        public CloudOperator.KGMWebService.getOrderInfoByPeopleNoResponseBody Body;
         
         public getOrderInfoByPeopleNoResponse() {
         }
         
-        public getOrderInfoByPeopleNoResponse(JKApp.KGMWebService.getOrderInfoByPeopleNoResponseBody Body) {
+        public getOrderInfoByPeopleNoResponse(CloudOperator.KGMWebService.getOrderInfoByPeopleNoResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -351,12 +351,12 @@ namespace JKApp.KGMWebService {
     public partial class jsonOutTxt {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="jsonOutTxt", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.jsonOutTxtBody Body;
+        public CloudOperator.KGMWebService.jsonOutTxtBody Body;
         
         public jsonOutTxt() {
         }
         
-        public jsonOutTxt(JKApp.KGMWebService.jsonOutTxtBody Body) {
+        public jsonOutTxt(CloudOperator.KGMWebService.jsonOutTxtBody Body) {
             this.Body = Body;
         }
     }
@@ -389,12 +389,12 @@ namespace JKApp.KGMWebService {
     public partial class jsonOutTxtResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="jsonOutTxtResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.jsonOutTxtResponseBody Body;
+        public CloudOperator.KGMWebService.jsonOutTxtResponseBody Body;
         
         public jsonOutTxtResponse() {
         }
         
-        public jsonOutTxtResponse(JKApp.KGMWebService.jsonOutTxtResponseBody Body) {
+        public jsonOutTxtResponse(CloudOperator.KGMWebService.jsonOutTxtResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -423,12 +423,12 @@ namespace JKApp.KGMWebService {
     public partial class isTiaoliService {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="isTiaoliService", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.isTiaoliServiceBody Body;
+        public CloudOperator.KGMWebService.isTiaoliServiceBody Body;
         
         public isTiaoliService() {
         }
         
-        public isTiaoliService(JKApp.KGMWebService.isTiaoliServiceBody Body) {
+        public isTiaoliService(CloudOperator.KGMWebService.isTiaoliServiceBody Body) {
             this.Body = Body;
         }
     }
@@ -461,12 +461,12 @@ namespace JKApp.KGMWebService {
     public partial class isTiaoliServiceResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="isTiaoliServiceResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.isTiaoliServiceResponseBody Body;
+        public CloudOperator.KGMWebService.isTiaoliServiceResponseBody Body;
         
         public isTiaoliServiceResponse() {
         }
         
-        public isTiaoliServiceResponse(JKApp.KGMWebService.isTiaoliServiceResponseBody Body) {
+        public isTiaoliServiceResponse(CloudOperator.KGMWebService.isTiaoliServiceResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -495,12 +495,12 @@ namespace JKApp.KGMWebService {
     public partial class login {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="login", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.loginBody Body;
+        public CloudOperator.KGMWebService.loginBody Body;
         
         public login() {
         }
         
-        public login(JKApp.KGMWebService.loginBody Body) {
+        public login(CloudOperator.KGMWebService.loginBody Body) {
             this.Body = Body;
         }
     }
@@ -533,12 +533,12 @@ namespace JKApp.KGMWebService {
     public partial class loginResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="loginResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.loginResponseBody Body;
+        public CloudOperator.KGMWebService.loginResponseBody Body;
         
         public loginResponse() {
         }
         
-        public loginResponse(JKApp.KGMWebService.loginResponseBody Body) {
+        public loginResponse(CloudOperator.KGMWebService.loginResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -567,12 +567,12 @@ namespace JKApp.KGMWebService {
     public partial class fileOutXls_v2 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="fileOutXls_v2", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.fileOutXls_v2Body Body;
+        public CloudOperator.KGMWebService.fileOutXls_v2Body Body;
         
         public fileOutXls_v2() {
         }
         
-        public fileOutXls_v2(JKApp.KGMWebService.fileOutXls_v2Body Body) {
+        public fileOutXls_v2(CloudOperator.KGMWebService.fileOutXls_v2Body Body) {
             this.Body = Body;
         }
     }
@@ -617,12 +617,12 @@ namespace JKApp.KGMWebService {
     public partial class fileOutXls_v2Response {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="fileOutXls_v2Response", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.fileOutXls_v2ResponseBody Body;
+        public CloudOperator.KGMWebService.fileOutXls_v2ResponseBody Body;
         
         public fileOutXls_v2Response() {
         }
         
-        public fileOutXls_v2Response(JKApp.KGMWebService.fileOutXls_v2ResponseBody Body) {
+        public fileOutXls_v2Response(CloudOperator.KGMWebService.fileOutXls_v2ResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -651,12 +651,12 @@ namespace JKApp.KGMWebService {
     public partial class getVerifyCodeByContactsName {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="getVerifyCodeByContactsName", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.getVerifyCodeByContactsNameBody Body;
+        public CloudOperator.KGMWebService.getVerifyCodeByContactsNameBody Body;
         
         public getVerifyCodeByContactsName() {
         }
         
-        public getVerifyCodeByContactsName(JKApp.KGMWebService.getVerifyCodeByContactsNameBody Body) {
+        public getVerifyCodeByContactsName(CloudOperator.KGMWebService.getVerifyCodeByContactsNameBody Body) {
             this.Body = Body;
         }
     }
@@ -685,12 +685,12 @@ namespace JKApp.KGMWebService {
     public partial class getVerifyCodeByContactsNameResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="getVerifyCodeByContactsNameResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.getVerifyCodeByContactsNameResponseBody Body;
+        public CloudOperator.KGMWebService.getVerifyCodeByContactsNameResponseBody Body;
         
         public getVerifyCodeByContactsNameResponse() {
         }
         
-        public getVerifyCodeByContactsNameResponse(JKApp.KGMWebService.getVerifyCodeByContactsNameResponseBody Body) {
+        public getVerifyCodeByContactsNameResponse(CloudOperator.KGMWebService.getVerifyCodeByContactsNameResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -719,12 +719,12 @@ namespace JKApp.KGMWebService {
     public partial class datacodeOutJson {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="datacodeOutJson", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.datacodeOutJsonBody Body;
+        public CloudOperator.KGMWebService.datacodeOutJsonBody Body;
         
         public datacodeOutJson() {
         }
         
-        public datacodeOutJson(JKApp.KGMWebService.datacodeOutJsonBody Body) {
+        public datacodeOutJson(CloudOperator.KGMWebService.datacodeOutJsonBody Body) {
             this.Body = Body;
         }
     }
@@ -757,12 +757,12 @@ namespace JKApp.KGMWebService {
     public partial class datacodeOutJsonResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="datacodeOutJsonResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.datacodeOutJsonResponseBody Body;
+        public CloudOperator.KGMWebService.datacodeOutJsonResponseBody Body;
         
         public datacodeOutJsonResponse() {
         }
         
-        public datacodeOutJsonResponse(JKApp.KGMWebService.datacodeOutJsonResponseBody Body) {
+        public datacodeOutJsonResponse(CloudOperator.KGMWebService.datacodeOutJsonResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -791,12 +791,12 @@ namespace JKApp.KGMWebService {
     public partial class getServiceTime {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="getServiceTime", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.getServiceTimeBody Body;
+        public CloudOperator.KGMWebService.getServiceTimeBody Body;
         
         public getServiceTime() {
         }
         
-        public getServiceTime(JKApp.KGMWebService.getServiceTimeBody Body) {
+        public getServiceTime(CloudOperator.KGMWebService.getServiceTimeBody Body) {
             this.Body = Body;
         }
     }
@@ -825,12 +825,12 @@ namespace JKApp.KGMWebService {
     public partial class getServiceTimeResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="getServiceTimeResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.getServiceTimeResponseBody Body;
+        public CloudOperator.KGMWebService.getServiceTimeResponseBody Body;
         
         public getServiceTimeResponse() {
         }
         
-        public getServiceTimeResponse(JKApp.KGMWebService.getServiceTimeResponseBody Body) {
+        public getServiceTimeResponse(CloudOperator.KGMWebService.getServiceTimeResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -859,12 +859,12 @@ namespace JKApp.KGMWebService {
     public partial class getCardNoByOrder {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="getCardNoByOrder", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.getCardNoByOrderBody Body;
+        public CloudOperator.KGMWebService.getCardNoByOrderBody Body;
         
         public getCardNoByOrder() {
         }
         
-        public getCardNoByOrder(JKApp.KGMWebService.getCardNoByOrderBody Body) {
+        public getCardNoByOrder(CloudOperator.KGMWebService.getCardNoByOrderBody Body) {
             this.Body = Body;
         }
     }
@@ -897,12 +897,12 @@ namespace JKApp.KGMWebService {
     public partial class getCardNoByOrderResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="getCardNoByOrderResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.getCardNoByOrderResponseBody Body;
+        public CloudOperator.KGMWebService.getCardNoByOrderResponseBody Body;
         
         public getCardNoByOrderResponse() {
         }
         
-        public getCardNoByOrderResponse(JKApp.KGMWebService.getCardNoByOrderResponseBody Body) {
+        public getCardNoByOrderResponse(CloudOperator.KGMWebService.getCardNoByOrderResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -931,12 +931,12 @@ namespace JKApp.KGMWebService {
     public partial class fileOutXls {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="fileOutXls", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.fileOutXlsBody Body;
+        public CloudOperator.KGMWebService.fileOutXlsBody Body;
         
         public fileOutXls() {
         }
         
-        public fileOutXls(JKApp.KGMWebService.fileOutXlsBody Body) {
+        public fileOutXls(CloudOperator.KGMWebService.fileOutXlsBody Body) {
             this.Body = Body;
         }
     }
@@ -977,12 +977,12 @@ namespace JKApp.KGMWebService {
     public partial class fileOutXlsResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="fileOutXlsResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.fileOutXlsResponseBody Body;
+        public CloudOperator.KGMWebService.fileOutXlsResponseBody Body;
         
         public fileOutXlsResponse() {
         }
         
-        public fileOutXlsResponse(JKApp.KGMWebService.fileOutXlsResponseBody Body) {
+        public fileOutXlsResponse(CloudOperator.KGMWebService.fileOutXlsResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1011,12 +1011,12 @@ namespace JKApp.KGMWebService {
     public partial class saveCardNo {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="saveCardNo", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.saveCardNoBody Body;
+        public CloudOperator.KGMWebService.saveCardNoBody Body;
         
         public saveCardNo() {
         }
         
-        public saveCardNo(JKApp.KGMWebService.saveCardNoBody Body) {
+        public saveCardNo(CloudOperator.KGMWebService.saveCardNoBody Body) {
             this.Body = Body;
         }
     }
@@ -1049,12 +1049,12 @@ namespace JKApp.KGMWebService {
     public partial class saveCardNoResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="saveCardNoResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.saveCardNoResponseBody Body;
+        public CloudOperator.KGMWebService.saveCardNoResponseBody Body;
         
         public saveCardNoResponse() {
         }
         
-        public saveCardNoResponse(JKApp.KGMWebService.saveCardNoResponseBody Body) {
+        public saveCardNoResponse(CloudOperator.KGMWebService.saveCardNoResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1083,12 +1083,12 @@ namespace JKApp.KGMWebService {
     public partial class setUsed {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="setUsed", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.setUsedBody Body;
+        public CloudOperator.KGMWebService.setUsedBody Body;
         
         public setUsed() {
         }
         
-        public setUsed(JKApp.KGMWebService.setUsedBody Body) {
+        public setUsed(CloudOperator.KGMWebService.setUsedBody Body) {
             this.Body = Body;
         }
     }
@@ -1121,12 +1121,12 @@ namespace JKApp.KGMWebService {
     public partial class setUsedResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="setUsedResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.setUsedResponseBody Body;
+        public CloudOperator.KGMWebService.setUsedResponseBody Body;
         
         public setUsedResponse() {
         }
         
-        public setUsedResponse(JKApp.KGMWebService.setUsedResponseBody Body) {
+        public setUsedResponse(CloudOperator.KGMWebService.setUsedResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1155,12 +1155,12 @@ namespace JKApp.KGMWebService {
     public partial class isExistOrder {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="isExistOrder", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.isExistOrderBody Body;
+        public CloudOperator.KGMWebService.isExistOrderBody Body;
         
         public isExistOrder() {
         }
         
-        public isExistOrder(JKApp.KGMWebService.isExistOrderBody Body) {
+        public isExistOrder(CloudOperator.KGMWebService.isExistOrderBody Body) {
             this.Body = Body;
         }
     }
@@ -1193,12 +1193,12 @@ namespace JKApp.KGMWebService {
     public partial class isExistOrderResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="isExistOrderResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.isExistOrderResponseBody Body;
+        public CloudOperator.KGMWebService.isExistOrderResponseBody Body;
         
         public isExistOrderResponse() {
         }
         
-        public isExistOrderResponse(JKApp.KGMWebService.isExistOrderResponseBody Body) {
+        public isExistOrderResponse(CloudOperator.KGMWebService.isExistOrderResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1227,12 +1227,12 @@ namespace JKApp.KGMWebService {
     public partial class getResult {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="getResult", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.getResultBody Body;
+        public CloudOperator.KGMWebService.getResultBody Body;
         
         public getResult() {
         }
         
-        public getResult(JKApp.KGMWebService.getResultBody Body) {
+        public getResult(CloudOperator.KGMWebService.getResultBody Body) {
             this.Body = Body;
         }
     }
@@ -1261,12 +1261,12 @@ namespace JKApp.KGMWebService {
     public partial class getResultResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="getResultResponse", Namespace="http://webService.jeesite.thinkgem.com/", Order=0)]
-        public JKApp.KGMWebService.getResultResponseBody Body;
+        public CloudOperator.KGMWebService.getResultResponseBody Body;
         
         public getResultResponse() {
         }
         
-        public getResultResponse(JKApp.KGMWebService.getResultResponseBody Body) {
+        public getResultResponse(CloudOperator.KGMWebService.getResultResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1289,12 +1289,12 @@ namespace JKApp.KGMWebService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface GmWebServletChannel : JKApp.KGMWebService.GmWebServlet, System.ServiceModel.IClientChannel {
+    public interface GmWebServletChannel : CloudOperator.KGMWebService.GmWebServlet, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GmWebServletClient : System.ServiceModel.ClientBase<JKApp.KGMWebService.GmWebServlet>, JKApp.KGMWebService.GmWebServlet {
+    public partial class GmWebServletClient : System.ServiceModel.ClientBase<CloudOperator.KGMWebService.GmWebServlet>, CloudOperator.KGMWebService.GmWebServlet {
         
         public GmWebServletClient() {
         }
@@ -1316,439 +1316,439 @@ namespace JKApp.KGMWebService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        JKApp.KGMWebService.saveSchedulingResponse JKApp.KGMWebService.GmWebServlet.saveScheduling(JKApp.KGMWebService.saveScheduling request) {
+        CloudOperator.KGMWebService.saveSchedulingResponse CloudOperator.KGMWebService.GmWebServlet.saveScheduling(CloudOperator.KGMWebService.saveScheduling request) {
             return base.Channel.saveScheduling(request);
         }
         
         public string saveScheduling(string jsonVlue) {
-            JKApp.KGMWebService.saveScheduling inValue = new JKApp.KGMWebService.saveScheduling();
-            inValue.Body = new JKApp.KGMWebService.saveSchedulingBody();
+            CloudOperator.KGMWebService.saveScheduling inValue = new CloudOperator.KGMWebService.saveScheduling();
+            inValue.Body = new CloudOperator.KGMWebService.saveSchedulingBody();
             inValue.Body.jsonVlue = jsonVlue;
-            JKApp.KGMWebService.saveSchedulingResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).saveScheduling(inValue);
+            CloudOperator.KGMWebService.saveSchedulingResponse retVal = ((CloudOperator.KGMWebService.GmWebServlet)(this)).saveScheduling(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.saveSchedulingResponse> JKApp.KGMWebService.GmWebServlet.saveSchedulingAsync(JKApp.KGMWebService.saveScheduling request) {
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.saveSchedulingResponse> CloudOperator.KGMWebService.GmWebServlet.saveSchedulingAsync(CloudOperator.KGMWebService.saveScheduling request) {
             return base.Channel.saveSchedulingAsync(request);
         }
         
-        public System.Threading.Tasks.Task<JKApp.KGMWebService.saveSchedulingResponse> saveSchedulingAsync(string jsonVlue) {
-            JKApp.KGMWebService.saveScheduling inValue = new JKApp.KGMWebService.saveScheduling();
-            inValue.Body = new JKApp.KGMWebService.saveSchedulingBody();
+        public System.Threading.Tasks.Task<CloudOperator.KGMWebService.saveSchedulingResponse> saveSchedulingAsync(string jsonVlue) {
+            CloudOperator.KGMWebService.saveScheduling inValue = new CloudOperator.KGMWebService.saveScheduling();
+            inValue.Body = new CloudOperator.KGMWebService.saveSchedulingBody();
             inValue.Body.jsonVlue = jsonVlue;
-            return ((JKApp.KGMWebService.GmWebServlet)(this)).saveSchedulingAsync(inValue);
+            return ((CloudOperator.KGMWebService.GmWebServlet)(this)).saveSchedulingAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        JKApp.KGMWebService.isExistOrder_v2Response JKApp.KGMWebService.GmWebServlet.isExistOrder_v2(JKApp.KGMWebService.isExistOrder_v2 request) {
+        CloudOperator.KGMWebService.isExistOrder_v2Response CloudOperator.KGMWebService.GmWebServlet.isExistOrder_v2(CloudOperator.KGMWebService.isExistOrder_v2 request) {
             return base.Channel.isExistOrder_v2(request);
         }
         
         public string isExistOrder_v2(string verifyCode, string loginName, string equipmentCode) {
-            JKApp.KGMWebService.isExistOrder_v2 inValue = new JKApp.KGMWebService.isExistOrder_v2();
-            inValue.Body = new JKApp.KGMWebService.isExistOrder_v2Body();
+            CloudOperator.KGMWebService.isExistOrder_v2 inValue = new CloudOperator.KGMWebService.isExistOrder_v2();
+            inValue.Body = new CloudOperator.KGMWebService.isExistOrder_v2Body();
             inValue.Body.verifyCode = verifyCode;
             inValue.Body.loginName = loginName;
             inValue.Body.equipmentCode = equipmentCode;
-            JKApp.KGMWebService.isExistOrder_v2Response retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).isExistOrder_v2(inValue);
+            CloudOperator.KGMWebService.isExistOrder_v2Response retVal = ((CloudOperator.KGMWebService.GmWebServlet)(this)).isExistOrder_v2(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.isExistOrder_v2Response> JKApp.KGMWebService.GmWebServlet.isExistOrder_v2Async(JKApp.KGMWebService.isExistOrder_v2 request) {
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.isExistOrder_v2Response> CloudOperator.KGMWebService.GmWebServlet.isExistOrder_v2Async(CloudOperator.KGMWebService.isExistOrder_v2 request) {
             return base.Channel.isExistOrder_v2Async(request);
         }
         
-        public System.Threading.Tasks.Task<JKApp.KGMWebService.isExistOrder_v2Response> isExistOrder_v2Async(string verifyCode, string loginName, string equipmentCode) {
-            JKApp.KGMWebService.isExistOrder_v2 inValue = new JKApp.KGMWebService.isExistOrder_v2();
-            inValue.Body = new JKApp.KGMWebService.isExistOrder_v2Body();
+        public System.Threading.Tasks.Task<CloudOperator.KGMWebService.isExistOrder_v2Response> isExistOrder_v2Async(string verifyCode, string loginName, string equipmentCode) {
+            CloudOperator.KGMWebService.isExistOrder_v2 inValue = new CloudOperator.KGMWebService.isExistOrder_v2();
+            inValue.Body = new CloudOperator.KGMWebService.isExistOrder_v2Body();
             inValue.Body.verifyCode = verifyCode;
             inValue.Body.loginName = loginName;
             inValue.Body.equipmentCode = equipmentCode;
-            return ((JKApp.KGMWebService.GmWebServlet)(this)).isExistOrder_v2Async(inValue);
+            return ((CloudOperator.KGMWebService.GmWebServlet)(this)).isExistOrder_v2Async(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        JKApp.KGMWebService.getOrderInfoByPeopleNoResponse JKApp.KGMWebService.GmWebServlet.getOrderInfoByPeopleNo(JKApp.KGMWebService.getOrderInfoByPeopleNo request) {
+        CloudOperator.KGMWebService.getOrderInfoByPeopleNoResponse CloudOperator.KGMWebService.GmWebServlet.getOrderInfoByPeopleNo(CloudOperator.KGMWebService.getOrderInfoByPeopleNo request) {
             return base.Channel.getOrderInfoByPeopleNo(request);
         }
         
         public string getOrderInfoByPeopleNo(string loginName, string peopleNo) {
-            JKApp.KGMWebService.getOrderInfoByPeopleNo inValue = new JKApp.KGMWebService.getOrderInfoByPeopleNo();
-            inValue.Body = new JKApp.KGMWebService.getOrderInfoByPeopleNoBody();
+            CloudOperator.KGMWebService.getOrderInfoByPeopleNo inValue = new CloudOperator.KGMWebService.getOrderInfoByPeopleNo();
+            inValue.Body = new CloudOperator.KGMWebService.getOrderInfoByPeopleNoBody();
             inValue.Body.loginName = loginName;
             inValue.Body.peopleNo = peopleNo;
-            JKApp.KGMWebService.getOrderInfoByPeopleNoResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).getOrderInfoByPeopleNo(inValue);
+            CloudOperator.KGMWebService.getOrderInfoByPeopleNoResponse retVal = ((CloudOperator.KGMWebService.GmWebServlet)(this)).getOrderInfoByPeopleNo(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.getOrderInfoByPeopleNoResponse> JKApp.KGMWebService.GmWebServlet.getOrderInfoByPeopleNoAsync(JKApp.KGMWebService.getOrderInfoByPeopleNo request) {
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.getOrderInfoByPeopleNoResponse> CloudOperator.KGMWebService.GmWebServlet.getOrderInfoByPeopleNoAsync(CloudOperator.KGMWebService.getOrderInfoByPeopleNo request) {
             return base.Channel.getOrderInfoByPeopleNoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<JKApp.KGMWebService.getOrderInfoByPeopleNoResponse> getOrderInfoByPeopleNoAsync(string loginName, string peopleNo) {
-            JKApp.KGMWebService.getOrderInfoByPeopleNo inValue = new JKApp.KGMWebService.getOrderInfoByPeopleNo();
-            inValue.Body = new JKApp.KGMWebService.getOrderInfoByPeopleNoBody();
+        public System.Threading.Tasks.Task<CloudOperator.KGMWebService.getOrderInfoByPeopleNoResponse> getOrderInfoByPeopleNoAsync(string loginName, string peopleNo) {
+            CloudOperator.KGMWebService.getOrderInfoByPeopleNo inValue = new CloudOperator.KGMWebService.getOrderInfoByPeopleNo();
+            inValue.Body = new CloudOperator.KGMWebService.getOrderInfoByPeopleNoBody();
             inValue.Body.loginName = loginName;
             inValue.Body.peopleNo = peopleNo;
-            return ((JKApp.KGMWebService.GmWebServlet)(this)).getOrderInfoByPeopleNoAsync(inValue);
+            return ((CloudOperator.KGMWebService.GmWebServlet)(this)).getOrderInfoByPeopleNoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        JKApp.KGMWebService.jsonOutTxtResponse JKApp.KGMWebService.GmWebServlet.jsonOutTxt(JKApp.KGMWebService.jsonOutTxt request) {
+        CloudOperator.KGMWebService.jsonOutTxtResponse CloudOperator.KGMWebService.GmWebServlet.jsonOutTxt(CloudOperator.KGMWebService.jsonOutTxt request) {
             return base.Channel.jsonOutTxt(request);
         }
         
         public string jsonOutTxt(string base64Code, string TxtNmae) {
-            JKApp.KGMWebService.jsonOutTxt inValue = new JKApp.KGMWebService.jsonOutTxt();
-            inValue.Body = new JKApp.KGMWebService.jsonOutTxtBody();
+            CloudOperator.KGMWebService.jsonOutTxt inValue = new CloudOperator.KGMWebService.jsonOutTxt();
+            inValue.Body = new CloudOperator.KGMWebService.jsonOutTxtBody();
             inValue.Body.base64Code = base64Code;
             inValue.Body.TxtNmae = TxtNmae;
-            JKApp.KGMWebService.jsonOutTxtResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).jsonOutTxt(inValue);
+            CloudOperator.KGMWebService.jsonOutTxtResponse retVal = ((CloudOperator.KGMWebService.GmWebServlet)(this)).jsonOutTxt(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.jsonOutTxtResponse> JKApp.KGMWebService.GmWebServlet.jsonOutTxtAsync(JKApp.KGMWebService.jsonOutTxt request) {
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.jsonOutTxtResponse> CloudOperator.KGMWebService.GmWebServlet.jsonOutTxtAsync(CloudOperator.KGMWebService.jsonOutTxt request) {
             return base.Channel.jsonOutTxtAsync(request);
         }
         
-        public System.Threading.Tasks.Task<JKApp.KGMWebService.jsonOutTxtResponse> jsonOutTxtAsync(string base64Code, string TxtNmae) {
-            JKApp.KGMWebService.jsonOutTxt inValue = new JKApp.KGMWebService.jsonOutTxt();
-            inValue.Body = new JKApp.KGMWebService.jsonOutTxtBody();
+        public System.Threading.Tasks.Task<CloudOperator.KGMWebService.jsonOutTxtResponse> jsonOutTxtAsync(string base64Code, string TxtNmae) {
+            CloudOperator.KGMWebService.jsonOutTxt inValue = new CloudOperator.KGMWebService.jsonOutTxt();
+            inValue.Body = new CloudOperator.KGMWebService.jsonOutTxtBody();
             inValue.Body.base64Code = base64Code;
             inValue.Body.TxtNmae = TxtNmae;
-            return ((JKApp.KGMWebService.GmWebServlet)(this)).jsonOutTxtAsync(inValue);
+            return ((CloudOperator.KGMWebService.GmWebServlet)(this)).jsonOutTxtAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        JKApp.KGMWebService.isTiaoliServiceResponse JKApp.KGMWebService.GmWebServlet.isTiaoliService(JKApp.KGMWebService.isTiaoliService request) {
+        CloudOperator.KGMWebService.isTiaoliServiceResponse CloudOperator.KGMWebService.GmWebServlet.isTiaoliService(CloudOperator.KGMWebService.isTiaoliService request) {
             return base.Channel.isTiaoliService(request);
         }
         
         public string isTiaoliService(string verifyCode, string loginName) {
-            JKApp.KGMWebService.isTiaoliService inValue = new JKApp.KGMWebService.isTiaoliService();
-            inValue.Body = new JKApp.KGMWebService.isTiaoliServiceBody();
+            CloudOperator.KGMWebService.isTiaoliService inValue = new CloudOperator.KGMWebService.isTiaoliService();
+            inValue.Body = new CloudOperator.KGMWebService.isTiaoliServiceBody();
             inValue.Body.verifyCode = verifyCode;
             inValue.Body.loginName = loginName;
-            JKApp.KGMWebService.isTiaoliServiceResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).isTiaoliService(inValue);
+            CloudOperator.KGMWebService.isTiaoliServiceResponse retVal = ((CloudOperator.KGMWebService.GmWebServlet)(this)).isTiaoliService(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.isTiaoliServiceResponse> JKApp.KGMWebService.GmWebServlet.isTiaoliServiceAsync(JKApp.KGMWebService.isTiaoliService request) {
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.isTiaoliServiceResponse> CloudOperator.KGMWebService.GmWebServlet.isTiaoliServiceAsync(CloudOperator.KGMWebService.isTiaoliService request) {
             return base.Channel.isTiaoliServiceAsync(request);
         }
         
-        public System.Threading.Tasks.Task<JKApp.KGMWebService.isTiaoliServiceResponse> isTiaoliServiceAsync(string verifyCode, string loginName) {
-            JKApp.KGMWebService.isTiaoliService inValue = new JKApp.KGMWebService.isTiaoliService();
-            inValue.Body = new JKApp.KGMWebService.isTiaoliServiceBody();
+        public System.Threading.Tasks.Task<CloudOperator.KGMWebService.isTiaoliServiceResponse> isTiaoliServiceAsync(string verifyCode, string loginName) {
+            CloudOperator.KGMWebService.isTiaoliService inValue = new CloudOperator.KGMWebService.isTiaoliService();
+            inValue.Body = new CloudOperator.KGMWebService.isTiaoliServiceBody();
             inValue.Body.verifyCode = verifyCode;
             inValue.Body.loginName = loginName;
-            return ((JKApp.KGMWebService.GmWebServlet)(this)).isTiaoliServiceAsync(inValue);
+            return ((CloudOperator.KGMWebService.GmWebServlet)(this)).isTiaoliServiceAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        JKApp.KGMWebService.loginResponse JKApp.KGMWebService.GmWebServlet.login(JKApp.KGMWebService.login request) {
+        CloudOperator.KGMWebService.loginResponse CloudOperator.KGMWebService.GmWebServlet.login(CloudOperator.KGMWebService.login request) {
             return base.Channel.login(request);
         }
         
         public string login(string name, string password) {
-            JKApp.KGMWebService.login inValue = new JKApp.KGMWebService.login();
-            inValue.Body = new JKApp.KGMWebService.loginBody();
+            CloudOperator.KGMWebService.login inValue = new CloudOperator.KGMWebService.login();
+            inValue.Body = new CloudOperator.KGMWebService.loginBody();
             inValue.Body.name = name;
             inValue.Body.password = password;
-            JKApp.KGMWebService.loginResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).login(inValue);
+            CloudOperator.KGMWebService.loginResponse retVal = ((CloudOperator.KGMWebService.GmWebServlet)(this)).login(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.loginResponse> JKApp.KGMWebService.GmWebServlet.loginAsync(JKApp.KGMWebService.login request) {
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.loginResponse> CloudOperator.KGMWebService.GmWebServlet.loginAsync(CloudOperator.KGMWebService.login request) {
             return base.Channel.loginAsync(request);
         }
         
-        public System.Threading.Tasks.Task<JKApp.KGMWebService.loginResponse> loginAsync(string name, string password) {
-            JKApp.KGMWebService.login inValue = new JKApp.KGMWebService.login();
-            inValue.Body = new JKApp.KGMWebService.loginBody();
+        public System.Threading.Tasks.Task<CloudOperator.KGMWebService.loginResponse> loginAsync(string name, string password) {
+            CloudOperator.KGMWebService.login inValue = new CloudOperator.KGMWebService.login();
+            inValue.Body = new CloudOperator.KGMWebService.loginBody();
             inValue.Body.name = name;
             inValue.Body.password = password;
-            return ((JKApp.KGMWebService.GmWebServlet)(this)).loginAsync(inValue);
+            return ((CloudOperator.KGMWebService.GmWebServlet)(this)).loginAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        JKApp.KGMWebService.fileOutXls_v2Response JKApp.KGMWebService.GmWebServlet.fileOutXls_v2(JKApp.KGMWebService.fileOutXls_v2 request) {
+        CloudOperator.KGMWebService.fileOutXls_v2Response CloudOperator.KGMWebService.GmWebServlet.fileOutXls_v2(CloudOperator.KGMWebService.fileOutXls_v2 request) {
             return base.Channel.fileOutXls_v2(request);
         }
         
         public string fileOutXls_v2(string base64Code, string xlsNmae, string orderId, string testDate, string equipmentCode) {
-            JKApp.KGMWebService.fileOutXls_v2 inValue = new JKApp.KGMWebService.fileOutXls_v2();
-            inValue.Body = new JKApp.KGMWebService.fileOutXls_v2Body();
+            CloudOperator.KGMWebService.fileOutXls_v2 inValue = new CloudOperator.KGMWebService.fileOutXls_v2();
+            inValue.Body = new CloudOperator.KGMWebService.fileOutXls_v2Body();
             inValue.Body.base64Code = base64Code;
             inValue.Body.xlsNmae = xlsNmae;
             inValue.Body.orderId = orderId;
             inValue.Body.testDate = testDate;
             inValue.Body.equipmentCode = equipmentCode;
-            JKApp.KGMWebService.fileOutXls_v2Response retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).fileOutXls_v2(inValue);
+            CloudOperator.KGMWebService.fileOutXls_v2Response retVal = ((CloudOperator.KGMWebService.GmWebServlet)(this)).fileOutXls_v2(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.fileOutXls_v2Response> JKApp.KGMWebService.GmWebServlet.fileOutXls_v2Async(JKApp.KGMWebService.fileOutXls_v2 request) {
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.fileOutXls_v2Response> CloudOperator.KGMWebService.GmWebServlet.fileOutXls_v2Async(CloudOperator.KGMWebService.fileOutXls_v2 request) {
             return base.Channel.fileOutXls_v2Async(request);
         }
         
-        public System.Threading.Tasks.Task<JKApp.KGMWebService.fileOutXls_v2Response> fileOutXls_v2Async(string base64Code, string xlsNmae, string orderId, string testDate, string equipmentCode) {
-            JKApp.KGMWebService.fileOutXls_v2 inValue = new JKApp.KGMWebService.fileOutXls_v2();
-            inValue.Body = new JKApp.KGMWebService.fileOutXls_v2Body();
+        public System.Threading.Tasks.Task<CloudOperator.KGMWebService.fileOutXls_v2Response> fileOutXls_v2Async(string base64Code, string xlsNmae, string orderId, string testDate, string equipmentCode) {
+            CloudOperator.KGMWebService.fileOutXls_v2 inValue = new CloudOperator.KGMWebService.fileOutXls_v2();
+            inValue.Body = new CloudOperator.KGMWebService.fileOutXls_v2Body();
             inValue.Body.base64Code = base64Code;
             inValue.Body.xlsNmae = xlsNmae;
             inValue.Body.orderId = orderId;
             inValue.Body.testDate = testDate;
             inValue.Body.equipmentCode = equipmentCode;
-            return ((JKApp.KGMWebService.GmWebServlet)(this)).fileOutXls_v2Async(inValue);
+            return ((CloudOperator.KGMWebService.GmWebServlet)(this)).fileOutXls_v2Async(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        JKApp.KGMWebService.getVerifyCodeByContactsNameResponse JKApp.KGMWebService.GmWebServlet.getVerifyCodeByContactsName(JKApp.KGMWebService.getVerifyCodeByContactsName request) {
+        CloudOperator.KGMWebService.getVerifyCodeByContactsNameResponse CloudOperator.KGMWebService.GmWebServlet.getVerifyCodeByContactsName(CloudOperator.KGMWebService.getVerifyCodeByContactsName request) {
             return base.Channel.getVerifyCodeByContactsName(request);
         }
         
         public string getVerifyCodeByContactsName(string verifyCode) {
-            JKApp.KGMWebService.getVerifyCodeByContactsName inValue = new JKApp.KGMWebService.getVerifyCodeByContactsName();
-            inValue.Body = new JKApp.KGMWebService.getVerifyCodeByContactsNameBody();
+            CloudOperator.KGMWebService.getVerifyCodeByContactsName inValue = new CloudOperator.KGMWebService.getVerifyCodeByContactsName();
+            inValue.Body = new CloudOperator.KGMWebService.getVerifyCodeByContactsNameBody();
             inValue.Body.verifyCode = verifyCode;
-            JKApp.KGMWebService.getVerifyCodeByContactsNameResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).getVerifyCodeByContactsName(inValue);
+            CloudOperator.KGMWebService.getVerifyCodeByContactsNameResponse retVal = ((CloudOperator.KGMWebService.GmWebServlet)(this)).getVerifyCodeByContactsName(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.getVerifyCodeByContactsNameResponse> JKApp.KGMWebService.GmWebServlet.getVerifyCodeByContactsNameAsync(JKApp.KGMWebService.getVerifyCodeByContactsName request) {
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.getVerifyCodeByContactsNameResponse> CloudOperator.KGMWebService.GmWebServlet.getVerifyCodeByContactsNameAsync(CloudOperator.KGMWebService.getVerifyCodeByContactsName request) {
             return base.Channel.getVerifyCodeByContactsNameAsync(request);
         }
         
-        public System.Threading.Tasks.Task<JKApp.KGMWebService.getVerifyCodeByContactsNameResponse> getVerifyCodeByContactsNameAsync(string verifyCode) {
-            JKApp.KGMWebService.getVerifyCodeByContactsName inValue = new JKApp.KGMWebService.getVerifyCodeByContactsName();
-            inValue.Body = new JKApp.KGMWebService.getVerifyCodeByContactsNameBody();
+        public System.Threading.Tasks.Task<CloudOperator.KGMWebService.getVerifyCodeByContactsNameResponse> getVerifyCodeByContactsNameAsync(string verifyCode) {
+            CloudOperator.KGMWebService.getVerifyCodeByContactsName inValue = new CloudOperator.KGMWebService.getVerifyCodeByContactsName();
+            inValue.Body = new CloudOperator.KGMWebService.getVerifyCodeByContactsNameBody();
             inValue.Body.verifyCode = verifyCode;
-            return ((JKApp.KGMWebService.GmWebServlet)(this)).getVerifyCodeByContactsNameAsync(inValue);
+            return ((CloudOperator.KGMWebService.GmWebServlet)(this)).getVerifyCodeByContactsNameAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        JKApp.KGMWebService.datacodeOutJsonResponse JKApp.KGMWebService.GmWebServlet.datacodeOutJson(JKApp.KGMWebService.datacodeOutJson request) {
+        CloudOperator.KGMWebService.datacodeOutJsonResponse CloudOperator.KGMWebService.GmWebServlet.datacodeOutJson(CloudOperator.KGMWebService.datacodeOutJson request) {
             return base.Channel.datacodeOutJson(request);
         }
         
         public string datacodeOutJson(string base64Code, string TxtNmae) {
-            JKApp.KGMWebService.datacodeOutJson inValue = new JKApp.KGMWebService.datacodeOutJson();
-            inValue.Body = new JKApp.KGMWebService.datacodeOutJsonBody();
+            CloudOperator.KGMWebService.datacodeOutJson inValue = new CloudOperator.KGMWebService.datacodeOutJson();
+            inValue.Body = new CloudOperator.KGMWebService.datacodeOutJsonBody();
             inValue.Body.base64Code = base64Code;
             inValue.Body.TxtNmae = TxtNmae;
-            JKApp.KGMWebService.datacodeOutJsonResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).datacodeOutJson(inValue);
+            CloudOperator.KGMWebService.datacodeOutJsonResponse retVal = ((CloudOperator.KGMWebService.GmWebServlet)(this)).datacodeOutJson(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.datacodeOutJsonResponse> JKApp.KGMWebService.GmWebServlet.datacodeOutJsonAsync(JKApp.KGMWebService.datacodeOutJson request) {
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.datacodeOutJsonResponse> CloudOperator.KGMWebService.GmWebServlet.datacodeOutJsonAsync(CloudOperator.KGMWebService.datacodeOutJson request) {
             return base.Channel.datacodeOutJsonAsync(request);
         }
         
-        public System.Threading.Tasks.Task<JKApp.KGMWebService.datacodeOutJsonResponse> datacodeOutJsonAsync(string base64Code, string TxtNmae) {
-            JKApp.KGMWebService.datacodeOutJson inValue = new JKApp.KGMWebService.datacodeOutJson();
-            inValue.Body = new JKApp.KGMWebService.datacodeOutJsonBody();
+        public System.Threading.Tasks.Task<CloudOperator.KGMWebService.datacodeOutJsonResponse> datacodeOutJsonAsync(string base64Code, string TxtNmae) {
+            CloudOperator.KGMWebService.datacodeOutJson inValue = new CloudOperator.KGMWebService.datacodeOutJson();
+            inValue.Body = new CloudOperator.KGMWebService.datacodeOutJsonBody();
             inValue.Body.base64Code = base64Code;
             inValue.Body.TxtNmae = TxtNmae;
-            return ((JKApp.KGMWebService.GmWebServlet)(this)).datacodeOutJsonAsync(inValue);
+            return ((CloudOperator.KGMWebService.GmWebServlet)(this)).datacodeOutJsonAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        JKApp.KGMWebService.getServiceTimeResponse JKApp.KGMWebService.GmWebServlet.getServiceTime(JKApp.KGMWebService.getServiceTime request) {
+        CloudOperator.KGMWebService.getServiceTimeResponse CloudOperator.KGMWebService.GmWebServlet.getServiceTime(CloudOperator.KGMWebService.getServiceTime request) {
             return base.Channel.getServiceTime(request);
         }
         
         public string getServiceTime(string cardid) {
-            JKApp.KGMWebService.getServiceTime inValue = new JKApp.KGMWebService.getServiceTime();
-            inValue.Body = new JKApp.KGMWebService.getServiceTimeBody();
+            CloudOperator.KGMWebService.getServiceTime inValue = new CloudOperator.KGMWebService.getServiceTime();
+            inValue.Body = new CloudOperator.KGMWebService.getServiceTimeBody();
             inValue.Body.cardid = cardid;
-            JKApp.KGMWebService.getServiceTimeResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).getServiceTime(inValue);
+            CloudOperator.KGMWebService.getServiceTimeResponse retVal = ((CloudOperator.KGMWebService.GmWebServlet)(this)).getServiceTime(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.getServiceTimeResponse> JKApp.KGMWebService.GmWebServlet.getServiceTimeAsync(JKApp.KGMWebService.getServiceTime request) {
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.getServiceTimeResponse> CloudOperator.KGMWebService.GmWebServlet.getServiceTimeAsync(CloudOperator.KGMWebService.getServiceTime request) {
             return base.Channel.getServiceTimeAsync(request);
         }
         
-        public System.Threading.Tasks.Task<JKApp.KGMWebService.getServiceTimeResponse> getServiceTimeAsync(string cardid) {
-            JKApp.KGMWebService.getServiceTime inValue = new JKApp.KGMWebService.getServiceTime();
-            inValue.Body = new JKApp.KGMWebService.getServiceTimeBody();
+        public System.Threading.Tasks.Task<CloudOperator.KGMWebService.getServiceTimeResponse> getServiceTimeAsync(string cardid) {
+            CloudOperator.KGMWebService.getServiceTime inValue = new CloudOperator.KGMWebService.getServiceTime();
+            inValue.Body = new CloudOperator.KGMWebService.getServiceTimeBody();
             inValue.Body.cardid = cardid;
-            return ((JKApp.KGMWebService.GmWebServlet)(this)).getServiceTimeAsync(inValue);
+            return ((CloudOperator.KGMWebService.GmWebServlet)(this)).getServiceTimeAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        JKApp.KGMWebService.getCardNoByOrderResponse JKApp.KGMWebService.GmWebServlet.getCardNoByOrder(JKApp.KGMWebService.getCardNoByOrder request) {
+        CloudOperator.KGMWebService.getCardNoByOrderResponse CloudOperator.KGMWebService.GmWebServlet.getCardNoByOrder(CloudOperator.KGMWebService.getCardNoByOrder request) {
             return base.Channel.getCardNoByOrder(request);
         }
         
         public string getCardNoByOrder(string loginName, string cardNo) {
-            JKApp.KGMWebService.getCardNoByOrder inValue = new JKApp.KGMWebService.getCardNoByOrder();
-            inValue.Body = new JKApp.KGMWebService.getCardNoByOrderBody();
+            CloudOperator.KGMWebService.getCardNoByOrder inValue = new CloudOperator.KGMWebService.getCardNoByOrder();
+            inValue.Body = new CloudOperator.KGMWebService.getCardNoByOrderBody();
             inValue.Body.loginName = loginName;
             inValue.Body.cardNo = cardNo;
-            JKApp.KGMWebService.getCardNoByOrderResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).getCardNoByOrder(inValue);
+            CloudOperator.KGMWebService.getCardNoByOrderResponse retVal = ((CloudOperator.KGMWebService.GmWebServlet)(this)).getCardNoByOrder(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.getCardNoByOrderResponse> JKApp.KGMWebService.GmWebServlet.getCardNoByOrderAsync(JKApp.KGMWebService.getCardNoByOrder request) {
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.getCardNoByOrderResponse> CloudOperator.KGMWebService.GmWebServlet.getCardNoByOrderAsync(CloudOperator.KGMWebService.getCardNoByOrder request) {
             return base.Channel.getCardNoByOrderAsync(request);
         }
         
-        public System.Threading.Tasks.Task<JKApp.KGMWebService.getCardNoByOrderResponse> getCardNoByOrderAsync(string loginName, string cardNo) {
-            JKApp.KGMWebService.getCardNoByOrder inValue = new JKApp.KGMWebService.getCardNoByOrder();
-            inValue.Body = new JKApp.KGMWebService.getCardNoByOrderBody();
+        public System.Threading.Tasks.Task<CloudOperator.KGMWebService.getCardNoByOrderResponse> getCardNoByOrderAsync(string loginName, string cardNo) {
+            CloudOperator.KGMWebService.getCardNoByOrder inValue = new CloudOperator.KGMWebService.getCardNoByOrder();
+            inValue.Body = new CloudOperator.KGMWebService.getCardNoByOrderBody();
             inValue.Body.loginName = loginName;
             inValue.Body.cardNo = cardNo;
-            return ((JKApp.KGMWebService.GmWebServlet)(this)).getCardNoByOrderAsync(inValue);
+            return ((CloudOperator.KGMWebService.GmWebServlet)(this)).getCardNoByOrderAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        JKApp.KGMWebService.fileOutXlsResponse JKApp.KGMWebService.GmWebServlet.fileOutXls(JKApp.KGMWebService.fileOutXls request) {
+        CloudOperator.KGMWebService.fileOutXlsResponse CloudOperator.KGMWebService.GmWebServlet.fileOutXls(CloudOperator.KGMWebService.fileOutXls request) {
             return base.Channel.fileOutXls(request);
         }
         
         public string fileOutXls(string base64Code, string xlsNmae, string orderId, string testDate) {
-            JKApp.KGMWebService.fileOutXls inValue = new JKApp.KGMWebService.fileOutXls();
-            inValue.Body = new JKApp.KGMWebService.fileOutXlsBody();
+            CloudOperator.KGMWebService.fileOutXls inValue = new CloudOperator.KGMWebService.fileOutXls();
+            inValue.Body = new CloudOperator.KGMWebService.fileOutXlsBody();
             inValue.Body.base64Code = base64Code;
             inValue.Body.xlsNmae = xlsNmae;
             inValue.Body.orderId = orderId;
             inValue.Body.testDate = testDate;
-            JKApp.KGMWebService.fileOutXlsResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).fileOutXls(inValue);
+            CloudOperator.KGMWebService.fileOutXlsResponse retVal = ((CloudOperator.KGMWebService.GmWebServlet)(this)).fileOutXls(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.fileOutXlsResponse> JKApp.KGMWebService.GmWebServlet.fileOutXlsAsync(JKApp.KGMWebService.fileOutXls request) {
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.fileOutXlsResponse> CloudOperator.KGMWebService.GmWebServlet.fileOutXlsAsync(CloudOperator.KGMWebService.fileOutXls request) {
             return base.Channel.fileOutXlsAsync(request);
         }
         
-        public System.Threading.Tasks.Task<JKApp.KGMWebService.fileOutXlsResponse> fileOutXlsAsync(string base64Code, string xlsNmae, string orderId, string testDate) {
-            JKApp.KGMWebService.fileOutXls inValue = new JKApp.KGMWebService.fileOutXls();
-            inValue.Body = new JKApp.KGMWebService.fileOutXlsBody();
+        public System.Threading.Tasks.Task<CloudOperator.KGMWebService.fileOutXlsResponse> fileOutXlsAsync(string base64Code, string xlsNmae, string orderId, string testDate) {
+            CloudOperator.KGMWebService.fileOutXls inValue = new CloudOperator.KGMWebService.fileOutXls();
+            inValue.Body = new CloudOperator.KGMWebService.fileOutXlsBody();
             inValue.Body.base64Code = base64Code;
             inValue.Body.xlsNmae = xlsNmae;
             inValue.Body.orderId = orderId;
             inValue.Body.testDate = testDate;
-            return ((JKApp.KGMWebService.GmWebServlet)(this)).fileOutXlsAsync(inValue);
+            return ((CloudOperator.KGMWebService.GmWebServlet)(this)).fileOutXlsAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        JKApp.KGMWebService.saveCardNoResponse JKApp.KGMWebService.GmWebServlet.saveCardNo(JKApp.KGMWebService.saveCardNo request) {
+        CloudOperator.KGMWebService.saveCardNoResponse CloudOperator.KGMWebService.GmWebServlet.saveCardNo(CloudOperator.KGMWebService.saveCardNo request) {
             return base.Channel.saveCardNo(request);
         }
         
         public string saveCardNo(string verifyCode, string cardNo) {
-            JKApp.KGMWebService.saveCardNo inValue = new JKApp.KGMWebService.saveCardNo();
-            inValue.Body = new JKApp.KGMWebService.saveCardNoBody();
+            CloudOperator.KGMWebService.saveCardNo inValue = new CloudOperator.KGMWebService.saveCardNo();
+            inValue.Body = new CloudOperator.KGMWebService.saveCardNoBody();
             inValue.Body.verifyCode = verifyCode;
             inValue.Body.cardNo = cardNo;
-            JKApp.KGMWebService.saveCardNoResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).saveCardNo(inValue);
+            CloudOperator.KGMWebService.saveCardNoResponse retVal = ((CloudOperator.KGMWebService.GmWebServlet)(this)).saveCardNo(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.saveCardNoResponse> JKApp.KGMWebService.GmWebServlet.saveCardNoAsync(JKApp.KGMWebService.saveCardNo request) {
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.saveCardNoResponse> CloudOperator.KGMWebService.GmWebServlet.saveCardNoAsync(CloudOperator.KGMWebService.saveCardNo request) {
             return base.Channel.saveCardNoAsync(request);
         }
         
-        public System.Threading.Tasks.Task<JKApp.KGMWebService.saveCardNoResponse> saveCardNoAsync(string verifyCode, string cardNo) {
-            JKApp.KGMWebService.saveCardNo inValue = new JKApp.KGMWebService.saveCardNo();
-            inValue.Body = new JKApp.KGMWebService.saveCardNoBody();
+        public System.Threading.Tasks.Task<CloudOperator.KGMWebService.saveCardNoResponse> saveCardNoAsync(string verifyCode, string cardNo) {
+            CloudOperator.KGMWebService.saveCardNo inValue = new CloudOperator.KGMWebService.saveCardNo();
+            inValue.Body = new CloudOperator.KGMWebService.saveCardNoBody();
             inValue.Body.verifyCode = verifyCode;
             inValue.Body.cardNo = cardNo;
-            return ((JKApp.KGMWebService.GmWebServlet)(this)).saveCardNoAsync(inValue);
+            return ((CloudOperator.KGMWebService.GmWebServlet)(this)).saveCardNoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        JKApp.KGMWebService.setUsedResponse JKApp.KGMWebService.GmWebServlet.setUsed(JKApp.KGMWebService.setUsed request) {
+        CloudOperator.KGMWebService.setUsedResponse CloudOperator.KGMWebService.GmWebServlet.setUsed(CloudOperator.KGMWebService.setUsed request) {
             return base.Channel.setUsed(request);
         }
         
         public string setUsed(string verifyCode, string loginName) {
-            JKApp.KGMWebService.setUsed inValue = new JKApp.KGMWebService.setUsed();
-            inValue.Body = new JKApp.KGMWebService.setUsedBody();
+            CloudOperator.KGMWebService.setUsed inValue = new CloudOperator.KGMWebService.setUsed();
+            inValue.Body = new CloudOperator.KGMWebService.setUsedBody();
             inValue.Body.verifyCode = verifyCode;
             inValue.Body.loginName = loginName;
-            JKApp.KGMWebService.setUsedResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).setUsed(inValue);
+            CloudOperator.KGMWebService.setUsedResponse retVal = ((CloudOperator.KGMWebService.GmWebServlet)(this)).setUsed(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.setUsedResponse> JKApp.KGMWebService.GmWebServlet.setUsedAsync(JKApp.KGMWebService.setUsed request) {
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.setUsedResponse> CloudOperator.KGMWebService.GmWebServlet.setUsedAsync(CloudOperator.KGMWebService.setUsed request) {
             return base.Channel.setUsedAsync(request);
         }
         
-        public System.Threading.Tasks.Task<JKApp.KGMWebService.setUsedResponse> setUsedAsync(string verifyCode, string loginName) {
-            JKApp.KGMWebService.setUsed inValue = new JKApp.KGMWebService.setUsed();
-            inValue.Body = new JKApp.KGMWebService.setUsedBody();
+        public System.Threading.Tasks.Task<CloudOperator.KGMWebService.setUsedResponse> setUsedAsync(string verifyCode, string loginName) {
+            CloudOperator.KGMWebService.setUsed inValue = new CloudOperator.KGMWebService.setUsed();
+            inValue.Body = new CloudOperator.KGMWebService.setUsedBody();
             inValue.Body.verifyCode = verifyCode;
             inValue.Body.loginName = loginName;
-            return ((JKApp.KGMWebService.GmWebServlet)(this)).setUsedAsync(inValue);
+            return ((CloudOperator.KGMWebService.GmWebServlet)(this)).setUsedAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        JKApp.KGMWebService.isExistOrderResponse JKApp.KGMWebService.GmWebServlet.isExistOrder(JKApp.KGMWebService.isExistOrder request) {
+        CloudOperator.KGMWebService.isExistOrderResponse CloudOperator.KGMWebService.GmWebServlet.isExistOrder(CloudOperator.KGMWebService.isExistOrder request) {
             return base.Channel.isExistOrder(request);
         }
         
         public string isExistOrder(string verifyCode, string loginName) {
-            JKApp.KGMWebService.isExistOrder inValue = new JKApp.KGMWebService.isExistOrder();
-            inValue.Body = new JKApp.KGMWebService.isExistOrderBody();
+            CloudOperator.KGMWebService.isExistOrder inValue = new CloudOperator.KGMWebService.isExistOrder();
+            inValue.Body = new CloudOperator.KGMWebService.isExistOrderBody();
             inValue.Body.verifyCode = verifyCode;
             inValue.Body.loginName = loginName;
-            JKApp.KGMWebService.isExistOrderResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).isExistOrder(inValue);
+            CloudOperator.KGMWebService.isExistOrderResponse retVal = ((CloudOperator.KGMWebService.GmWebServlet)(this)).isExistOrder(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.isExistOrderResponse> JKApp.KGMWebService.GmWebServlet.isExistOrderAsync(JKApp.KGMWebService.isExistOrder request) {
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.isExistOrderResponse> CloudOperator.KGMWebService.GmWebServlet.isExistOrderAsync(CloudOperator.KGMWebService.isExistOrder request) {
             return base.Channel.isExistOrderAsync(request);
         }
         
-        public System.Threading.Tasks.Task<JKApp.KGMWebService.isExistOrderResponse> isExistOrderAsync(string verifyCode, string loginName) {
-            JKApp.KGMWebService.isExistOrder inValue = new JKApp.KGMWebService.isExistOrder();
-            inValue.Body = new JKApp.KGMWebService.isExistOrderBody();
+        public System.Threading.Tasks.Task<CloudOperator.KGMWebService.isExistOrderResponse> isExistOrderAsync(string verifyCode, string loginName) {
+            CloudOperator.KGMWebService.isExistOrder inValue = new CloudOperator.KGMWebService.isExistOrder();
+            inValue.Body = new CloudOperator.KGMWebService.isExistOrderBody();
             inValue.Body.verifyCode = verifyCode;
             inValue.Body.loginName = loginName;
-            return ((JKApp.KGMWebService.GmWebServlet)(this)).isExistOrderAsync(inValue);
+            return ((CloudOperator.KGMWebService.GmWebServlet)(this)).isExistOrderAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        JKApp.KGMWebService.getResultResponse JKApp.KGMWebService.GmWebServlet.getResult(JKApp.KGMWebService.getResult request) {
+        CloudOperator.KGMWebService.getResultResponse CloudOperator.KGMWebService.GmWebServlet.getResult(CloudOperator.KGMWebService.getResult request) {
             return base.Channel.getResult(request);
         }
         
         public string getResult(string verifyCode) {
-            JKApp.KGMWebService.getResult inValue = new JKApp.KGMWebService.getResult();
-            inValue.Body = new JKApp.KGMWebService.getResultBody();
+            CloudOperator.KGMWebService.getResult inValue = new CloudOperator.KGMWebService.getResult();
+            inValue.Body = new CloudOperator.KGMWebService.getResultBody();
             inValue.Body.verifyCode = verifyCode;
-            JKApp.KGMWebService.getResultResponse retVal = ((JKApp.KGMWebService.GmWebServlet)(this)).getResult(inValue);
+            CloudOperator.KGMWebService.getResultResponse retVal = ((CloudOperator.KGMWebService.GmWebServlet)(this)).getResult(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<JKApp.KGMWebService.getResultResponse> JKApp.KGMWebService.GmWebServlet.getResultAsync(JKApp.KGMWebService.getResult request) {
+        System.Threading.Tasks.Task<CloudOperator.KGMWebService.getResultResponse> CloudOperator.KGMWebService.GmWebServlet.getResultAsync(CloudOperator.KGMWebService.getResult request) {
             return base.Channel.getResultAsync(request);
         }
         
-        public System.Threading.Tasks.Task<JKApp.KGMWebService.getResultResponse> getResultAsync(string verifyCode) {
-            JKApp.KGMWebService.getResult inValue = new JKApp.KGMWebService.getResult();
-            inValue.Body = new JKApp.KGMWebService.getResultBody();
+        public System.Threading.Tasks.Task<CloudOperator.KGMWebService.getResultResponse> getResultAsync(string verifyCode) {
+            CloudOperator.KGMWebService.getResult inValue = new CloudOperator.KGMWebService.getResult();
+            inValue.Body = new CloudOperator.KGMWebService.getResultBody();
             inValue.Body.verifyCode = verifyCode;
-            return ((JKApp.KGMWebService.GmWebServlet)(this)).getResultAsync(inValue);
+            return ((CloudOperator.KGMWebService.GmWebServlet)(this)).getResultAsync(inValue);
         }
     }
 }

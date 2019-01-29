@@ -14,33 +14,102 @@ namespace CloudOperator
 {
     public partial class FrmSetting : DevExpress.XtraEditors.XtraForm
     {
+        private RegHelper rh;
         public FrmSetting()
         {
             InitializeComponent();
-            string ip = ReadAppSetting("OperatorIP");
-            string port = ReadAppSetting("OperatorPort");
-            this.txtIP.Text = ip;
-            this.txtPort.Text = port;
+            rh = new RegHelper();
+            //rh.testKey();
+            PortSetting.remoteIP = ReadAppSetting("OperatorIP");
+            PortSetting.remotePort = ReadAppSetting("OperatorPort");
+            PortSetting.localIP = ReadAppSetting("LocalIP");
+            PortSetting.localPort = ReadAppSetting("LocalPort");
+            string devicePort = rh.getDevicePort();
+            if(devicePort == "")
+            {
+                PortSetting.devicePort = "32033";
+            }
+            else
+            {
+                PortSetting.devicePort = devicePort;
+            }
+            this.txtIP.Text = PortSetting.remoteIP;
+            this.txtPort.Text = PortSetting.remotePort;
+            this.txtLocalIP.Text = PortSetting.localIP;
+            this.txtLocalPort.Text = PortSetting.localPort;
+            this.txtDevicePort.Text = PortSetting.devicePort;
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
+            bool saved = true;
             string ip = txtIP.Text.Trim();
             string port = txtPort.Text.Trim();
+            string localIP = txtLocalIP.Text.Trim();
+            string localPort = txtLocalPort.Text.Trim();
+            string devicePort = txtDevicePort.Text.Trim();
             if (ip == "")
             {
-                XtraMessageBox.Show("请输入IP地址", "错误", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                XtraMessageBox.Show("请输入远程IP地址", "错误", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
             else if(port == "")
             {
-                XtraMessageBox.Show("请输入端口", "错误", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                XtraMessageBox.Show("请输入远程端口", "错误", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            else if (localIP == "")
+            {
+                XtraMessageBox.Show("请输入本地IP地址", "错误", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            else if (localPort == "")
+            {
+                XtraMessageBox.Show("请输入本地端口", "错误", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            else if (devicePort == "")
+            {
+                XtraMessageBox.Show("请输入设备端口", "错误", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
             else
             {
-                SetValue("OperatorIP", ip);
-                SetValue("OperatorPort", port);
-                XtraMessageBox.Show("服务地址信息保存成功", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                if (ip != PortSetting.remoteIP)
+                {
+                    SetValue("OperatorIP", ip);
+                    PortSetting.remoteIP = ip;
+                }
+                if (port != PortSetting.remotePort)
+                {
+                    SetValue("OperatorPort", port);
+                    PortSetting.remotePort = port;
+                }
+                if (localIP != PortSetting.localIP)
+                {
+                    SetValue("LocalIP", localIP);
+                    PortSetting.localIP = localIP;
+                }
+                if (localPort != PortSetting.localPort)
+                {
+                    SetValue("LocalPort", localPort);
+                    PortSetting.localPort = localPort;
+                }
+                if (devicePort != PortSetting.devicePort)
+                {
+                    if (rh.setDevicePort(devicePort))
+                    {
+                        PortSetting.devicePort = devicePort;
+                    }
+                    else
+                    {
+                        saved = false;
+                    }
+
+                }
+                if (saved) {
+                    XtraMessageBox.Show("服务地址信息保存成功", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                {
+                    XtraMessageBox.Show("设备端口设置失败", "失败", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 

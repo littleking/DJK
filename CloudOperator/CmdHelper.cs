@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace CloudOperator
@@ -61,5 +62,163 @@ namespace CloudOperator
                 output = "";
             }
         }
+    }
+
+    public class EmotionData
+    {
+        public string no { get; set; }
+        public string name { get; set; }
+
+        public string value { get; set; }
+    }
+
+    public class RemoteJson
+    {
+        public string deviceName { get; set; }
+
+        public string verifyCode { get; set; }
+
+        public string userName { get; set; }
+
+        public string patientName { get; set; }
+
+        public string patientLocation { get; set; }
+
+        public string patientDOB { get; set; }
+
+        public string patientSex { get; set; }
+
+        public string deviceSN { get; set; }
+
+    }
+
+    public class RiskData
+    {
+        public string no { get; set; }
+        public string name { get; set; }
+
+        public string value { get; set; }
+    }
+
+    public class RiskList
+    {
+        public string verifyCode { get; set; }
+
+        public List<RiskData> riskDatas { get; set; }
+    }
+
+    public class DataList
+    {
+        public string verifyCode { get; set; }
+
+        public string orderid { get; set; }
+
+        public string testUser { get; set; }
+
+        public string testDate { get; set; }
+
+        public List<TestData> testDatas { get; set; }
+
+        //public List<MatrixData> matrixDatas { get; set; }
+    }
+
+    public class TestData
+    {
+        public string id { get; set; }
+        public string value { get; set; }
+
+        public string code { get; set; }
+    }
+
+    public struct ValidateJson
+    {
+        public string name { get; set; }  //属性的名字，必须与json格式字符串中的"key"值一样。
+        public string orderDate { get; set; }
+        public string orderTime { get; set; }
+
+        public string orderId { get; set; }
+
+        public string peopleType { get; set; }
+    }
+
+    public class Patient
+    {
+        public Patient()
+        {
+
+        }
+
+        public static string w_name;
+        public static string w_birth_day;
+        public static string w_location;
+        public static string w_sex;
+        public static string w_code;
+        public static string w_username;
+        public static string w_deviceSN;
+        public static string w_deviceCode;
+
+    }
+
+    public class PortSetting
+    {
+        public PortSetting()
+        {
+
+        }
+
+        public static string remoteIP;
+        public static string remotePort;
+        public static string localIP;
+        public static string localPort;
+        public static string devicePort;
+
+    }
+
+    public class MatrixData
+    {
+        public string value { get; set; }
+
+        public string code { get; set; }
+    }
+
+    public class OrderData
+    {
+        public string id { get; set; }
+        public string name { get; set; }
+        public string orderDate { get; set; }
+        public string orderTime { get; set; }
+        public string verifyCode { get; set; }
+        public string serviceName { get; set; }
+
+
+    }
+
+    public class OrderList
+    {
+        public List<OrderData> datas { get; set; }
+    }
+
+    public class DatasItem
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public string key { get; set; }
+        /// <summary>
+        /// 您最想关注您身体下列哪方面问题
+        /// </summary>
+        public string title { get; set; }
+        /// <summary>
+        /// 失眠
+        /// </summary>
+        public string result { get; set; }
+    }
+
+    public class HealthResult
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public List<DatasItem> datas { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://webService.jeesite.thinkgem.com/" name="GmWebServlet" targetNamespace="http://webService.jeesite.thinkgem.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
-    <xs:schema xmlns:tns="http://webService.jeesite.thinkgem.com/" xmlns:ns1="http://impl.webService.jeesite.thinkgem.com/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://webService.jeesite.thinkgem.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema xmlns:tns="http://webService.jeesite.thinkgem.com/" xmlns:ns1="http://impl.webService.jeesite.thinkgem.com/" elementFormDefault="unqualified" targetNamespace="http://webService.jeesite.thinkgem.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:import namespace="http://impl.webService.jeesite.thinkgem.com/" />
       <xs:element name="datacodeOutJson" type="tns:datacodeOutJson" />
       <xs:element name="datacodeOutJsonResponse" type="tns:datacodeOutJsonResponse" />

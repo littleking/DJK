@@ -15,14 +15,14 @@ using System.Data;
 using DevExpress.XtraEditors;
 using System.Xml;
 
-namespace QiYuan
+namespace CloudOperator
 {
     public class DataProcess
     {
         private string reportFile;
         private string sourceFile;
         private string testFile;
-        private string dataFile;
+        private string dataFile ;
         //private string resultFile = System.Windows.Forms.Application.StartupPath + "/result.xlsm";
         private string resultFile = "c:/clasp32/data" + "/result.xlsm";
         private string risksFile = System.Windows.Forms.Application.StartupPath + "/risks.xml";
@@ -106,7 +106,7 @@ namespace QiYuan
                     {
                         value = item.Attributes["Value"].Value;
                     }
-                    catch (Exception ex)
+                    catch(Exception ex)
                     {
                         value = "";
                     }
@@ -114,7 +114,7 @@ namespace QiYuan
                     riskDataList.Add(rd);
                 }
             }
-            int count = riskDataList.Count + 2;
+            int count = riskDataList.Count+2;
             if (File.Exists(risksFile))
             {
                 xmlDocument = new XmlDocument();
@@ -149,7 +149,7 @@ namespace QiYuan
                     verifyCode = code;
                     try
                     {
-                        string strOrder = webService.isExistOrder(code, CurrentUser.UserName);
+                        string strOrder = webService.isExistOrder(code, Patient.w_username);
                         if (strOrder.Length > 2)
                         {
                             vjList = getValidate(strOrder);
@@ -202,7 +202,7 @@ namespace QiYuan
             string rtn = "";
             try
             {
-                rtn = webService.getOrderInfoByPeopleNo(CurrentUser.UserName, id);
+                rtn = webService.getOrderInfoByPeopleNo(Patient.w_username,id);
             }
             catch (Exception ex)
             {
@@ -211,15 +211,63 @@ namespace QiYuan
             }
             return rtn;
         }
-        public string validCode(string verifyCode)
+
+        /// <summary>
+        /// 返回1：设置成功，返回0：设置失败
+        /// </summary>
+        /// <param name="verifyCode"></param>
+        /// <returns></returns>
+        public int setUsed(string verifyCode)
+        {
+            int rtn = 0;
+            try
+            {
+                string rtnStr = webService.setUsed(verifyCode, Patient.w_username);
+                if (rtnStr == "1")
+                {
+                    rtn = 1;
+                }
+                else
+                {
+                    rtn = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                string er = ex.ToString();
+                LogHelper.WriteLog(ex.ToString());
+            }
+            return rtn;
+        }
+        public int getTL(string verifyCode)
+        {
+            int rtn = 1;
+            
+            try
+            {
+                string rtnStr = webService.isTiaoliService(verifyCode,Patient.w_username);
+                if (rtnStr == "1")
+                {
+                    rtn = 1;
+                }
+                else
+                {
+                    rtn = 2;
+                }
+            }
+            catch(Exception ex)
+            {
+                string er = ex.ToString();
+                LogHelper.WriteLog(ex.ToString());
+            }
+            return rtn;
+        }
+        public string validCode(string verifyCode,string userName,string deviceCode)
         {
             string rtn = "";
             try
             {
-                //string file = System.Windows.Forms.Application.StartupPath + "/HealthTesting.lic";
-                //string lic = fileToStr(file);
-                //string strOrder = webService.isExistOrder_v2(verifyCode, CurrentUser.UserName, lic);
-                string strOrder = webService.isExistOrder(verifyCode, CurrentUser.UserName);
+                string strOrder = webService.isExistOrder_v2(verifyCode, userName,deviceCode);
                 if (strOrder.Length > 2)
                 {
                     vjList = getValidate(strOrder);
@@ -230,13 +278,9 @@ namespace QiYuan
                     string pType = vjList.peopleType;
 
                 }
-                else if (strOrder == "0")
-                {
-                    rtn = "诊疗人不存在,";
-                }
                 else if (strOrder == "-1")
                 {
-                    rtn = "订单不存在,或者被使用";
+                    rtn = "验证码不存在，或者被使用,";
                 }
                 else if (strOrder == "-2")
                 {
@@ -250,32 +294,12 @@ namespace QiYuan
                 {
                     rtn = "订单状态不可用,";
                 }
-                else if (strOrder == "-5")
-                {
-                    rtn = "设备不存在,";
-                }
-                else if (strOrder == "-6")
-                {
-                    rtn = "设备未绑定服务,";
-                }
-                else if (strOrder == "-7")
-                {
-                    rtn = "设备使用次数为0,";
-                }
-                else if (strOrder == "-8")
-                {
-                    rtn = "设备服务未到开始可用时间,";
-                }
-                else if (strOrder == "-9")
-                {
-                    rtn = "设备服务使用时间已到期,";
-                }
             }
             catch (Exception ex)
             {
                 rtn = "验证时出错";
                 string er = ex.ToString();
-                LogHelper.WriteLog(ex.ToString());
+                LogHelper.WriteLog(verifyCode+"---"+userName+"----"+ex.ToString());
             }
             return rtn;
         }
@@ -288,7 +312,7 @@ namespace QiYuan
             try
             {
                 rtn = webService.getResult(verifyCode);
-                // rtn = "{\"datas\":[{\"key\":\"77a0f0b6ab0f4948bd30a2025a38b339\",\"title\":\"您最想关注您身体下列哪方面问题\",\"result\":\"失眠\"},{\"key\":\"a4b528e3ccb84db0877b9f2765187215\",\"title\":\"有何主要的症状\",\"result\":\"12\"},{\"key\":\"fe839cc388734bce8fb0876edb06dd5e\",\"title\":\"您是否安装心脏起搏器\",\"result\":\"是\"}]}";
+               // rtn = "{\"datas\":[{\"key\":\"77a0f0b6ab0f4948bd30a2025a38b339\",\"title\":\"您最想关注您身体下列哪方面问题\",\"result\":\"失眠\"},{\"key\":\"a4b528e3ccb84db0877b9f2765187215\",\"title\":\"有何主要的症状\",\"result\":\"12\"},{\"key\":\"fe839cc388734bce8fb0876edb06dd5e\",\"title\":\"您是否安装心脏起搏器\",\"result\":\"是\"}]}";
             }
             catch (Exception ex)
             {
@@ -299,7 +323,7 @@ namespace QiYuan
 
             return rtn;
         }
-        public bool uploadInfo(int type, string vCode)   //type 0: 正常上传， type 1: 补充上传
+        public bool uploadInfo(int type, string vCode, string deviceCode)   //type 0: 正常上传， type 1: 补充上传
         {
             bool rtn = false;
             string code = "";
@@ -343,10 +367,7 @@ namespace QiYuan
                         verifyCode = code;
                         try
                         {
-                            //string file = System.Windows.Forms.Application.StartupPath + "/HealthTesting.lic";
-                            //string lic = fileToStr(file);
-                            //string strOrder = webService.isExistOrder_v2(code, CurrentUser.UserName, lic);
-                            string strOrder = webService.isExistOrder(code, CurrentUser.UserName);
+                            string strOrder = webService.isExistOrder_v2(code, Patient.w_username, deviceCode);
                             if (strOrder.Length > 2)
                             {
                                 vjList = getValidate(strOrder);
@@ -428,7 +449,10 @@ namespace QiYuan
 
                 //上传文件到服务器
                 //verifyCode = "hahahaha";
-                FTPUpLoad();
+                if (type == 0)
+                {
+                    FTPUpLoad();
+                }
 
                 //有更新文件，但是文件有问题
                 if (!isCorrect)
@@ -443,34 +467,13 @@ namespace QiYuan
                 LogHelper.WriteLog("开始云端处理数据");
                 //copyTemp();
                 string temp = System.Windows.Forms.Application.StartupPath + "/DevExpress.Map.v16.2.dll";
-                copyStream(reportFile, temp);
+                copyStream(reportFile,temp);
                 //上传数据
                 //Thread thdSub = new Thread(new ThreadStart(ThreadFun));
                 //thdSub.Start();
-                rtn = ThreadFun();
+                rtn = ThreadFun(deviceCode);
             }
             return rtn;
-        }
-
-        private string fileToStr(string temp)
-        {
-            string base64Str = "";
-            ;
-            try
-            {
-                if (File.Exists(temp))
-                {
-                    FileStream filestream = new FileStream(temp, FileMode.Open);
-                    byte[] bt = new byte[filestream.Length];
-                    filestream.Read(bt, 0, bt.Length);
-                    base64Str = System.Text.Encoding.Default.GetString(bt);
-                }
-            }
-            catch (Exception ex)
-            {
-                base64Str = "";
-            }
-            return base64Str;
         }
 
         private void copyStreamBak()
@@ -510,7 +513,7 @@ namespace QiYuan
             }
         }
 
-        private string ReadXlsToBase64(string path)
+    private string ReadXlsToBase64(string path)
         {
             string rtn = "";
             try
@@ -534,7 +537,7 @@ namespace QiYuan
 
         }
 
-        private bool ThreadFun()
+        private bool ThreadFun(string deviceCode)
         {
             bool rtn = true;
             try
@@ -557,7 +560,7 @@ namespace QiYuan
                 }
                 File.Delete(sourceFile);
                 LogHelper.WriteLog(sourceFileName + "-Excel权限问题或没有安装，云端处理数据失败!");
-                // XtraMessageBox.Show("Excel问题导致云端处理数据失败,请重试", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               // XtraMessageBox.Show("Excel问题导致云端处理数据失败,请重试", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
 
@@ -567,7 +570,7 @@ namespace QiYuan
             int loadCount = 0;
             while (!uploaded && loadCount < 3)
             {
-                uploaded = uploadData();
+                uploaded = uploadData(deviceCode);
                 loadCount++;
                 string tt = uploaded ? "-云端处理数据成功!" : "-云端处理数据失败!";
                 LogHelper.WriteLog(sourceFileName + tt + "-" + loadCount);
@@ -592,7 +595,7 @@ namespace QiYuan
 
         }
 
-        private bool uploadData()
+        private bool uploadData(string deviceCode)
         {
             bool goodData = true;
             bool uploaded = false;
@@ -619,8 +622,8 @@ namespace QiYuan
                 //保存matrix
                 sheetI = xssfworkbook.GetSheet("Matrix");
                 List<MatrixData> matrixList = new List<MatrixData>();
-
-                for (int i = 3; i <= 10765; i++)
+                
+                for(int i = 3; i <= 10765; i++)
                 {
                     haha = i;
                     IRow dataRow = sheetI.GetRow(i);
@@ -710,15 +713,13 @@ namespace QiYuan
                     }
                     else
                     {
-                        LogHelper.WriteLog(verifyCode + "---" + "DataCode上传失败" + saveStr);
+                        LogHelper.WriteLog(verifyCode + "---" + "DataCode上传失败"+saveStr);
                     }
                 }
                 if (base64Str.Length > 0)
                 {
-                    //string file = System.Windows.Forms.Application.StartupPath + "/HealthTesting.lic";
-                    //string lic = fileToStr(file);
-                    //string xlsOut = webService.fileOutXls_v2(base64Str, verifyCode, dl.orderid, ttime, lic);
-                    string xlsOut = webService.fileOutXls(base64Str, verifyCode, dl.orderid, ttime);
+                    //string xlsOut = webService.fileOutXls(base64Str, verifyCode, dl.orderid, ttime);
+                    string xlsOut = webService.fileOutXls_v2(base64Str, verifyCode, dl.orderid, ttime,deviceCode);
                     if (xlsOut == "1")
                     {
                         uploaded = true;
@@ -737,7 +738,7 @@ namespace QiYuan
                     File.Delete(reportFile);
                 }
                 string errorStr = errI.ToString();
-                LogHelper.WriteLog("上传数据错误" + "---------" + errorStr);
+                LogHelper.WriteLog("上传数据错误"+"---------"+errorStr+"----"+ex.ToString());
 
                 uploaded = false;
             }

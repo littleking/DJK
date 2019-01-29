@@ -71,7 +71,11 @@ namespace JKApp
 
     #region 数据结构
 
-
+    public class RemoteAddress
+    {
+        public string ip { get; set; }  
+        public string port { get; set; }
+    }
     public struct ValidateJson
     {
         public string name { get; set; }  //属性的名字，必须与json格式字符串中的"key"值一样。
@@ -96,6 +100,26 @@ namespace JKApp
         public string name { get; set; }
 
         public string value { get; set; }
+    }
+
+    public class RemoteJson
+    {
+        public string deviceName { get; set; }
+
+        public string verifyCode { get; set; }
+
+        public string userName { get; set; }
+
+        public string patientName { get; set; }
+
+        public string patientLocation { get; set; }
+
+        public string patientDOB { get; set; }
+
+        public string patientSex { get; set; }
+
+        public string deviceSN { get; set; }
+
     }
 
     public class EmotionData

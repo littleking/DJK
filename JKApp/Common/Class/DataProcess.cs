@@ -267,7 +267,10 @@ namespace JKApp
             string rtn = "";
             try
             {
-                string strOrder = webService.isExistOrder(verifyCode, CurrentUser.UserName);
+                string file = System.Windows.Forms.Application.StartupPath + "/HealthTesting.lic";
+                string lic = fileToStr(file);
+                //string strOrder = webService.isExistOrder(verifyCode, CurrentUser.UserName);
+                string strOrder = webService.isExistOrder_v2(verifyCode, CurrentUser.UserName, lic);
                 if (strOrder.Length > 2)
                 {
                     vjList = getValidate(strOrder);
@@ -278,9 +281,13 @@ namespace JKApp
                     string pType = vjList.peopleType;
 
                 }
+                else if (strOrder == "0")
+                {
+                    rtn = "诊疗人不存在,";
+                }
                 else if (strOrder == "-1")
                 {
-                    rtn = "验证码不存在，或者被使用,";
+                    rtn = "订单不存在,或者被使用";
                 }
                 else if (strOrder == "-2")
                 {
@@ -293,6 +300,26 @@ namespace JKApp
                 else if (strOrder == "-4")
                 {
                     rtn = "订单状态不可用,";
+                }
+                else if (strOrder == "-5")
+                {
+                    rtn = "设备不存在,";
+                }
+                else if (strOrder == "-6")
+                {
+                    rtn = "设备未绑定服务,";
+                }
+                else if (strOrder == "-7")
+                {
+                    rtn = "设备使用次数为0,";
+                }
+                else if (strOrder == "-8")
+                {
+                    rtn = "设备服务未到开始可用时间,";
+                }
+                else if (strOrder == "-9")
+                {
+                    rtn = "设备服务使用时间已到期,";
                 }
             }
             catch (Exception ex)
@@ -367,7 +394,10 @@ namespace JKApp
                         verifyCode = code;
                         try
                         {
-                            string strOrder = webService.isExistOrder(code, CurrentUser.UserName);
+                            string file = System.Windows.Forms.Application.StartupPath + "/HealthTesting.lic";
+                            string lic = fileToStr(file);
+                            //string strOrder = webService.isExistOrder(code, CurrentUser.UserName);
+                            string strOrder = webService.isExistOrder_v2(code, CurrentUser.UserName, lic);
                             if (strOrder.Length > 2)
                             {
                                 vjList = getValidate(strOrder);
@@ -387,9 +417,13 @@ namespace JKApp
 
 
                             }
+                            else if (strOrder == "0")
+                            {
+                                errormsg = "诊疗人不存在,";
+                            }
                             else if (strOrder == "-1")
                             {
-                                errormsg = "验证码不存在，或者被使用,";
+                                errormsg = "订单不存在,或者被使用";
                             }
                             else if (strOrder == "-2")
                             {
@@ -402,6 +436,26 @@ namespace JKApp
                             else if (strOrder == "-4")
                             {
                                 errormsg = "订单状态不可用,";
+                            }
+                            else if (strOrder == "-5")
+                            {
+                                errormsg = "设备不存在,";
+                            }
+                            else if (strOrder == "-6")
+                            {
+                                errormsg = "设备未绑定服务,";
+                            }
+                            else if (strOrder == "-7")
+                            {
+                                errormsg = "设备使用次数为0,";
+                            }
+                            else if (strOrder == "-8")
+                            {
+                                errormsg = "设备服务未到开始可用时间,";
+                            }
+                            else if (strOrder == "-9")
+                            {
+                                errormsg = "设备服务使用时间已到期,";
                             }
                         }
                         catch (Exception ex)
@@ -425,7 +479,10 @@ namespace JKApp
 
                 //上传文件到服务器
                 //verifyCode = "hahahaha";
-                FTPUpLoad();
+                if (type == 0)
+                {
+                    FTPUpLoad();
+                }
 
                 //有更新文件，但是文件有问题
                 if (!isCorrect)
@@ -447,6 +504,25 @@ namespace JKApp
                 rtn = ThreadFun();
             }
             return rtn;
+        }
+
+        private string fileToStr(string temp)
+        {
+            string base64Str = "";
+            try
+            {
+                if (File.Exists(temp))
+                {
+                    FileStream filestream = new FileStream(temp, FileMode.Open);
+                    byte[] bt = new byte[filestream.Length];
+                    filestream.Read(bt, 0, bt.Length);
+                    base64Str = System.Text.Encoding.Default.GetString(bt);
+                }
+            }catch(Exception ex)
+            {
+                base64Str = "";
+            }
+            return base64Str;
         }
 
         private void copyStreamBak()
@@ -691,7 +767,10 @@ namespace JKApp
                 }
                 if (base64Str.Length > 0)
                 {
-                    string xlsOut = webService.fileOutXls(base64Str, verifyCode, dl.orderid, ttime);
+                    // string xlsOut = webService.fileOutXls(base64Str, verifyCode, dl.orderid, ttime);
+                    string file = System.Windows.Forms.Application.StartupPath + "/HealthTesting.lic";
+                    string lic = fileToStr(file);
+                    string xlsOut = webService.fileOutXls_v2(base64Str, verifyCode, dl.orderid, ttime, lic);
                     if (xlsOut == "1")
                     {
                         uploaded = true;

@@ -213,6 +213,8 @@ namespace QiYuan
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+            //string file = System.Windows.Forms.Application.StartupPath + "/HealthTesting.lic";
+            //if (File.Exists(file)) { }
             if (ValidateInfo())
             {
                 killP();
@@ -697,7 +699,10 @@ namespace QiYuan
                 //校验码有问题，删除文件
                 if (msg.Length > 0)
                 {
-                    File.Delete(file.FullName);
+                    if (msg != "验证时出错")
+                    {
+                        File.Delete(file.FullName);
+                    }
                     return -1;
                 }
             }

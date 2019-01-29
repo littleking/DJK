@@ -28,14 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnOnline = new DevExpress.XtraBars.BarLargeButtonItem();
             this.btnConnect = new DevExpress.XtraBars.BarLargeButtonItem();
             this.btnDisconnect = new DevExpress.XtraBars.BarLargeButtonItem();
+            this.btnOffline = new DevExpress.XtraBars.BarLargeButtonItem();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.menuSetting = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnUpload = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -48,15 +52,15 @@
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barLinkContainerItem1 = new DevExpress.XtraBars.BarLinkContainerItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem2 = new DevExpress.XtraBars.BarSubItem();
+            this.btnAgent = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem3 = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem4 = new DevExpress.XtraBars.BarSubItem();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.txtOutput = new System.Windows.Forms.TextBox();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.listBoxControl1 = new DevExpress.XtraEditors.ListBoxControl();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -81,9 +85,17 @@
             this.barLinkContainerItem1,
             this.barButtonItem4,
             this.btnConnect,
-            this.btnDisconnect});
+            this.btnDisconnect,
+            this.btnOffline,
+            this.barSubItem2,
+            this.btnAgent,
+            this.barSubItem3,
+            this.barSubItem4,
+            this.barButtonItem5,
+            this.barButtonItem6,
+            this.btnUpload});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 11;
+            this.barManager1.MaxItemId = 20;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar1
@@ -95,7 +107,10 @@
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.btnOnline),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnConnect),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnDisconnect)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnDisconnect),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnOffline)});
+            this.bar1.OptionsBar.AllowQuickCustomization = false;
+            this.bar1.OptionsBar.DrawDragBorder = false;
             this.bar1.Text = "Tools";
             // 
             // btnOnline
@@ -119,6 +134,13 @@
             this.btnDisconnect.Name = "btnDisconnect";
             this.btnDisconnect.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDisconnect_ItemClick);
             // 
+            // btnOffline
+            // 
+            this.btnOffline.Caption = "下线";
+            this.btnOffline.Id = 11;
+            this.btnOffline.Name = "btnOffline";
+            this.btnOffline.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnOffline_ItemClick);
+            // 
             // bar2
             // 
             this.bar2.BarName = "Main menu";
@@ -127,6 +149,8 @@
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.menuSetting)});
+            this.bar2.OptionsBar.AllowQuickCustomization = false;
+            this.bar2.OptionsBar.DrawDragBorder = false;
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
@@ -135,8 +159,32 @@
             // 
             this.menuSetting.Caption = "设置";
             this.menuSetting.Id = 4;
+            this.menuSetting.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem5),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem6),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnUpload)});
             this.menuSetting.Name = "menuSetting";
-            this.menuSetting.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.menuSetting_ItemClick);
+            // 
+            // barButtonItem5
+            // 
+            this.barButtonItem5.Caption = "地址设置";
+            this.barButtonItem5.Id = 16;
+            this.barButtonItem5.Name = "barButtonItem5";
+            this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
+            // 
+            // barButtonItem6
+            // 
+            this.barButtonItem6.Caption = "启动检测程序";
+            this.barButtonItem6.Id = 17;
+            this.barButtonItem6.Name = "barButtonItem6";
+            this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
+            // 
+            // btnUpload
+            // 
+            this.btnUpload.Caption = "上传数据";
+            this.btnUpload.Id = 19;
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUpload_ItemClick);
             // 
             // bar3
             // 
@@ -224,52 +272,49 @@
             this.barButtonItem4.Id = 8;
             this.barButtonItem4.Name = "barButtonItem4";
             // 
+            // barSubItem2
+            // 
+            this.barSubItem2.Caption = "barSubItem2";
+            this.barSubItem2.Id = 12;
+            this.barSubItem2.Name = "barSubItem2";
+            // 
+            // btnAgent
+            // 
+            this.btnAgent.Caption = "启动检测程序";
+            this.btnAgent.Id = 13;
+            this.btnAgent.Name = "btnAgent";
+            // 
+            // barSubItem3
+            // 
+            this.barSubItem3.Caption = "地址设置";
+            this.barSubItem3.Id = 14;
+            this.barSubItem3.Name = "barSubItem3";
+            this.barSubItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barSubItem3_ItemClick);
+            // 
+            // barSubItem4
+            // 
+            this.barSubItem4.Caption = "启动检测程序";
+            this.barSubItem4.Id = 15;
+            this.barSubItem4.Name = "barSubItem4";
+            this.barSubItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barSubItem4_ItemClick);
+            // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.simpleButton2);
             this.panelControl1.Controls.Add(this.txtOutput);
-            this.panelControl1.Controls.Add(this.simpleButton1);
-            this.panelControl1.Controls.Add(this.listBoxControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 55);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(775, 408);
             this.panelControl1.TabIndex = 4;
             // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Location = new System.Drawing.Point(658, 24);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton2.TabIndex = 3;
-            this.simpleButton2.Text = "返回信息";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
-            // 
             // txtOutput
             // 
-            this.txtOutput.Location = new System.Drawing.Point(193, 67);
+            this.txtOutput.Location = new System.Drawing.Point(12, 18);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtOutput.Size = new System.Drawing.Size(540, 300);
+            this.txtOutput.Size = new System.Drawing.Size(751, 365);
             this.txtOutput.TabIndex = 2;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(193, 24);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton1.TabIndex = 1;
-            this.simpleButton1.Text = "simpleButton1";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
-            // listBoxControl1
-            // 
-            this.listBoxControl1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.listBoxControl1.Location = new System.Drawing.Point(31, 24);
-            this.listBoxControl1.Name = "listBoxControl1";
-            this.listBoxControl1.Size = new System.Drawing.Size(120, 231);
-            this.listBoxControl1.TabIndex = 0;
             // 
             // FrmMain
             // 
@@ -281,13 +326,15 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CloudOperator";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,10 +352,8 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarLargeButtonItem btnOnline;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.ListBoxControl listBoxControl1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarLargeButtonItem barLargeButtonItem1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private System.Windows.Forms.TextBox txtOutput;
         private DevExpress.XtraBars.BarSubItem menuSetting;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
@@ -318,7 +363,14 @@
         private DevExpress.XtraBars.BarLargeButtonItem btnConnect;
         private DevExpress.XtraBars.BarLargeButtonItem btnDisconnect;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraBars.BarLargeButtonItem btnOffline;
+        private DevExpress.XtraBars.BarSubItem barSubItem3;
+        private DevExpress.XtraBars.BarSubItem barSubItem4;
+        private DevExpress.XtraBars.BarSubItem barSubItem2;
+        private DevExpress.XtraBars.BarSubItem btnAgent;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem6;
+        private DevExpress.XtraBars.BarButtonItem btnUpload;
     }
 }
 
